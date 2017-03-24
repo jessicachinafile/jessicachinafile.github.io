@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +8,7 @@
       <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
       <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
 
       <style>
@@ -78,7 +80,7 @@
         .listings .item {
           display:block;
           border-bottom:1px solid #eee;
-          padding:10px;
+          padding:0px;
           text-decoration:none;
         }
 
@@ -114,7 +116,7 @@
           cursor: pointer;
           height: 15px;
           width: 15px;
-          background-image: url(/marker-15.svg);
+          background-image: url(marker-151.svg);
           background-color: rgba(0, 0, 0 0);
           transform: translate(28px, 56px, 0);
         }
@@ -161,7 +163,7 @@
         .mapboxgl-popup-content h4 {
           margin:0;
           display:block;
-          padding: 10px 10px 10px 10px;
+          padding: 0px 10px 0px 10px;
           font-weight:400;
           margin: 0;
         }
@@ -220,6 +222,7 @@
     zoom: 3
   });
 
+//last updated March 21 2017
   var stores = {
     "type": "FeatureCollection",
     "features": [
@@ -228,22 +231,43 @@
         "geometry": {
           "type": "Point",
           "coordinates": [
-            116.441491,
-            39.909478
+            116.456857, 39.948614
           ]
         },
 
         "properties": {
-          "orgname_en": "The Energy Foundation",
-          "orgname_ch": "能源基金会",
-          "psu_en": "The National Development and Reform Commission",
-          "psu_ch": "国家发展和改革委员会",
-          "country": "United States",
-          "sector": "Energy, Environment",
+          "orgname_en": "Bill and Melinda Gates Foundation",
+          "orgname_ch": "比尔及梅琳达·盖茨基金会",
+          "psu_en": "National Health and Family Planning Commission",
+          "originloc": "United States",
+          "sector": "Health",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
-          "actarea": "China / 中国",
+          "actarea": "China",
+          "website_en": "http://www.gatesfoundation.org/",
+          "website_ch": "http://www.gatesfoundation.org/zh/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.399848, 31.201611
+          ]
+        },
 
+        "properties": {
+          "orgname_en": "Canada China Business Council",
+          "orgname_ch": "加拿大加中贸易理事会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "Canada",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "January 17, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Guangdong, Guangxi, Hainan, Guizhou, Yunnan",
+          "website_en": "http://www.ccbc.com/",
+          "website_ch": "http://www.ccbc.com/zh-hant/home/",
         }
       },
       {
@@ -258,13 +282,14 @@
         "properties": {
           "orgname_en": "China Kind Fund",
           "orgname_ch": "中华爱心基金会",
-          "psu_en": "The National Development and Reform Commission",
-          "psu_ch": "国家发展和改革委员会",
-          "country": "Hong Kong",
+          "psu_en": "National Development and Reform Commission",
+          "originloc": "Hong Kong",
           "sector": "Ethnic affairs",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
-          "actarea": "China / 中国",
+          "actarea": "China",
+          "website_en": "http://www.ckf.org.cn/ebinfo.asp",
+          "website_ch": "http://www.ckf.org.cn/index.asp",
         }
       },
       {
@@ -272,20 +297,225 @@
         "geometry": {
           "type": "Point",
           "coordinates": [
-            113.274913,
-            23.130919
+            116.417456, 39.912571
+          ]
+        },
+        "properties": {
+          "orgname_en": "China Medical Board",
+          "orgname_ch": "美国中华医学基金会",
+          "psu_en": "National Health and Family Planning Commission",
+          "originloc": "United States",
+          "sector": "Health",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "https://www.chinamedicalboard.org/",
+          "website_ch": "https://chinamedicalboard.org.cn/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.344074, 39.923487
+          ]
+        },
+        "properties": {
+          "orgname_en": "Chinese Children Charities",
+          "orgname_ch": "中华孤残儿童基金会",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "United States",
+          "sector": "Children - better word for this?, Disability",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.606725, 22.76948
+          ]
+        },
+        "properties": {
+          "orgname_en": "The Chinese General Chamber of Commerce ",
+          "orgname_ch": "香港中华总商会",
+          "psu_en": "Guangdong Department of Commerce",
+          "originloc": "Hong Kong",
+          "sector": "Trade",
+          "regloc": "Guangdong",
+          "regdate": "January 19, 2017",
+          "actarea": "Guangdong, Beijing, Shanghai, Tianjin, Chongqing, Guangxi, Fujian, Guangxi, Hainan, Hunan, Sichuan, Yunnan, Guizhou, Jiangsu, Zhejiang, Hubei, Liaoning",
+          "website_en": "http://www.cgcc.org.hk/en/index.aspx",
+          "website_ch": "http://www.cgcc.org.hk/gb/index.aspx",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.274913, 23.130919
           ]
         },
         "properties": {
           "orgname_en": "The Chinese Manufacturers' Association of Hong Kong",
           "orgname_ch": "香港中华厂商联合会",
-          "psu_en": "Guandong Department of Commerce",
-          "psu_ch": "广东省商务厅",
-          "country": "Hong Kong",
+          "psu_en": "Guangdong Department of Commerce",
+          "originloc": "Hong Kong",
           "sector": "Trade",
           "regloc": "Guangdong",
           "regdate": "January 19, 2017",
-          "actarea": "Guangdong province / 广东省",
+          "actarea": "Guangdong",
+          "website_en": "http://www.cma.org.hk/",
+          "website_ch": "http://www.cma.org.hk/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.399929, 31.202518
+          ]
+        },
+        "properties": {
+          "orgname_en": "Confederation of Indian Industry",
+          "orgname_ch": "印度工业联合会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "India",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "January 17, 2017",
+          "actarea": "China",
+          "website_en": "http://www.cii.in/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.458907, 39.932271
+          ]
+        },
+        "properties": {
+          "orgname_en": "Conservation International",
+          "orgname_ch": "保护国际基金会",
+          "psu_en": "State Forestry Administration",
+          "originloc": "United States",
+          "sector": "Environment",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "Beijing, Chongqing, Sichuan, Yunnan, Shandong, Jiangsu, Liaoning, Guangdong, Zhejiang, Fujian, Hainan",
+          "website_en": "http://www.conservation.org/Pages/default.aspx",
+          "website_ch": "http://www.conservation.org.cn/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.441491,
+            39.909478
+          ]
+        },
+        "properties": {
+          "orgname_en": "Energy Foundation",
+          "orgname_ch": "能源基金会",
+          "psu_en": "National Development and Reform Commission",
+          "originloc": "United States",
+          "sector": "Energy, Environment",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "http://www.efchina.org/",
+          "website_ch": "http://www.efchina.org/Front-Page-zh",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.119469, 22.542166
+          ]
+        },
+        "properties": {
+          "orgname_en": "The Federation of Hong Kong Industries",
+          "orgname_ch": "香港工业总会",
+          "psu_en": "Guangdong Department of Commerce",
+          "originloc": "Hong Kong",
+          "sector": "Trade",
+          "regloc": "Guangdong",
+          "regdate": "January 19, 2017",
+          "actarea": "Guangdong",
+          "website_en": "https://www.industryhk.org/en/",
+          "website_ch": "https://www.industryhk.org/sc/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.391622, 39.999831
+          ]
+        },
+        "properties": {
+          "orgname_en": "Fondation Mérieux",
+          "orgname_ch": "梅里埃基金会",
+          "psu_en": "National Health and Family Planning Commission",
+          "originloc": "France",
+          "sector": "Health",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "http://www.fondation-merieux.org/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.437441, 39.910797
+          ]
+        },
+        "properties": {
+          "orgname_en": "Half the Sky Foundation",
+          "orgname_ch": "半边天基金会",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "United States",
+          "sector": "Children - better word for this?",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "http://onesky.org/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.483164, 39.914518
+          ]
+        },
+        "properties": {
+          "orgname_en": "Holt International",
+          "orgname_ch": "中华浩德国际基金会",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "United States",
+          "sector": "Children - better word for this?",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "Guangdong",
+          "website_en": "https://www.holtinternational.org/",
         }
       },
       {
@@ -298,17 +528,85 @@
           ]
         },
         "properties": {
-          "orgname_en": "The International Peace Foundation",
+          "orgname_en": "International Peace Foundation",
           "orgname_ch": "国际和平交流基金会",
-          "psu_en": "The Ministry of Civil Affairs",
-          "psu_ch": "民政部",
-          "country": "Hong Kong",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "Hong Kong",
           "sector": "Intercultural exchange, Social welfare",
           "regloc": "Guangdong",
           "regdate": "January 19, 2017",
-          "actarea": "Guangdong province / 广东省",
+          "actarea": "Guangdong province",
         }
       },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.324852, 23.14224
+          ]
+        },
+        "properties": {
+          "orgname_en": "Japan External Trade Organization",
+          "orgname_ch": "日本贸易振兴",
+          "psu_en": "Guangdong Department of Commerce",
+          "originloc": "Japan",
+          "sector": "Trade",
+          "regloc": "Guangdong",
+          "regdate": "March 20, 2017",
+          "actarea": "Guangdong, Guangxi, Fujian, Hainan",
+          "website_en": "https://www.jetro.go.jp/en/",
+          "website_ch": "https://www.jetro.go.jp/china/",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.46042, 39.914317
+          ]
+        },
+        "properties": {
+          "orgname_en": "Kerry Group Kuok Foundation",
+          "orgname_ch": "嘉里集团郭氏基金会",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "Hong Kong",
+          "sector": "Poverty alleviation, disaster relief",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_ch": "http://www.kgkf.org/aspx/main.aspx",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.414589, 39.909358
+          ]
+        },
+        "properties": {
+          "orgname_en": "Li Ka Shing Foundation",
+          "orgname_ch": "李嘉诚基金会",
+          "psu_en": "Ministry of Civil Affairs",
+          "originloc": "Hong Kong",
+          "sector": "Health, Education, Poverty Alleviation, Disaster Relief",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "http://www.lksf.org/?lang=en",
+          "website_ch": "http://www.lksf.org/?lang=zh",
+        }
+      },
+
+
+
+
+
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -323,11 +621,11 @@
           "orgname_ch": "世界健康基金会",
           "psu_en": "Shanghai Health and Family Planning Commission",
           "psu_ch": "上海市卫生和计划生育委员会",
-          "country": "United States",
+          "originloc": "United States",
           "sector": "Health, Disaster relief",
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
-          "actarea": "Shanghai, Inner Mongolia, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Shandong, Guangdong, Guangxi, Sichuan, Guizhou, Yunnan, Tibet, Qinghai, Xinjiang / 上海、内蒙、辽宁、黑龙江、江苏、浙江、安徽、福建、山东、广东、广西、四川、贵州、云南、西藏、青海、新疆",
+          "actarea": "Shanghai, Inner Mongolia, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Shandong, Guangdong, Guangxi, Sichuan, Guizhou, Yunnan, Tibet, Qinghai, Xinjiang",
         }
       },
       {
@@ -344,11 +642,11 @@
           "orgname_ch": "俄罗斯联邦工商会",
           "psu_en": "Shanghai Municipal Commission of Commerce",
           "psu_ch": "上海市商务委员会",
-          "country": "Russia",
+          "originloc": "Russia",
           "sector": "Energy, Environment",
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
-          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Jiangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet / 上海、江苏、浙江、安徽、福建、江西、湖北、湖南、广东、广西、海南、重庆、四川、贵州、云南、西藏",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Jiangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet",
         }
       }]
     };
@@ -396,6 +694,9 @@
         var listing = document.getElementById('listing-' + i);
         listing.classList.add('active');
 
+        //trying to get scrollbar to move to highlighted link; doesn't work but doesn't seem to break it
+        //$(listing.classList.active).scrollTop();
+
     });
   });
 
@@ -407,15 +708,34 @@
       });
   }
 
+
+
   function createPopUp(currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
 
+//added these two chunks in order to have dynamic hyperlinks to NGO websites in popups. god bless you https://bencollier.net/2011/05/quickly-creating-an-html-link-in-javascript/
+//this got me the if-then third line (last solution on page) http://stackoverflow.com/questions/711536/javascript-define-a-variable-if-it-doesnt-exist
+    var text_en = 'English';
+    var html_en = text_en.link(currentFeature.properties.website_en);
+    if (typeof currentFeature.properties.website_en === 'undefined') {html_en = ""};
+
+    var text_ch = 'Chinese';
+    var html_ch = text_ch.link(currentFeature.properties.website_ch);
+    if (typeof currentFeature.properties.website_ch === 'undefined') {html_ch = ""};
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3>' + currentFeature.properties.orgname_en + " / " + currentFeature.properties.orgname_ch + '</h3>' +
-                   '<h4>' + "Registered on " + currentFeature.properties.regdate + '</h4>')
+          .setHTML(
+                   '<h3>' + currentFeature.properties.orgname_en + ' / ' + currentFeature.properties.orgname_ch + '</h3>' +
+                   '<h4>'+ "<b>Origin: </b>" + currentFeature.properties.originloc + '</h4>' +
+                   '<h4>'+ "<b>Field of Work: </b>" + currentFeature.properties.sector + '</h4>' +
+                   '<h4>'+ "<b>Professional Supervisory Unit: </b>" + currentFeature.properties.psu_en + '</h4>' +
+                   '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
+                   '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
+                   '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>' +
+                   '<h4>'+ "<b>Website(s): </b>" + "<ins><i>" + html_en + "</i></ins>" + "&nbsp&nbsp" + "<ins><i>" + html_ch + "</i></ins>" + '</h4>'
+                 )
           .addTo(map);
   }
 
@@ -436,14 +756,13 @@
       link.dataPosition = i;
       link.innerHTML = prop.orgname_en + ' / ' + prop.orgname_ch;
 
-      var details = listing.appendChild(document.createElement('div'));
-      details.innerHTML = '<b>PSU</b>: ' + prop.psu_en + ' / ' + prop.psu_ch
-      + '</br>' + '<b>Origin</b>: ' + prop.country
-      + '</br>' + '<b>Field of work</b>: ' + prop.sector
-      + '</br>' + '<b>Registration location</b>: ' + prop.regloc
-      + '</br>' + '<b>Date of registration</b>: ' + prop.regdate
-      + '</br>' + '<b>Permitted area of operations</b>: ' + prop.actarea
-      ;
+      //this used to show the stuff below the org name in the sidebar, just uncomment to reactivate
+      // var details = listing.appendChild(document.createElement('div'));
+      // details.innerHTML = prop.orgname_ch;
+
+      //maybe try out this now-useless code for the jQuery scrolltop
+      // http://stackoverflow.com/questions/38319475/how-make-when-click-marker-scroll-to-sidebar-item
+      // https://www.w3schools.com/jquery/css_scrolltop.asp
       if (prop.phone) {
         details.innerHTML += ' &middot; ' + prop.phoneFormatted;
       }
@@ -476,6 +795,7 @@
   }
 
 map.addControl(new mapboxgl.NavigationControl());
+
 
     </script>
   </body>
