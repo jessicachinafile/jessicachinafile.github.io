@@ -138,9 +138,7 @@
 
         }
 
-        .mapboxgl-popup-close-button {
-          display:none;
-        }
+
 
         .mapboxgl-popup-content {
           font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
@@ -996,17 +994,8 @@
 
         var listing = document.getElementById('listing-' + i);
         listing.classList.add('active');
-
-
-        //https://www.sitepoint.com/community/t/scrolltop-to-a-div-instead-of-body-solved/213672/3
-        //var sidebar = document.getElementById('sidebar');
-        //scrollTo(activeItem);
-
-        //trying to get scrollbar to move to highlighted link; doesn't work but doesn't seem to break it
-        //$(listing.classList.active).scrollTop();
-
-        //http://stackoverflow.com/questions/5007530/how-do-i-scroll-to-an-element-using-javascript
-        //window.scroll(0,findPos(document.getElementById(listing.classList.active)));
+        //YES!!!! FOUND HERE: http://stackoverflow.com/questions/31296373/auto-scroll-listing-on-marker-click-in-mapbox
+        listing.scrollIntoView(true);
 
     });
   });
@@ -1035,7 +1024,7 @@
     var html_ch = text_ch.link(currentFeature.properties.website_ch);
     if (typeof currentFeature.properties.website_ch === 'undefined') {html_ch = ""};
 
-//if you'd rather have a close button instead of having popups close by clicking elsewhere on the map, just take out the 2 lines related to .mapboxgl-popup-close-button in the CSS
+//if you'd rather have a close button instead of having popups close by clicking elsewhere on the map, just take out the lines related to .mapboxgl-popup-close-button in the CSS =    .mapboxgl-popup-close-button {display:none;}
     var popup = new mapboxgl.Popup({closeOnClick: true})
           .setLngLat(currentFeature.geometry.coordinates)
           .setHTML(
