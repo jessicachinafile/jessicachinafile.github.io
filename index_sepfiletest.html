@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset='utf-8' />
+      <title>The China NGO Project - Registered Offices</title>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+
+      <style>
+
+        body {
+          color:#404040;
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          margin:0;
+          padding:0;
+          -webkit-font-smoothing:antialiased;
+        }
+
+        * {
+          -webkit-box-sizing:border-box;
+          -moz-box-sizing:border-box;
+          box-sizing:border-box;
+        }
+
+        .sidebar {
+          position:absolute;
+          width:33.3333%;
+          height:100%;
+          top:0;left:0;
+          overflow:hidden;
+          border-right:1px solid rgba(0,0,0,0.25);
+        }
+        .pad2 {
+          padding:20px;
+        }
+
+        .map {
+          position:absolute;
+          left:33.3333%;
+          width:66.6666%;
+          top:0;bottom:0;
+        }
+
+        h1 {
+          font-size:22px;
+          margin:0;
+          font-weight:400;
+          line-height: 20px;
+          padding: 20px 2px;
+        }
+
+        a {
+          color:#404040;
+          text-decoration:none;
+        }
+
+        a:hover {
+          color:#101010;
+        }
+
+        .heading {
+          background:#fff;
+          border-bottom:1px solid #eee;
+          min-height:60px;
+          line-height:60px;
+          padding:0 10px;
+        }
+
+        .listings {
+          height:100%;
+          overflow:auto;
+          padding-bottom:60px;
+        }
+
+        .listings .item {
+          display:block;
+          border-bottom:1px solid #eee;
+          padding:0px;
+          text-decoration:none;
+        }
+
+        .listings .item:last-child { border-bottom:none; }
+        .listings .item .title {
+          display:block;
+          color:#700b0b;
+          font-weight:700;
+        }
+
+        .listings .item .title small { font-weight:400; }
+        .listings .item.active .title,
+        .listings .item .title:hover { color:#df1616; }
+        .listings .item.active {
+          background-color:#f8f8f8;
+        }
+        ::-webkit-scrollbar {
+          width:3px;
+          height:3px;
+          border-left:0;
+          background:rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-track {
+          background:none;
+        }
+        ::-webkit-scrollbar-thumb {
+          background:#700b0b;
+          border-radius:0;
+        }
+
+        .marker {
+          border: none;
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          background-image: url(marker-151.svg);
+          background-color: rgba(0, 0, 0 0);
+          transform: translate(28px, 56px, 0);
+        }
+
+        .clearfix { display:block; }
+        .clearfix:after {
+          content:'.';
+          display:block;
+          height:0;
+          clear:both;
+          visibility:hidden;
+        }
+
+        /* Marker tweaks */
+        .mapboxgl-popup {
+          padding-bottom: 25px;
+          padding-left: 15px;
+          max-width: 50%;
+
+        }
+
+
+
+        .mapboxgl-popup-content {
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          padding:0;
+
+        }
+        .mapboxgl-popup-content-wrapper {
+          padding:1%;
+
+        }
+        .mapboxgl-popup-content h3 {
+          background:#df1616;
+          color:#fff;
+          margin:0;
+          display:block;
+          padding:10px;
+          border-radius:3px 3px 0 0;
+          font-weight:700;
+          margin-top:-15px;
+        }
+
+        .mapboxgl-popup-content h4 {
+          margin:0;
+          display:block;
+          padding: 0px 10px 0px 10px;
+          font-weight:400;
+          margin: 0;
+        }
+
+        .mapboxgl-popup-content div {
+          padding:10px;
+
+        }
+
+        .mapboxgl-container .leaflet-marker-icon {
+          cursor:pointer;
+
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+          margin-top: 15px;
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+          border-bottom-color: #91c949;
+
+        }
+      </style>
+  </head>
+
+  <body>
+    <div class='sidebar'>
+      <div class='heading'>
+        <h1>Registered Foreign NGO Representative Offices</h1>
+      </div>
+    <div id='listings' class='listings'></div>
+    </div>
+    <div id='map' class='map'> </div>
+
+  <script>
+  // This will let you use the .remove() function later on
+  if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+      if (this.parentNode) {
+          this.parentNode.removeChild(this);
+      }
+    };
+  }
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamVzc2ljYWNoaW5maWxlIiwiYSI6ImNqMDAyN3FjNTA1Nzgyd2xzNzltcXQ1NmgifQ.uDti12v_OKz_yGqq5Bom0Q';
+
+  // This adds the map
+  var map = new mapboxgl.Map({
+    // container id specified in the HTML
+    container: 'map',
+    // style URL
+    style: 'mapbox://styles/jessicachinfile/cj09zggw2003u2ro2ylntkwoq',
+    // initial position in [long, lat] format
+    center: [104.656404, 34.628137],
+    // initial zoom
+    zoom: 3
+  });
+
+  var stores = L.mapbox.featureLayer()
+  .loadURL('test.geojson')
+  .addTo(map);
+
+  // This adds the data to the map
+  map.on('load', function (e) {
+    // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
+    map.addSource("places", {
+      "type": "geojson",
+      "data": stores
+    });
+    // Initialize the list
+    buildLocationList(stores);
+
+  });
+
+  // This is where your interactions with the symbol layer used to be
+  // Now you have interactions with DOM markers instead
+  stores.features.forEach(function(marker, i) {
+    // Create an img element for the marker
+    var el = document.createElement('div');
+    el.id = "marker-" + i;
+    el.className = 'marker';
+    el.style.left='-10px';
+    el.style.top='-10px';
+    // Add markers to the map at all points
+    new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+
+    el.addEventListener('click', function(e){
+        // 1. Fly to the point
+        flyToStore(marker);
+
+        // 2. Close all other popups and display popup for clicked store
+        createPopUp(marker);
+
+
+        // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+        var activeItem = document.getElementsByClassName('active');
+
+        e.stopPropagation();
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+
+        var listing = document.getElementById('listing-' + i);
+        listing.classList.add('active');
+        //YES!!!! FOUND HERE: http://stackoverflow.com/questions/31296373/auto-scroll-listing-on-marker-click-in-mapbox
+        listing.scrollIntoView(true);
+
+    });
+  });
+
+
+  function flyToStore(currentFeature) {
+    map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 11
+      });
+  }
+
+
+
+  function createPopUp(currentFeature) {
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+
+//added these two chunks in order to have dynamic hyperlinks to NGO websites in popups. god bless you https://bencollier.net/2011/05/quickly-creating-an-html-link-in-javascript/
+//this got me the if-then third line (last solution on page) http://stackoverflow.com/questions/711536/javascript-define-a-variable-if-it-doesnt-exist
+    var text_en = 'English';
+    var html_en = text_en.link(currentFeature.properties.website_en);
+    if (typeof currentFeature.properties.website_en === 'undefined') {html_en = ""};
+
+    var text_ch = 'Chinese';
+    var html_ch = text_ch.link(currentFeature.properties.website_ch);
+    if (typeof currentFeature.properties.website_ch === 'undefined') {html_ch = ""};
+
+//if you'd rather have a close button instead of having popups close by clicking elsewhere on the map, just take out the lines related to .mapboxgl-popup-close-button in the CSS =    .mapboxgl-popup-close-button {display:none;}
+    var popup = new mapboxgl.Popup({closeOnClick: true})
+          .setLngLat(currentFeature.geometry.coordinates)
+          .setHTML(
+                   '<h3>' + currentFeature.properties.orgname_en + ' / ' + currentFeature.properties.orgname_ch + '</h3>' +
+                   '<h4>'+ "<b>Origin: </b>" + currentFeature.properties.originloc + '</h4>' +
+                   '<h4>'+ "<b>Field of Work: </b>" + currentFeature.properties.sector + '</h4>' +
+                   '<h4>'+ "<b>Professional Supervisory Unit: </b>" + currentFeature.properties.psu_en + '</h4>' +
+                   '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
+                   '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
+                   '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>' +
+                   '<h4>'+ "<b>Website(s): </b>" + "<ins><i>" + html_en + "</i></ins>" + "&nbsp&nbsp" + "<ins><i>" + html_ch + "</i></ins>" + '</h4>'
+                 )
+          .addTo(map);
+  }
+
+
+  function buildLocationList(data) {
+    for (i = 0; i < data.features.length; i++) {
+      var currentFeature = data.features[i];
+      var prop = currentFeature.properties;
+
+      var listings = document.getElementById('listings');
+      var listing = listings.appendChild(document.createElement('div'));
+      listing.className = 'item';
+      listing.id = "listing-" + i;
+
+      var link = listing.appendChild(document.createElement('a'));
+      link.href = '#';
+      link.className = 'title';
+      link.dataPosition = i;
+      link.innerHTML = prop.orgname_en + ' / ' + prop.orgname_ch;
+
+      //this used to show the stuff below the org name in the sidebar, just uncomment to reactivate
+      // var details = listing.appendChild(document.createElement('div'));
+      // details.innerHTML = prop.orgname_ch;
+
+      //maybe try out this now-useless code for the jQuery scrolltop
+      // http://stackoverflow.com/questions/38319475/how-make-when-click-marker-scroll-to-sidebar-item
+      // https://www.w3schools.com/jquery/css_scrolltop.asp
+      if (prop.phone) {
+        details.innerHTML += ' &middot; ' + prop.phoneFormatted;
+      }
+
+
+
+      link.addEventListener('click', function(e){
+        // Update the currentFeature to the store associated with the clicked link
+        var clickedListing = data.features[this.dataPosition];
+
+        // 1. Fly to the point
+        flyToStore(clickedListing);
+
+        // 2. Close all other popups and display popup for clicked store
+        createPopUp(clickedListing);
+
+        // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+        var activeItem = document.getElementsByClassName('active');
+
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+        this.parentNode.classList.add('active');
+
+
+
+
+      });
+    }
+  }
+
+map.addControl(new mapboxgl.NavigationControl());
+
+
+    </script>
+  </body>
+</html>
