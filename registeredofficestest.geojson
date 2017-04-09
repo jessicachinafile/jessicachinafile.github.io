@@ -1,0 +1,726 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.456857, 39.948614
+        ]
+      },
+
+      "properties": {
+        "orgname_en": "Bill and Melinda Gates Foundation",
+        "orgname_ch": "比尔及梅琳达·盖茨基金会",
+        "psu_en": "National Health and Family Planning Commission",
+        "originloc": "United States",
+        "sector": "Health",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.gatesfoundation.org/",
+        "website_ch": "http://www.gatesfoundation.org/zh/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.399848, 31.201611
+        ]
+      },
+
+      "properties": {
+        "orgname_en": "Canada China Business Council",
+        "orgname_ch": "加拿大加中贸易理事会",
+        "psu_en": "Shanghai Municipal Commission of Commerce",
+        "originloc": "Canada",
+        "sector": "Trade",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Guangdong, Guangxi, Hainan, Guizhou, Yunnan",
+        "website_en": "http://www.ccbc.com/",
+        "website_ch": "http://www.ccbc.com/zh-hant/home/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.406788,
+          39.900592
+        ]
+      },
+      "properties": {
+        "orgname_en": "China Kind Fund",
+        "orgname_ch": "中华爱心基金会",
+        "psu_en": "National Development and Reform Commission",
+        "originloc": "Hong Kong",
+        "sector": "Ethnic affairs",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.ckf.org.cn/ebinfo.asp",
+        "website_ch": "http://www.ckf.org.cn/index.asp",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.417456, 39.912571
+        ]
+      },
+      "properties": {
+        "orgname_en": "China Medical Board",
+        "orgname_ch": "美国中华医学基金会",
+        "psu_en": "National Health and Family Planning Commission",
+        "originloc": "United States",
+        "sector": "Health",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "https://www.chinamedicalboard.org/",
+        "website_ch": "https://chinamedicalboard.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.344074, 39.923487
+        ]
+      },
+      "properties": {
+        "orgname_en": "Chinese Children Charities",
+        "orgname_ch": "中华孤残儿童基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "United States",
+        "sector": "Children - better word for this?, Disability",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.606725, 22.76948
+        ]
+      },
+      "properties": {
+        "orgname_en": "The Chinese General Chamber of Commerce ",
+        "orgname_ch": "香港中华总商会",
+        "psu_en": "Guangdong Department of Commerce",
+        "originloc": "Hong Kong",
+        "sector": "Trade",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong, Beijing, Shanghai, Tianjin, Chongqing, Guangxi, Fujian, Guangxi, Hainan, Hunan, Sichuan, Yunnan, Guizhou, Jiangsu, Zhejiang, Hubei, Liaoning",
+        "website_en": "http://www.cgcc.org.hk/en/index.aspx",
+        "website_ch": "http://www.cgcc.org.hk/gb/index.aspx",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.274913, 23.130919
+        ]
+      },
+      "properties": {
+        "orgname_en": "The Chinese Manufacturers' Association of Hong Kong",
+        "orgname_ch": "香港中华厂商联合会",
+        "psu_en": "Guangdong Department of Commerce",
+        "originloc": "Hong Kong",
+        "sector": "Trade",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong",
+        "website_en": "http://www.cma.org.hk/",
+        "website_ch": "http://www.cma.org.hk/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.399929, 31.202518
+        ]
+      },
+      "properties": {
+        "orgname_en": "Confederation of Indian Industry",
+        "orgname_ch": "印度工业联合会",
+        "psu_en": "Shanghai Municipal Commission of Commerce",
+        "originloc": "India",
+        "sector": "Trade",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "China",
+        "website_en": "http://www.cii.in/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.458907, 39.932271
+        ]
+      },
+      "properties": {
+        "orgname_en": "Conservation International",
+        "orgname_ch": "保护国际基金会",
+        "psu_en": "State Forestry Administration",
+        "originloc": "United States",
+        "sector": "Environment",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "Beijing, Chongqing, Sichuan, Yunnan, Shandong, Jiangsu, Liaoning, Guangdong, Zhejiang, Fujian, Hainan",
+        "website_en": "http://www.conservation.org/Pages/default.aspx",
+        "website_ch": "http://www.conservation.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.441491,
+          39.909478
+        ]
+      },
+      "properties": {
+        "orgname_en": "Energy Foundation",
+        "orgname_ch": "能源基金会",
+        "psu_en": "National Development and Reform Commission",
+        "originloc": "United States",
+        "sector": "Energy, Environment",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.efchina.org/",
+        "website_ch": "http://www.efchina.org/Front-Page-zh",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.119469, 22.542166
+        ]
+      },
+      "properties": {
+        "orgname_en": "The Federation of Hong Kong Industries",
+        "orgname_ch": "香港工业总会",
+        "psu_en": "Guangdong Department of Commerce",
+        "originloc": "Hong Kong",
+        "sector": "Trade",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong",
+        "website_en": "https://www.industryhk.org/en/",
+        "website_ch": "https://www.industryhk.org/sc/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.391622, 39.999831
+        ]
+      },
+      "properties": {
+        "orgname_en": "Fondation Mérieux",
+        "orgname_ch": "梅里埃基金会",
+        "psu_en": "National Health and Family Planning Commission",
+        "originloc": "France",
+        "sector": "Health",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.fondation-merieux.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.437441, 39.910797
+        ]
+      },
+      "properties": {
+        "orgname_en": "Half the Sky Foundation",
+        "orgname_ch": "半边天基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "United States",
+        "sector": "Children - better word for this?",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://onesky.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.483164, 39.914518
+        ]
+      },
+      "properties": {
+        "orgname_en": "Holt International",
+        "orgname_ch": "中华浩德国际基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "United States",
+        "sector": "Children - better word for this?",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "Guangdong",
+        "website_en": "https://www.holtinternational.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.037005,
+          22.634390
+        ]
+      },
+      "properties": {
+        "orgname_en": "International Peace Foundation",
+        "orgname_ch": "国际和平交流基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Hong Kong",
+        "sector": "Intercultural exchange, Social welfare",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong province",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.324852, 23.14224
+        ]
+      },
+      "properties": {
+        "orgname_en": "Japan External Trade Organization",
+        "orgname_ch": "日本贸易振兴",
+        "psu_en": "Guangdong Department of Commerce",
+        "originloc": "Japan",
+        "sector": "Trade",
+        "regloc": "Guangdong",
+        "regdate": "March 20, 2017",
+        "actarea": "Guangdong, Guangxi, Fujian, Hainan",
+        "website_en": "https://www.jetro.go.jp/en/",
+        "website_ch": "https://www.jetro.go.jp/china/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.46042, 39.914317
+        ]
+      },
+      "properties": {
+        "orgname_en": "Kerry Group Kuok Foundation",
+        "orgname_ch": "嘉里集团郭氏基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Hong Kong",
+        "sector": "Poverty alleviation, disaster relief",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_ch": "http://www.kgkf.org/aspx/main.aspx",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.414589, 39.909358
+        ]
+      },
+      "properties": {
+        "orgname_en": "Li Ka Shing Foundation",
+        "orgname_ch": "李嘉诚基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Hong Kong",
+        "sector": "Health, Education, Poverty Alleviation, Disaster Relief",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.lksf.org/?lang=en",
+        "website_ch": "http://www.lksf.org/?lang=zh",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.431826, 39.988442
+        ]
+      },
+      "properties": {
+        "orgname_en": "Lipoid Stiftung",
+        "orgname_ch": "利保益基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Germany",
+        "sector": "Health, Nutrition, Education",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.lipoid-stiftung.de/en/homepage/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.448349, 39.923569
+        ]
+      },
+      "properties": {
+        "orgname_en": "New Hope Foundation",
+        "orgname_ch": "新希望基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Hong Kong",
+        "sector": "Children - better word for this?, Disability",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://hopefosterhome.com/",
+        "website_ch": "http://hopefosterhome.com/cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.411589, 39.915316
+        ]
+      },
+      "properties": {
+        "orgname_en": "Paulson Institute",
+        "orgname_ch": "保尔森基金会",
+        "psu_en": "National Development and Reform Commission",
+        "originloc": "United States",
+        "sector": "?",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.paulsoninstitute.org/",
+        "website_ch": "http://paulsoninstitute.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.314745, 39.938229
+        ]
+      },
+      "properties": {
+        "orgname_en": "Project HOPE (Beijing)",
+        "orgname_ch": "世界健康基金会",
+        "psu_en": "National Health and Family Planning Commission",
+        "originloc": "United States",
+        "sector": "Health",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "Beijing, Tianjin, Hubei",
+        "website_en": "http://www.projecthope.org.cn/English/",
+        "website_ch": "http://www.projecthope.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.524397, 31.205693
+        ]
+      },
+      "properties": {
+        "orgname_en": "Project HOPE (Shanghai)",
+        "orgname_ch": "世界健康基金会",
+        "psu_en": "Shanghai Health and Family Planning Commission",
+        "originloc": "United States",
+        "sector": "Health, Disaster relief",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "Shanghai, Inner Mongolia, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Shandong, Guangdong, Guangxi, Sichuan, Guizhou, Yunnan, Tibet, Qinghai, Xinjiang",
+        "website_en": "http://www.projecthope.org.cn/English/",
+        "website_ch": "http://www.projecthope.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.517633, 31.226949
+        ]
+      },
+      "properties": {
+        "orgname_en": "The Russian Federation Chamber of Commerce and Industry",
+        "orgname_ch": "俄罗斯联邦工商会",
+        "psu_en": "Shanghai Municipal Commission of Commerce",
+        "originloc": "Russia",
+        "sector": "Trade",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Jiangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.43751, 39.910743
+        ]
+      },
+      "properties": {
+        "orgname_en": "Save the Children",
+        "orgname_ch": "国际救助儿童会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "England and Wales",
+        "sector": "Children - better word for this?",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://china.savethechildren.net/",
+        "website_ch": "http://www.savethechildren.org.cn/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.494412, 39.934857
+        ]
+      },
+      "properties": {
+        "orgname_en": "Shin Shin Educational Foundation",
+        "orgname_ch": "欣欣教育基金会",
+        "psu_en": "State Council Overseas Chinese Affairs Office",
+        "originloc": "United States",
+        "sector": "Education",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "http://www.shinshinfoundation.org/new_site/index.php/language/en/",
+        "website_ch": "http://www.shinshinfoundation.org/new_site/index.php/language/zh/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.202606, 22.82947
+        ]
+      },
+      "properties": {
+        "orgname_en": "Shun Long Ren Ze Foundation",
+        "orgname_ch": "顺龙仁泽基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Hong Kong",
+        "sector": "Poverty alleviation, Education",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.476043, 39.907472
+        ]
+      },
+      "properties": {
+        "orgname_en": "Smile Train",
+        "orgname_ch": "微笑列车基金会",
+        "psu_en": "National Health and Family Planning Commission",
+        "originloc": "United States",
+        "sector": "Health",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "https://www.smiletrain.org/",
+        "website_ch": "http://www.smiletrainchina.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.46496, 39.94697
+        ]
+      },
+      "properties": {
+        "orgname_en": "Stiftung Mercator",
+        "orgname_ch": "墨卡托基金会",
+        "psu_en": "Ministry of Civil Affairs",
+        "originloc": "Germany",
+        "sector": "?",
+        "regloc": "Beijing",
+        "regdate": "February 8, 2017",
+        "actarea": "China",
+        "website_en": "https://www.stiftung-mercator.de/en/",
+        "website_ch": "https://cn.stiftung-mercator.de/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.32209, 23.132715
+        ]
+      },
+      "properties": {
+        "orgname_en": "Taiwan Trade Center",
+        "orgname_ch": "台湾贸易中心",
+        "psu_en": "Guangdong Department of Commerce",
+        "originloc": "Taiwan",
+        "sector": "Trade",
+        "regloc": "Guangdong",
+        "regdate": "January 19, 2017",
+        "actarea": "Guangdong, Guangxi, Fujian, Jiangxi, Hainan, Yunnan, Guizhou",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.441545, 39.909388
+        ]
+      },
+      "properties": {
+        "orgname_en": "U.S.-China Business Council (Beijing)",
+        "orgname_ch": "美国美中贸易全国委员会",
+        "psu_en": "Beijing Municipal Commission of Commerce",
+        "originloc": "United States",
+        "sector": "Trade",
+        "regloc": "Beijing",
+        "regdate": "March 24, 2017",
+        "actarea": "Beijing, Tianjin, Hebei",
+        "website_en": "https://www.uschina.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.443836, 31.225679
+        ]
+      },
+      "properties": {
+        "orgname_en": "U.S.-China Business Council (Shanghai)",
+        "orgname_ch": "美国美中贸易全国委员会",
+        "psu_en": "Shanghai Municipal Commission of Commerce",
+        "originloc": "United States",
+        "sector": "Trade",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "Shanghai, Shanxi, Inner Mongolia, Liaoning, Jilin, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Shandong, Henan, Hubei, Hunan, Guangdong, Guangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet, Shaanxi, Gansu, Qinghai, Ningxia, Xinjiang",
+        "website_en": "https://www.uschina.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.458875, 39.918944
+        ]
+      },
+      "properties": {
+        "orgname_en": "World Economic Forum",
+        "orgname_ch": "世界经济论坛",
+        "psu_en": "National Development and Reform Commission",
+        "originloc": "United States",
+        "sector": "Economic Development?",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "China",
+        "website_en": "https://www.weforum.org/",
+        "website_ch": "https://cn.weforum.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.355405, 39.92788
+        ]
+      },
+      "properties": {
+        "orgname_en": "World Wide Fund for Nature",
+        "orgname_ch": "世界自然基金会",
+        "psu_en": "State Forestry Administration",
+        "originloc": "Switzerland",
+        "sector": "Environment",
+        "regloc": "Beijing",
+        "regdate": "January 23, 2017",
+        "actarea": "Beijing, Tianjin, Shanghai, Chongqing, Heilongjiang, Jilin, Liaoning, Hebei, Henan, Jiangsu, Zhejiang, Anhui, Hunan, Hubei, Guizhou, Shaanxi, Gansu, Qinghai, Sichuan, Guangdong, Fujian, Shandong, Yunnan, Jiangxi, Guangxi, Xinjiang",
+        "website_en": "http://en.wwfchina.org/",
+        "website_ch": "http://www.wwfchina.org/",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.446578, 31.188756
+        ]
+      },
+      "properties": {
+        "orgname_en": "Yin Shin Leung Charitable Foundation",
+        "orgname_ch": "应善良基金会",
+        "psu_en": "State Council Overseas Chinese Affairs Office",
+        "originloc": "Hong Kong",
+        "sector": "Education, Health?",
+        "regloc": "Shanghai",
+        "regdate": "January 17, 2017",
+        "actarea": "China",
+        "website_ch": "http://www.ysl-foundation.com/",
+      }
+    }
+  ]
+  }
