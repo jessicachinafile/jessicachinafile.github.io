@@ -134,7 +134,7 @@
         .mapboxgl-popup {
           padding-bottom: 25px;
           padding-left: 15px;
-          max-width: 500px;
+          max-width: 50%;
 
         }
 
@@ -226,6 +226,49 @@
   var stores = {
     "type": "FeatureCollection",
     "features": [
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.504034, 31.233859
+          ]
+        },
+        "properties": {
+          "orgname_en": "Advanced Medical Technology Association (AdvaMed)",
+          "orgname_ch": "先进医疗技术协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Beijing, Tianjin, Hebei, Liaoning, Jiangsu, Zhejiang, Fujian, Shandong, Henan, Hubei, Hunan, Guandong, Hainan, Chongqing, Sichuan, Yunnan, Shaanxi, Qinghai",
+          "website_en": "https://www.advamed.org/"
+        }
+      },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.402283, 31.201965
+          ]
+        },
+        "properties": {
+          "orgname_en": "AITEX",
+          "orgname_ch": "西班牙纺织行业研究协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "Spain",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Shandong, Guangdong"
+        }
+      },
+
       {
         "type": "Feature",
         "geometry": {
@@ -245,7 +288,7 @@
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.gatesfoundation.org/",
-          "website_ch": "http://www.gatesfoundation.org/zh/",
+          "website_ch": "http://www.gatesfoundation.org/zh/"
         }
       },
       {
@@ -267,9 +310,77 @@
           "regdate": "January 17, 2017",
           "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Guangdong, Guangxi, Hainan, Guizhou, Yunnan",
           "website_en": "http://www.ccbc.com/",
-          "website_ch": "http://www.ccbc.com/zh-hant/home/",
+          "website_ch": "http://www.ccbc.com/zh-hant/home/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.654969, 25.049108
+          ]
+        },
+        "properties": {
+          "orgname_en": "Casa Ricci Social Services",
+          "orgname_ch": "利玛窦社会服务基金会",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "Macau",
+          "sector": "Health",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://www.casaricci.org/en/about/index.html",
+          "website_ch": "http://www.casaricci.org/zh/about/index.html"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.734758, 25.097233
+          ]
+        },
+        "properties": {
+          "orgname_en": "CEDAR Fund",
+          "orgname_ch": "国际施达有限公司",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "Hong Kong",
+          "sector": "Health, Disaster Relief",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "https://cedarfundeng.wordpress.com/",
+          "website_ch": "https://cedarfund.org/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            118.784831, 32.026925
+          ]
+        },
+        "properties": {
+          "orgname_en": "China-Britain Business Council",
+          "orgname_ch": "英中贸易协会",
+          "psu_en": "Jiangsu Department of Commerce",
+          "originloc": "United Kingdom",
+          "sector": "Trade",
+          "regloc": "Jiangsu",
+          "regdate": "April 10, 2017",
+          "actarea": "Jiangsu",
+          "website_en": "http://www.cbbc.org/",
+          "website_ch": "http://www.chinaoutbound.org/"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -284,12 +395,12 @@
           "orgname_ch": "中华爱心基金会",
           "psu_en": "National Development and Reform Commission",
           "originloc": "Hong Kong",
-          "sector": "Ethnic affairs",
+          "sector": "Ethnic Affairs",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.ckf.org.cn/ebinfo.asp",
-          "website_ch": "http://www.ckf.org.cn/index.asp",
+          "website_ch": "http://www.ckf.org.cn/index.asp"
         }
       },
       {
@@ -305,12 +416,12 @@
           "orgname_ch": "美国中华医学基金会",
           "psu_en": "National Health and Family Planning Commission",
           "originloc": "United States",
-          "sector": "Health",
+          "sector": "Health, Education",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "https://www.chinamedicalboard.org/",
-          "website_ch": "https://chinamedicalboard.org.cn/",
+          "website_ch": "https://chinamedicalboard.org.cn/"
         }
       },
       {
@@ -326,10 +437,10 @@
           "orgname_ch": "中华孤残儿童基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "United States",
-          "sector": "Children - better word for this?, Disability",
+          "sector": "Youth, Disabilities, Education, Disaster Relief",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
-          "actarea": "China",
+          "actarea": "China"
         }
       },
       {
@@ -350,7 +461,7 @@
           "regdate": "January 19, 2017",
           "actarea": "Guangdong, Beijing, Shanghai, Tianjin, Chongqing, Guangxi, Fujian, Guangxi, Hainan, Hunan, Sichuan, Yunnan, Guizhou, Jiangsu, Zhejiang, Hubei, Liaoning",
           "website_en": "http://www.cgcc.org.hk/en/index.aspx",
-          "website_ch": "http://www.cgcc.org.hk/gb/index.aspx",
+          "website_ch": "http://www.cgcc.org.hk/gb/index.aspx"
         }
       },
       {
@@ -362,7 +473,7 @@
           ]
         },
         "properties": {
-          "orgname_en": "The Chinese Manufacturers' Association of Hong Kong",
+          "orgname_en": "The Chinese Manufacturers’ Association of Hong Kong",
           "orgname_ch": "香港中华厂商联合会",
           "psu_en": "Guangdong Department of Commerce",
           "originloc": "Hong Kong",
@@ -371,7 +482,7 @@
           "regdate": "January 19, 2017",
           "actarea": "Guangdong",
           "website_en": "http://www.cma.org.hk/",
-          "website_ch": "http://www.cma.org.hk/",
+          "website_ch": "http://www.cma.org.hk/"
         }
       },
       {
@@ -391,7 +502,7 @@
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
           "actarea": "China",
-          "website_en": "http://www.cii.in/",
+          "website_en": "http://www.cii.in/"
         }
       },
       {
@@ -412,9 +523,77 @@
           "regdate": "January 23, 2017",
           "actarea": "Beijing, Chongqing, Sichuan, Yunnan, Shandong, Jiangsu, Liaoning, Guangdong, Zhejiang, Fujian, Hainan",
           "website_en": "http://www.conservation.org/Pages/default.aspx",
-          "website_ch": "http://www.conservation.org.cn/",
+          "website_ch": "http://www.conservation.org.cn/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.451658, 31.227229
+          ]
+        },
+        "properties": {
+          "orgname_en": "Cotton USA",
+          "orgname_ch": "美国国际棉花协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_en": "http://www.cottonusa.org/",
+          "website_ch": "http://www.cottonusa.org.cn/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.648662, 31.182921
+          ]
+        },
+        "properties": {
+          "orgname_en": "Cyrus Tang Foundation",
+          "orgname_ch": "唐仲英基金会",
+          "psu_en": "State Council Overseas Chinese Affairs Office",
+          "originloc": "United States",
+          "sector": "Education",
+          "regloc": "Jiangsu",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_ch": "http://www.tangfoundation.org.cn/site/1"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.647091, 29.343990
+          ]
+        },
+        "properties": {
+          "orgname_en": "Development Organisation of Rural Sichuan (DORS)",
+          "orgname_ch": "四川农村发展组织",
+          "psu_en": "Sichuan Province Poverty Alleviation and Immigration Bureau",
+          "originloc": "United Kingdom",
+          "sector": "Rural Issues/Development, Women’s Issues, Poverty Alleviation, Economic Development, Health, Environment, Education",
+          "regloc": "Sichuan",
+          "regdate": "April 1, 2017",
+          "actarea": "Sichuan",
+          "website_en": "http://www.dors.org.uk/",
+          "website_ch": "http://cn.dors.org.uk/"
+        }
+      },
+
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -434,7 +613,7 @@
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.efchina.org/",
-          "website_ch": "http://www.efchina.org/Front-Page-zh",
+          "website_ch": "http://www.efchina.org/Front-Page-zh"
         }
       },
       {
@@ -455,9 +634,32 @@
           "regdate": "January 19, 2017",
           "actarea": "Guangdong",
           "website_en": "https://www.industryhk.org/en/",
-          "website_ch": "https://www.industryhk.org/sc/",
+          "website_ch": "https://www.industryhk.org/sc/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.723469, 25.038697
+          ]
+        },
+        "properties": {
+          "orgname_en": "FHI 360",
+          "orgname_ch": "家庭健康国际组织",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "United States",
+          "sector": "Health",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "https://www.fhi360.org/"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -475,9 +677,53 @@
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
-          "website_en": "http://www.fondation-merieux.org/",
+          "website_en": "http://www.fondation-merieux.org/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.717343, 25.068383
+          ]
+        },
+        "properties": {
+          "orgname_en": "Fred Hollows Foundation",
+          "orgname_ch": "弗雷德·霍洛基金会",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "Australia",
+          "sector": "Health",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://cn.goodman.com/en/sustainability/charities/the-fred-hollows-foundation",
+          "website_ch": "http://cn.goodman.com/sustainability/charities/the-fred-hollows-foundation"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.325470, 23.142983
+          ]
+        },
+        "properties": {
+          "orgname_en": "Gyonggido Business & Science Accelerator",
+          "orgname_ch": "韩国（财）京畿道经济科学振兴院",
+          "psu_en": "Guangdong Department of Commerce",
+          "originloc": "South Korea",
+          "sector": "Trade, Economic Development",
+          "regloc": "Guangdong",
+          "regdate": "March 29, 2017",
+          "actarea": "Guangdong"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -491,13 +737,37 @@
           "orgname_ch": "半边天基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "United States",
-          "sector": "Children - better word for this?",
+          "sector": "Youth, Health, Education, Disabilities",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
-          "website_en": "http://onesky.org/",
+          "website_en": "http://onesky.org/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.722251, 25.060579
+          ]
+        },
+        "properties": {
+          "orgname_en": "Health Poverty Action",
+          "orgname_ch": "健康扶贫行动",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "United Kingdom",
+          "sector": "Health",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "https://www.healthpovertyaction.org/"
+        }
+      },
+
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -511,13 +781,121 @@
           "orgname_ch": "中华浩德国际基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "United States",
-          "sector": "Children - better word for this?",
+          "sector": "Youth, Health, Education, Disabilities",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "Guangdong",
-          "website_en": "https://www.holtinternational.org/",
+          "website_en": "https://www.holtinternational.org/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.731849, 25.058211
+          ]
+        },
+        "properties": {
+          "orgname_en": "Humana People to People China",
+          "orgname_ch": "互满爱人与人国际运动联合会",
+          "psu_en": "Yunnan Office of Poverty Alleviation and Development",
+          "originloc": "Switzerland",
+          "sector": "Rural Issues/Development, Youth, Education, Health, Environment, Poverty Alleviation, Disaster Relief",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://www.hppchina.org.cn/en/",
+          "website_ch": "http://www.hppchina.org.cn/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.458606, 39.907432
+          ]
+        },
+        "properties": {
+          "orgname_en": "International Confederation of Societies of Authors and Composers",
+          "orgname_ch": "国际作者和作曲者协会联合会",
+          "psu_en": "National Copyright Administration",
+          "originloc": "France",
+          "sector": "Intellectual Property ?  Trade?",
+          "regloc": "Beijing",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_en": "http://www.cisac.org/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            103.881743, 36.069785
+          ]
+        },
+        "properties": {
+          "orgname_en": "International Consulting and Resources Enterprise",
+          "orgname_ch": "国际咨询与资源企业",
+          "psu_en": "Gansu Province Health and Family Planning Commission",
+          "originloc": "United Kingdom",
+          "sector": "Health, Poverty Alleviation, Disaster Relief",
+          "regloc": "Gansu",
+          "regdate": "April 7, 2017",
+          "actarea": "China",
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            121.472808, 31.221844
+          ]
+        },
+        "properties": {
+          "orgname_en": "International Copper Association",
+          "orgname_ch": "国际铜专业协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Guangxi, Hainan, Sichuan, Yunnan",
+          "website_en": "http://http://copperalliance.org"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            100.979966, 22.774968
+          ]
+        },
+        "properties": {
+          "orgname_en": "International Fund for Animal Welfare",
+          "orgname_ch": "国际爱护动物基金会",
+          "psu_en": "Yunnan Province Forestry Department",
+          "originloc": "United States",
+          "sector": "Animal Protection, Environment",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://www.ifaw.org/",
+          "website_ch": "http://www.ifaw.org/china"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -532,12 +910,37 @@
           "orgname_ch": "国际和平交流基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Hong Kong",
-          "sector": "Intercultural exchange, Social welfare",
+          "sector": "International Relations/Exchange, Health, Arts and Culture, Education",
           "regloc": "Guangdong",
           "regdate": "January 19, 2017",
-          "actarea": "Guangdong province",
+          "actarea": "Guangdong province"
         }
       },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             121.450863, 31.224339
+          ]
+        },
+        "properties": {
+          "orgname_en": "International Trademark Association",
+          "orgname_ch": "国际商标协会公司",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_en": "http://www.inta.org/Pages/Home.aspx",
+          "website_ch": "http://china.inta.org/"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -556,7 +959,7 @@
           "regdate": "March 20, 2017",
           "actarea": "Guangdong, Guangxi, Fujian, Hainan",
           "website_en": "https://www.jetro.go.jp/en/",
-          "website_ch": "https://www.jetro.go.jp/china/",
+          "website_ch": "https://www.jetro.go.jp/china/"
         }
       },
       {
@@ -572,13 +975,37 @@
           "orgname_ch": "嘉里集团郭氏基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Hong Kong",
-          "sector": "Poverty alleviation, disaster relief",
+          "sector": "Poverty Alleviation, Education, Disaster Relief",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
-          "website_ch": "http://www.kgkf.org/aspx/main.aspx",
+          "website_ch": "http://www.kgkf.org/aspx/main.aspx"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             116.459447, 39.908917
+          ]
+        },
+        "properties": {
+          "orgname_en": "Korea International Trade Association",
+          "orgname_ch": "韩国贸易协会",
+          "psu_en": "Beijing Municipal Commission of Commerce",
+          "originloc": "South Korea",
+          "sector": "Trade",
+          "regloc": "Beijing",
+          "regdate": "April 6, 2017",
+          "actarea": "Ningxia, Shandong, Jilin, Tianjin, Liaoning, Shanxi, Henan, Inner Mongolia, Heilongjiang, Hebei, Beijing",
+          "website_en": "http://www.kita.org/",
+          "website_ch": "http://bj.kita.net/global_pk/cl/index.jsp"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -592,12 +1019,12 @@
           "orgname_ch": "李嘉诚基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Hong Kong",
-          "sector": "Health, Education, Poverty Alleviation, Disaster Relief",
+          "sector": "Health, Education, Arts and Culture, Poverty Alleviation, Disaster Relief",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.lksf.org/?lang=en",
-          "website_ch": "http://www.lksf.org/?lang=zh",
+          "website_ch": "http://www.lksf.org/?lang=zh"
         }
       },
       {
@@ -613,13 +1040,59 @@
           "orgname_ch": "利保益基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Germany",
-          "sector": "Health, Nutrition, Education",
+          "sector": "Health, Youth, Education",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
-          "website_en": "http://www.lipoid-stiftung.de/en/homepage/",
+          "website_en": "http://www.lipoid-stiftung.de/en/homepage/"
         }
       },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             104.068334, 30.636497
+          ]
+        },
+        "properties": {
+          "orgname_en": "MSI Professional Services (Sichuan)",
+          "orgname_ch": "国际专业服务机构有限公司",
+          "psu_en": "Sichuan Health and Family Planning Commission",
+          "originloc": "Hong Kong",
+          "sector": "Health, Education, Poverty Alleviation, Disaster Relief",
+          "regloc": "Sichuan",
+          "regdate": "March 28, 2017",
+          "actarea": "China",
+          "website_en": "http://msips.org/en_GB/",
+          "website_ch": "http://msips.org/zh_HK/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             102.683852, 25.044225
+          ]
+        },
+        "properties": {
+          "orgname_en": "MSI Professional Services (Yunnan)",
+          "orgname_ch": "国际专业服务机构有限公司",
+          "psu_en": "Yunnan Province Health and Family Planning Commission",
+          "originloc": "Hong Kong",
+          "sector": "Health, Education, Poverty Alleviation, Disaster Relief",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://msips.org/en_GB/",
+          "website_ch": "http://msips.org/zh_HK/"
+        }
+      },
+
       {
         "type": "Feature",
         "geometry": {
@@ -633,12 +1106,12 @@
           "orgname_ch": "新希望基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Hong Kong",
-          "sector": "Children - better word for this?, Disability",
+          "sector": "Youth, Disabilities, Health",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://hopefosterhome.com/",
-          "website_ch": "http://hopefosterhome.com/cn/",
+          "website_ch": "http://hopefosterhome.com/cn/"
         }
       },
       {
@@ -654,12 +1127,12 @@
           "orgname_ch": "保尔森基金会",
           "psu_en": "National Development and Reform Commission",
           "originloc": "United States",
-          "sector": "?",
+          "sector": "Economic Development, Environment, International Relations/Exchange",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.paulsoninstitute.org/",
-          "website_ch": "http://paulsoninstitute.org.cn/",
+          "website_ch": "http://paulsoninstitute.org.cn/"
         }
       },
       {
@@ -675,12 +1148,12 @@
           "orgname_ch": "世界健康基金会",
           "psu_en": "National Health and Family Planning Commission",
           "originloc": "United States",
-          "sector": "Health",
+          "sector": "Health, Education",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "Beijing, Tianjin, Hubei",
           "website_en": "http://www.projecthope.org.cn/English/",
-          "website_ch": "http://www.projecthope.org.cn/",
+          "website_ch": "http://www.projecthope.org.cn/"
         }
       },
       {
@@ -696,12 +1169,12 @@
           "orgname_ch": "世界健康基金会",
           "psu_en": "Shanghai Health and Family Planning Commission",
           "originloc": "United States",
-          "sector": "Health, Disaster relief",
+          "sector": "Health, Poverty Alleviation, Disaster Relief",
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
           "actarea": "Shanghai, Inner Mongolia, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Shandong, Guangdong, Guangxi, Sichuan, Guizhou, Yunnan, Tibet, Qinghai, Xinjiang",
           "website_en": "http://www.projecthope.org.cn/English/",
-          "website_ch": "http://www.projecthope.org.cn/",
+          "website_ch": "http://www.projecthope.org.cn/"
         }
       },
       {
@@ -720,7 +1193,7 @@
           "sector": "Trade",
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
-          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Jiangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Jiangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet"
         }
       },
       {
@@ -735,13 +1208,13 @@
           "orgname_en": "Save the Children",
           "orgname_ch": "国际救助儿童会",
           "psu_en": "Ministry of Civil Affairs",
-          "originloc": "England and Wales",
-          "sector": "Children - better word for this?",
+          "originloc": "United Kingdom",
+          "sector": "Youth, Disaster Relief, Education, Health",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://china.savethechildren.net/",
-          "website_ch": "http://www.savethechildren.org.cn/",
+          "website_ch": "http://www.savethechildren.org.cn/"
         }
       },
       {
@@ -757,12 +1230,12 @@
           "orgname_ch": "欣欣教育基金会",
           "psu_en": "State Council Overseas Chinese Affairs Office",
           "originloc": "United States",
-          "sector": "Education",
+          "sector": "Education, Youth, Health, Infrastructure",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "http://www.shinshinfoundation.org/new_site/index.php/language/en/",
-          "website_ch": "http://www.shinshinfoundation.org/new_site/index.php/language/zh/",
+          "website_ch": "http://www.shinshinfoundation.org/new_site/index.php/language/zh/"
         }
       },
       {
@@ -778,10 +1251,10 @@
           "orgname_ch": "顺龙仁泽基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Hong Kong",
-          "sector": "Poverty alleviation, Education",
+          "sector": "Poverty Alleviation, Education",
           "regloc": "Guangdong",
           "regdate": "January 19, 2017",
-          "actarea": "Guangdong",
+          "actarea": "Guangdong"
         }
       },
       {
@@ -797,12 +1270,12 @@
           "orgname_ch": "微笑列车基金会",
           "psu_en": "National Health and Family Planning Commission",
           "originloc": "United States",
-          "sector": "Health",
+          "sector": "Health, Education",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "https://www.smiletrain.org/",
-          "website_ch": "http://www.smiletrainchina.org/",
+          "website_ch": "http://www.smiletrainchina.org/"
         }
       },
       {
@@ -818,14 +1291,38 @@
           "orgname_ch": "墨卡托基金会",
           "psu_en": "Ministry of Civil Affairs",
           "originloc": "Germany",
-          "sector": "?",
+          "sector": "International Relations/Exchange, Civil Society Capacity-Building, Education, Youth, Environment",
           "regloc": "Beijing",
           "regdate": "February 8, 2017",
           "actarea": "China",
           "website_en": "https://www.stiftung-mercator.de/en/",
-          "website_ch": "https://cn.stiftung-mercator.de/",
+          "website_ch": "https://cn.stiftung-mercator.de/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             121.034733, 31.384375
+          ]
+        },
+        "properties": {
+          "orgname_en": "Taiwan Electrical and Electronic Manufacturers’ Association",
+          "orgname_ch": "台湾区电机电子工业同业公会",
+          "psu_en": "Jiangsu Department of Commerce",
+          "originloc": "Taiwan",
+          "sector": "Trade",
+          "regloc": "Jiangsu",
+          "regdate": "April 10, 2017",
+          "actarea": "Jiangsu",
+          "website_en": "http://www.teema.org.tw/english/index.aspx",
+          "website_ch": "http://www.teema.org.tw/china-service-chs.aspx"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -842,9 +1339,122 @@
           "sector": "Trade",
           "regloc": "Guangdong",
           "regdate": "January 19, 2017",
-          "actarea": "Guangdong, Guangxi, Fujian, Jiangxi, Hainan, Yunnan, Guizhou",
+          "actarea": "Guangdong, Guangxi, Fujian, Jiangxi, Hainan, Yunnan, Guizhou"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             116.458388, 39.911513
+          ]
+        },
+        "properties": {
+          "orgname_en": "U.S. Grains Council",
+          "orgname_ch": "美国谷物协会",
+          "psu_en": "State Administration of Grain",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Beijing",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_en": "https://www.grains.org/",
+          "website_ch": "http://www.grains.org.cn/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             121.470735, 31.229865
+          ]
+        },
+        "properties": {
+          "orgname_en": "U.S. Meat Export Federation",
+          "orgname_ch": "美国肉类出口协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Guangdong, Guangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan",
+          "website_en": "http://www.usmef.org/",
+          "website_ch": "http://www.usmef.org.cn/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             116.458388, 39.911242
+          ]
+        },
+        "properties": {
+          "orgname_en": "U.S. Soybean Export Council (Beijing)",
+          "orgname_ch": "美国大豆出口协会",
+          "psu_en": "State Administration of Grain",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Beijing",
+          "regdate": "April 10, 2017",
+          "actarea": "Beijing, Heilongjiang, Jilin, Liaoning, Inner Mongolia, Shandong, Henan, Tianjin, Hebei, Shanxi, Shaanxi, Ningxia, Gansu, Xinjiang, Tibet, Qinghai",
+          "website_en": "http://ussec.org/",
+          "website_ch": "http://www.china.ussec.org/"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             121.404880, 31.202491
+          ]
+        },
+        "properties": {
+          "orgname_en": "U.S. Soybean Export Council (Shanghai)",
+          "orgname_ch": "美国大豆出口协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Hubei, Hunan, Guangdong, Guanxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan",
+          "website_en": "http://ussec.org/",
+          "website_ch": "http://www.china.ussec.org/"
+        }
+      },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             116.458399, 39.911267
+          ]
+        },
+        "properties": {
+          "orgname_en": "U.S. Wheat Associates",
+          "orgname_ch": "美国小麦协会",
+          "psu_en": "State Administration of Grain",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Beijing",
+          "regdate": "April 10, 2017",
+          "actarea": "China",
+          "website_en": "http://www.uswheat.org/",
+          "website_ch": "http://www.uswheat.org/zhs"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -862,7 +1472,7 @@
           "regloc": "Beijing",
           "regdate": "March 24, 2017",
           "actarea": "Beijing, Tianjin, Hebei",
-          "website_en": "https://www.uschina.org/",
+          "website_en": "https://www.uschina.org/"
         }
       },
       {
@@ -882,9 +1492,34 @@
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
           "actarea": "Shanghai, Shanxi, Inner Mongolia, Liaoning, Jilin, Heilongjiang, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Shandong, Henan, Hubei, Hunan, Guangdong, Guangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Tibet, Shaanxi, Gansu, Qinghai, Ningxia, Xinjiang",
-          "website_en": "https://www.uschina.org/",
+          "website_en": "https://www.uschina.org/"
         }
       },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             121.443614, 31.219701
+          ]
+        },
+        "properties": {
+          "orgname_en": "USA Poultry and Egg Export Council",
+          "orgname_ch": "美国家禽蛋品出口协会",
+          "psu_en": "Shanghai Municipal Commission of Commerce",
+          "originloc": "United States",
+          "sector": "Trade",
+          "regloc": "Shanghai",
+          "regdate": "April 10, 2017",
+          "actarea": "Shanghai, Jiangsu, Zhejiang, Anhui, Jiangxi, Hubei, Hunan, Chongqing, Sichuan, Guizhou, Yunnan",
+          "website_en": "http://www.usapeec.org/",
+          "website_ch": "http://www.usapeec.org.cn/"
+        }
+      },
+
+
       {
         "type": "Feature",
         "geometry": {
@@ -898,14 +1533,83 @@
           "orgname_ch": "世界经济论坛",
           "psu_en": "National Development and Reform Commission",
           "originloc": "United States",
-          "sector": "Economic Development?",
+          "sector": "International Relations/Exchange, Economic Development",
           "regloc": "Beijing",
           "regdate": "January 23, 2017",
           "actarea": "China",
           "website_en": "https://www.weforum.org/",
-          "website_ch": "https://cn.weforum.org/",
+          "website_ch": "https://cn.weforum.org/"
         }
       },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             113.308706, 23.135081
+          ]
+        },
+        "properties": {
+          "orgname_en": "World Vision (Guangdong)",
+          "orgname_ch": "世界宣明会-中国基金有限公司",
+          "psu_en": "Guangdong Province Department of Civil Affairs",
+          "originloc": "Hong Kong",
+          "sector": "Labor and Migrants, Youth, Disaster Relief, Education, Civil Society Capacity-Building",
+          "regloc": "Guangdong",
+          "regdate": "March 30, 2017",
+          "actarea": "Guangdong",
+          "website_en": "http://www.worldvision.org.cn/en",
+          "website_ch": "http://www.worldvision.org.cn/"
+        }
+      },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             106.697234, 26.582579
+          ]
+        },
+        "properties": {
+          "orgname_en": "World Vision (Guizhou)",
+          "orgname_ch": "世界宣明会-中国基金有限公司",
+          "psu_en": "Guizhou Province Department of Civil Affairs",
+          "originloc": "Hong Kong",
+          "sector": "Disaster Relief, Civil Society Capacity-Building, Youth, Labor and Migrants",
+          "regloc": "Guizhou",
+          "regdate": "April 10, 2017",
+          "actarea": "Guizhou",
+          "website_en": "http://www.worldvision.org.cn/en",
+          "website_ch": "http://www.worldvision.org.cn/"
+        }
+      },
+
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+             102.739375, 25.012513
+          ]
+        },
+        "properties": {
+          "orgname_en": "World Vision (Yunnan)",
+          "orgname_ch": "世界宣明会-中国基金有限公司",
+          "psu_en": "Yunnan Office of Poverty Alleviation and Development",
+          "originloc": "Hong Kong",
+          "sector": "Poverty Alleviation, Disaster Relief",
+          "regloc": "Yunnan",
+          "regdate": "April 10, 2017",
+          "actarea": "Yunnan",
+          "website_en": "http://www.worldvision.org.cn/en",
+          "website_ch": "http://www.worldvision.org.cn/"
+        }
+      },
+
       {
         "type": "Feature",
         "geometry": {
@@ -924,7 +1628,7 @@
           "regdate": "January 23, 2017",
           "actarea": "Beijing, Tianjin, Shanghai, Chongqing, Heilongjiang, Jilin, Liaoning, Hebei, Henan, Jiangsu, Zhejiang, Anhui, Hunan, Hubei, Guizhou, Shaanxi, Gansu, Qinghai, Sichuan, Guangdong, Fujian, Shandong, Yunnan, Jiangxi, Guangxi, Xinjiang",
           "website_en": "http://en.wwfchina.org/",
-          "website_ch": "http://www.wwfchina.org/",
+          "website_ch": "http://www.wwfchina.org/"
         }
       },
       {
@@ -940,11 +1644,11 @@
           "orgname_ch": "应善良基金会",
           "psu_en": "State Council Overseas Chinese Affairs Office",
           "originloc": "Hong Kong",
-          "sector": "Education, Health?",
+          "sector": "Infrastructure",
           "regloc": "Shanghai",
           "regdate": "January 17, 2017",
           "actarea": "China",
-          "website_ch": "http://www.ysl-foundation.com/",
+          "website_ch": "http://www.ysl-foundation.com/"
         }
       },
 
