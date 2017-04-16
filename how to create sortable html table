@@ -1,0 +1,9 @@
+1) Make a separate spreadsheet with only the data you want included in the HTML table. Change any headings to what you will want them to be in the final table.
+
+2) cut and paste this data into http://tableizer.journalistopia.com/.  Choose "no CSS" and then tabelize.  
+
+3) copy and paste the resulting html code into ..., between the <body> and </body> tags
+
+4) at the top of the <body> section, at the top of the html you pasted in, change the table class to "sortable"
+
+5) Copy and paste the entire html code (not just what you pasted in from Tableize) into ...
