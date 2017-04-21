@@ -4,6 +4,6 @@
 
 3) copy and paste the resulting html code into ..., between the <body> and </body> tags
 
-4) at the top of the <body> section, at the top of the html you pasted in, change the table class to "sortable"
+4) at the top of the <body> section, at the top of the html you pasted in, change the table class from "tableizer-table" to "sortable"
 
 5) Copy and paste the entire html code (not just what you pasted in from Tableize) into ...
