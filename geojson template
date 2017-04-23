@@ -1,1 +1,21 @@
-
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.456857, 39.948614
+          ]
+        },
+        "properties": {
+          "orgname_en": "Bill and Melinda Gates Foundation",
+          "orgname_ch": "比尔及梅琳达·盖茨基金会",
+          "psu_en": "National Health and Family Planning Commission",
+          "originloc": "United States",
+          "sector": "Health",
+          "regloc": "Beijing",
+          "regdate": "January 23, 2017",
+          "actarea": "China",
+          "website_en": "http://www.gatesfoundation.org/",
+          "website_ch": "http://www.gatesfoundation.org/zh/"
+        }
+      },
