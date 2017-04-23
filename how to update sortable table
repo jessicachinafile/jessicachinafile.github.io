@@ -1,0 +1,8 @@
+1) All data related to temporary activities is stored in a Google Sheet with "Temporary Activities" in the title. Before you change anything in the Google Sheet, save a new version with today's date in the title (e.g. "Temporary Activities 2017-04-23").  Work in the new spreadsheet to add any new data.  This is so that there are older versions of the data available in case things accidentally get erased (which happens).
+2) When you are ready to update the online sortable table, copy and paste all your data from the main tab to the tab called "ready to upload".  You can just paste over whatever's already in there (it's old data and we don't care about it anymore).  Working with your freshly-pasted-in data, delete the gray columns and anything else you don't want published online. 
+3) Cut and paste this data pretty, cleaned-up data into http://tableizer.journalistopia.com/.  Make sure to click the "No CSS" box below the cut-and-paste field. Then click "Tableize it!".
+3) copy and paste the resulting html code into ..., between the <body> and </body> tags
+
+4) at the top of the <body> section, at the top of the html you pasted in, change the table class from "tableizer-table" to "sortable"
+
+5) Copy and paste the entire html code (not just what you pasted in from Tableize) into ...
