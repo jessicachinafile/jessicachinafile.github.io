@@ -1,0 +1,2 @@
+1) update data in spreadsheet (don't forget to turn lat/long into long/lat)
+2) Using the geojson template.html file, copy and paste your new data into the geojson format, making as many copies of the template as needed to accommodate all your new data points.  Be sure not to delete or write over any quotation marks or commas.  If your new data point does not have some types of metadata (for example, a Chinese website), DELETE THAT ENTIRE LINE FROM THE TEMPLATE AND ERASE THE FINAL COMMA FROM THE PRECEDING LINE.
