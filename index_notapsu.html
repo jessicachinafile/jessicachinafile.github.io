@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="./d3.v3.min.js"></script>
+<script src="./SpotMatrix1.js"></script>
+
+<style>
+
+body {
+  font: 12px Arial;
+}
+
+theadRow text {
+  font: 30px sans-serif;
+}
+
+
+path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.tooltip {
+	background: #e6e6e6;
+	box-shadow: 0 0 5px #999999;
+	color: #000000;
+	font-size: 11px;
+  font-weight: bold;
+	left: 130px;
+	padding: 5px;
+	position: absolute;
+	text-align: center;
+	top: 95px;
+	z-index: 10;
+	display: block;
+	opacity: 0;
+}
+
+.table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-spacing: 0px;
+}
+
+td, th, tr {
+    border: 1px solid black;
+}
+
+table{
+    border-collapse: collapse;
+    vertical-align:middle;
+}
+
+td{
+    border: 1px solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="SpotMatrix"></div>
+
+<script>
+
+
+var dataset = [{
+  "Functional Hierarchy": "Trade Unions",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Women",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Science and Technology (Association)",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Banking Regulation",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Disabled Persons",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Insurance Regulation",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Meteorology",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Securities Regulation",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Cyberspace",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Quality Supervision, Inspection, and Quarantine",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Sport",
+  "National-level": 1,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Agriculture",
+  "National-level": 1,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Civil Affairs",
+  "National-level": 11,
+  "Local-level": 10
+  },
+  {
+  "Functional Hierarchy": "Commerce",
+  "National-level": 0,
+  "Local-level": 35
+  },
+  {
+  "Functional Hierarchy": "Culture",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Education",
+  "National-level": 0,
+  "Local-level": 4
+  },
+  {
+  "Functional Hierarchy": "Environmental Protection",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Finance",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Housing and Urban-Rural Development",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Human Resources and Social Security",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Industry and Information Technology",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Justice",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Science and Technology (Ministry)",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Transport",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Water Resources",
+  "National-level": 0,
+  "Local-level": 0
+  },
+
+  {
+  "Functional Hierarchy": "Audits",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Statistics",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Copyright",
+  "National-level": 2,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Development and Reform",
+  "National-level": 3,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Health and Family Planning",
+  "National-level": 5,
+  "Local-level": 12
+  },
+  {
+  "Functional Hierarchy": "Tourism",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Overseas Chinese Affairs",
+  "National-level": 3,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "People's Bank of China",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Industry and Commerce",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Cultural Heritage",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Foreign Experts Affairs",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Press, Publication, Radio, Film, and Television",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Taxation",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Traditional Chinese Medicine",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Work Safety",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Poverty Alleviation and Development",
+  "National-level": 0,
+  "Local-level": 3
+  },
+  {
+  "Functional Hierarchy": "Energy",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Food and Drug",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Forestry",
+  "National-level": 2,
+  "Local-level": 1
+  },
+  {
+  "Functional Hierarchy": "Intellectual Property",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Oceanic",
+  "National-level": 0,
+  "Local-level": 0
+  },
+  {
+  "Functional Hierarchy": "Post",
+  "National-level": 0,
+  "Local-level": 0
+  }
+]
+
+    var chart_options = {
+        spot_radius : 10,
+        spot_cell_padding : 1,
+        spot_cell_margin : 1,
+        min_color : '#e6e6e6',
+        max_color : '#ff1e32',
+        stroke_color : '#ff1e32',
+        spot_matrix_type : 'size'
+    }
+    SpotMatrix(dataset,chart_options);
+
+
+
+
+</script>
+</body>
+</html>
