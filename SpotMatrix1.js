@@ -124,7 +124,7 @@ function SpotMatrix(dataset,chart_options) {
         .data(d3.keys(dataset[0]))
         .enter()
         .append("td")
-        .style({"padding":spotCellPadding+"5px","margin":spotCellMargin+"px","font-family":"PortraitText","font-size":"16px","text-align":"center"})
+        .style({"padding":spotCellPadding+"5px","margin":spotCellMargin+"px","font-family":"PortraitText","font-size":"18px","text-align":"center"})
         .html(function(d) {
             return evalText(d);
         });
