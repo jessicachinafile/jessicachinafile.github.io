@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="d3.v3.min.js"></script>
-<script src="SpotMatrix1.js"></script>
+<script src="./d3.v3.min.js"></script>
+<script src="./SpotMatrix1.js"></script>
 
 <style>
 
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
 body {
-  font: 12px Arial;
+  font-family: 'PortraitText';
+  font-size: 12px;
 }
-
-theadRow text {
-  font: 30px sans-serif;
-}
-
 
 path {
   stroke: steelblue;
@@ -34,8 +79,8 @@ path {
 	background: #e6e6e6;
 	box-shadow: 0 0 5px #999999;
 	color: #000000;
-	font-size: 11px;
-  font-weight: bold;
+  font-family: 'DrukText';
+	font-size: 14px;
 	left: 130px;
 	padding: 5px;
 	position: absolute;
@@ -54,15 +99,18 @@ path {
 
 td, th, tr {
     border: 1px solid black;
+
 }
 
 table{
     border-collapse: collapse;
     vertical-align:middle;
+
 }
 
 td{
     border: 1px solid black;
+
 }
 
 </style>
@@ -76,240 +124,241 @@ td{
 
 
 var dataset = [{
-  "Functional Hierarchy": "Trade Unions",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "All-China Federation of Trade Unions",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Women",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "All-China Women's Federation",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Science and Technology (Association)",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Association for Science <br>and Technology",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Banking Regulation",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Banking Regulatory Commission",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Disabled Persons",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Disabled Persons' Federation",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Insurance Regulation",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Insurance Regulatory Commission",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Meteorology",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Meteorological Administration",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Securities Regulation",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "China Securities Regulatory Commission",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Cyberspace",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Cyberspace Administration of China",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Quality Supervision, Inspection, and Quarantine",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "General Administration of Quality <br>Supervision, Inspection, and Quarantine",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Sport",
-  "National-level": 1,
-  "Local-level": 0
+  "Functional Hierarchy": "General Administration of Sport",
+  "National-<br>level": 1,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Agriculture",
-  "National-level": 1,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Agriculture",
+  "National-<br>level": 1,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Civil Affairs",
-  "National-level": 11,
-  "Local-level": 10
+  "Functional Hierarchy": "Ministry of Civil Affairs",
+  "National-<br>level": 11,
+  "Local-<br>level": 10
   },
   {
-  "Functional Hierarchy": "Commerce",
-  "National-level": 0,
-  "Local-level": 35
+  "Functional Hierarchy": "Ministry of Commerce",
+  "National-<br>level": 0,
+  "Local-<br>level": 35
   },
   {
-  "Functional Hierarchy": "Culture",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Culture",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Education",
-  "National-level": 0,
-  "Local-level": 4
+  "Functional Hierarchy": "Ministry of Education",
+  "National-<br>level": 0,
+  "Local-<br>level": 4
   },
   {
-  "Functional Hierarchy": "Environmental Protection",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Environmental Protection",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Finance",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Finance",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Housing and Urban-Rural Development",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Housing and Urban-Rural <br>Development",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Human Resources and Social Security",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Human Resources and <br>Social Security",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Industry and Information Technology",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Industry and Information <br>Technology",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Justice",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Justice",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Science and Technology (Ministry)",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Science and Technology",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Transport",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Transport",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Water Resources",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "Ministry of Water Resources",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
 
   {
-  "Functional Hierarchy": "Audits",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "National Audit Office",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Statistics",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "National Bureau of Statistics",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Copyright",
-  "National-level": 2,
-  "Local-level": 0
+  "Functional Hierarchy": "National Copyright Administration",
+  "National-<br>level": 2,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Development and Reform",
-  "National-level": 3,
-  "Local-level": 0
+  "Functional Hierarchy": "National Development and Reform <br>Commission",
+  "National-<br>level": 3,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Health and Family Planning",
-  "National-level": 5,
-  "Local-level": 12
+  "Functional Hierarchy": "National Energy Administration",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Tourism",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "National Health and Family Planning <br>Commission",
+  "National-<br>level": 5,
+  "Local-<br>level": 12
   },
   {
-  "Functional Hierarchy": "Overseas Chinese Affairs",
-  "National-level": 3,
-  "Local-level": 0
+  "Functional Hierarchy": "National Tourism Administration",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
+  },
+  {
+  "Functional Hierarchy": "Overseas Chinese Affairs Office of the <br>State Council",
+  "National-<br>level": 3,
+  "Local-<br>level": 0
   },
   {
   "Functional Hierarchy": "People's Bank of China",
-  "National-level": 0,
-  "Local-level": 0
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Industry and Commerce",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration for Industry and <br>Commerce",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Cultural Heritage",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Cultural <br>Heritage",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Foreign Experts Affairs",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Foreign Experts <br>Affairs",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Press, Publication, Radio, Film, and Television",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Press, Publication, <br>Radio, Film, and Television",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Taxation",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Taxation",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Traditional Chinese Medicine",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Traditional <br>Chinese Medicine",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Work Safety",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Administration of Work Safety",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Poverty Alleviation and Development",
-  "National-level": 0,
-  "Local-level": 3
+  "Functional Hierarchy": "State Council Leading Group Office of <br>Poverty Alleviation and Development",
+  "National-<br>level": 0,
+  "Local-<br>level": 3
+  },
+
+  {
+  "Functional Hierarchy": "State Food and Drug Administration",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Energy",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Forestry Administration",
+  "National-<br>level": 2,
+  "Local-<br>level": 1
   },
   {
-  "Functional Hierarchy": "Food and Drug",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Intellectual Property Office",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Forestry",
-  "National-level": 2,
-  "Local-level": 1
+  "Functional Hierarchy": "State Oceanic Administration",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   },
   {
-  "Functional Hierarchy": "Intellectual Property",
-  "National-level": 0,
-  "Local-level": 0
-  },
-  {
-  "Functional Hierarchy": "Oceanic",
-  "National-level": 0,
-  "Local-level": 0
-  },
-  {
-  "Functional Hierarchy": "Post",
-  "National-level": 0,
-  "Local-level": 0
+  "Functional Hierarchy": "State Post Bureau",
+  "National-<br>level": 0,
+  "Local-<br>level": 0
   }
 ]
 
