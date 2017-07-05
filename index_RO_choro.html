@@ -243,10 +243,10 @@
     var path = d3.geo.path().projection(projection)
     var colorScale = d3.scale.quantize().range(colors)
 
-    d3.csv('RObyprov_2017-06-30.csv', function(data) {
+    d3.csv('/RObyprov_2017-06-30.csv', function(data) {
       colorScale.domain([ d3.min(data, function(d) { return d.total }), d3.max(data, function(d) { return d.total })])
 
-      d3.json('china_provinces1.json', function(json) {
+      d3.json('/china_provinces1.json', function(json) {
         for (var i = 0; i < data.length; i++) {
           var dataProvince = data[i].name
           var total = parseInt(data[i].total)
