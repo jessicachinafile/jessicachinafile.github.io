@@ -1,0 +1,264 @@
+<html>
+<head>
+<style>
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+</style>
+</head>
+
+
+<body>
+
+<div id="pieChart"></div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+	"header": {
+		"title": {
+			"text": "NGO Representative Offices' Fields of Work, January-June 2017",
+			"fontSize": 40,
+			"font": "DrukText"
+		},
+		"subtitle": {
+			"text": "Number of Representative Offices Engaged in Certain Sectors as of June 30, 2017",
+			"color": "#3c3c3c",
+			"fontSize": 18,
+			"font": "PortraitText"
+		},
+		"titleSubtitlePadding": 9
+	},
+	"footer": {
+		"color": "#999999",
+		"fontSize": 10,
+		"font": "PortraitText",
+		"location": "bottom-left"
+	},
+	"size": {
+		"canvasWidth": 770,
+		"canvasHeight": 700,
+		"pieOuterRadius": "75%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"content": [
+			{
+				"label": "Trade",
+				"value": 64,
+				"color": "#7a0018"
+			},
+			{
+				"label": "Education",
+				"value": 28,
+				"color": "#f2f2f2"
+			},
+			{
+				"label": "Health",
+				"value": 27,
+				"color": "#ff859d"
+			},
+			{
+				"label": "Youth",
+				"value": 25,
+				"color": "#cc0029"
+			},
+      {
+        "label": "Disaster Relief",
+        "value": 18,
+        "color": "#d8d8d8"
+      },
+      {
+        "label": "International Relations",
+        "value": 17,
+        "color": "#ff1f4b"
+      },
+      {
+        "label": "Poverty Alleviation",
+        "value": 15,
+        "color": "#999999"
+      },
+      {
+				"label": "Environment",
+				"value": 13,
+				"color": "#8f001d"
+			},
+      {
+				"label": "Economic Development",
+				"value": 11,
+				"color": "#ff708d"
+			},
+      {
+				"label": "Arts and Culture",
+				"value": 7,
+				"color": "#555555"
+			},
+      {
+        "label": "Capacity-Building",
+        "value": 6,
+        "color": "#ffc2ce"
+      },
+      {
+				"label": "Disabilities",
+				"value": 5,
+				"color": "#231f1f"
+			},
+      {
+				"label": "Labor and Migrants",
+				"value": 5,
+				"color": "#a30021"
+			},
+			{
+				"label": "Infrastructure",
+				"value": 4,
+				"color": "#e6e6e6"
+			},
+			{
+				"label": "Rural Issues",
+				"value": 3,
+				"color": "#ffd6de"
+			},
+			{
+				"label": "Technology",
+				"value": 3,
+				"color": "#f50031"
+			},
+			{
+				"label": "Animal Protection",
+				"value": 2,
+				"color": "#cccccc"
+			},
+			{
+				"label": "Ethnic Affairs",
+				"value": 2,
+				"color": "#ff476c"
+			},
+			{
+				"label": "Law and Governance",
+				"value": 2,
+				"color": "#666666"
+			},
+      {
+				"label": "Women's Issues",
+				"value": 2,
+				"color": "#e0002d"
+			},
+      {
+        "label": "Aging",
+        "value": 1,
+        "color": "#ff99ad"
+      },
+      {
+        "label": "Agriculture",
+        "value": 1,
+        "color": "#3c3c3c"
+      },
+      {
+        "label": "Energy",
+        "value": 1,
+        "color": "#b80025"
+      },
+      {
+        "label": "Sport",
+        "value": 1,
+        "color": "#ffebef"
+      },
+      {
+        "label": "Tourism",
+        "value": 1,
+        "color": "#000000"
+      }
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"format": "value",
+			"hideWhenLessThanPercentage": 2
+		},
+		"mainLabel": {
+			"color": "#3c3c3c",
+			"fontSize": 16,
+			"font": "PortraitText"
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#ffffff",
+			"fontSize": 12
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	}
+});
+</script>
+
+</body>
+</html>
