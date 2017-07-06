@@ -121,6 +121,16 @@ rect:hover {  fill:black; }
   text-align: center;
 }
 
+div.tooltip1 {
+  overflow:hidden;
+  max-width: 90%;
+  height: auto;
+  border-radius: 0px;
+  font: 14px PortraitText;
+  padding: 0px;
+  text-align: left;
+}
+
 
 
 #wrapper
@@ -165,7 +175,6 @@ padding:0px;
 <div id="header"><h1>Representative Offices’ Fields of Work by Province, January-June 2017</h1></div>
 <div id='legenddiv'></div>
 <div id='piediv'></div>
-
 <div id='histogramdiv'></div>
 
 </div>
@@ -973,9 +982,7 @@ var freqData=[
 dashboard('#dashboard',freqData);
 
 d3.select("body").append("div")
-.attr("class", "tooltip")
-.attr("font-size", 14)
-.attr("font-family", "PortraitText")
+.attr("class", "tooltip1")
 .html("<em><ul><li>&ldquo;Province&rdquo; here also refers to provincial-level municipalities and autonomous regions.</li><li>Each foreign NGO representative office may be engaged in multiple fields of work, as listed on the Ministry of Public Security website, and therefore the totals shown in this chart are higher than the total number of representative offices during the same period.</li><li>Each representative office has only one country or region or origin, as listed by the Ministry of Public Security website.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li></ul></em>");
 
 </script>
