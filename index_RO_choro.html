@@ -102,6 +102,15 @@
     border: 1px;
     pointer-events: none;
   }
+  div.tooltip1 {
+    overflow:hidden;
+    max-width: 90%;
+    height: auto;
+    border-radius: 0px;
+    font: 14px PortraitText;
+    padding: 0px;
+    text-align: left;
+  }
 
   .axis path, .axis line {
     fill: none;
@@ -139,11 +148,10 @@
     <div id="wrapper">
     <div id="header"><h1>Map of Representative Offices by Province, January-June 2017</h1></div>
     <div id='mapdiv'></div>
-    <div id='notediv'></div>
     </div>
 
 
-    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script>
 
   //code taken from both http://bl.ocks.org/fraserxu/fc1217314735bf608df3 and http://bl.ocks.org/KoGor/5685876
@@ -243,10 +251,10 @@
     var path = d3.geo.path().projection(projection)
     var colorScale = d3.scale.quantize().range(colors)
 
-    d3.csv('/RObyprov_2017-06-30.csv', function(data) {
+    d3.csv('RObyprov_2017-06-30.csv', function(data) {
       colorScale.domain([ d3.min(data, function(d) { return d.total }), d3.max(data, function(d) { return d.total })])
 
-      d3.json('/china_provinces1.json', function(json) {
+      d3.json('china_provinces1.json', function(json) {
         for (var i = 0; i < data.length; i++) {
           var dataProvince = data[i].name
           var total = parseInt(data[i].total)
@@ -271,7 +279,11 @@
 
       })
 
-    })
+    });
+    d3.select("body").append("div")
+    .attr("class", "tooltip1")
+    .html("<em><ul><li>&ldquo;Province&rdquo; here also refers to provincial-level municipalities and autonomous regions.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li><li>Only provinces that have registered foreign NGO representative offices are shown here.</li></ul></em>");
+
 
 
 
