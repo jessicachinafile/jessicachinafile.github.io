@@ -189,7 +189,7 @@ function dashboard(id, fData){
     // function to handle histogram.
     //USE THIS AREA TO ADJUST LOCATION OF X AXIS AND MAX BAR HEIGHT
     function histoGram(fD){
-        var hG={},    hGDim = {t: 50, r: 0, b: 90, l: 0};
+        var hG={},    hGDim = {t: 50, r: 0, b: 140, l: 0};
         hGDim.w = 500 - hGDim.l - hGDim.r,
         hGDim.h = 400 - hGDim.t - hGDim.b;
 
@@ -984,4 +984,11 @@ var freqData=[
 ;
 
 dashboard('#dashboard',freqData);
+
+d3.select("body").append("div")
+.attr("class", "tooltip")
+.attr("font-size", 14)
+.attr("font-family", "PortraitText")
+.html("<em><ul><li>Each foreign NGO representative office may be engaged in multiple fields of work, as listed on the Ministry of Public Security website, and therefore the totals shown in this chart are higher than the total number of representative offices during the same period.</li><li>Each representative office has only one country or region or origin, as listed by the Ministry of Public Security website.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li></ul></em>");
+
 </script>
