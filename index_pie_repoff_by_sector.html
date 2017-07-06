@@ -49,32 +49,84 @@
   font-weight: 500;
   font-style: italic;
 }
+body{
+    max-width:800px;
+    max-height:500px;
+    font-size:88%;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+div.tooltip {
+  overflow:hidden;
+  max-width: 90%;
+  position:relative;
+  top:-120px;
+  height: auto;
+  border-radius: 8px;
+  font: 14px PortraitText;
+  padding: 5px;
+  text-align: left;
+}
+#wrapper {
+width:95%;
+max-width: 770px;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#pieChart {
+position:relative;
+left:-50px;
+top:-80px;
+}
+
 </style>
 </head>
 
 
 <body>
 
-<div id="pieChart"></div>
+  <div id="wrapper">
+  <div id="header"><h1>Number of Representative Offices Engaged in Certain Fields of Work, January-June 2017</h1></div>
+  <div id="pieChart"></div>
+  </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
 <script src="d3pie.min.js"></script>
 <script>
 var pie = new d3pie("pieChart", {
-	"header": {
-		"title": {
-			"text": "NGO Representative Offices' Fields of Work, January-June 2017",
-			"fontSize": 40,
-			"font": "DrukText"
-		},
-		"subtitle": {
-			"text": "Number of Representative Offices Engaged in Certain Sectors as of June 30, 2017",
-			"color": "#3c3c3c",
-			"fontSize": 18,
-			"font": "PortraitText"
-		},
-		"titleSubtitlePadding": 9
-	},
+	//"header": {
+		//"title": {
+		//	"text": "NGO Representative Offices' Fields of Work, January-June 2017",
+		//	"fontSize": 40,
+		//	"font": "DrukText"
+		//},
+		//"subtitle": {
+		//	"text": "Number of Representative Offices Engaged in Certain Sectors as of June 30, 2017",
+		//	"color": "#3c3c3c",
+		//	"fontSize": 18,
+	//		"font": "PortraitText"
+	//	},
+	//	"titleSubtitlePadding": 9
+	//},
 	"footer": {
 		"color": "#999999",
 		"fontSize": 10,
@@ -83,7 +135,7 @@ var pie = new d3pie("pieChart", {
 	},
 	"size": {
 		"canvasWidth": 770,
-		"canvasHeight": 700,
+		"canvasHeight": 500,
 		"pieOuterRadius": "75%"
 	},
 	"data": {
@@ -226,7 +278,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"mainLabel": {
 			"color": "#3c3c3c",
-			"fontSize": 16,
+			"fontSize": 13,
 			"font": "PortraitText"
 		},
 		"percentage": {
@@ -251,13 +303,21 @@ var pie = new d3pie("pieChart", {
 			"size": 8
 		}
 	},
-	"misc": {
+  "misc": {
 		"gradient": {
 			"enabled": true,
 			"percentage": 100
-		}
+		},
+		"canvasPadding":{
+      "top":30,"right":5,"bottom":0,"left":5}
 	}
+
 });
+d3.select("body").append("div")
+.attr("class", "tooltip")
+.html("<em><ul><li>Each foreign NGO representative office may be engaged in multiple fields of work, as listed on the Ministry of Public Security website, and therefore the totals shown in this chart are higher than the total number of representative offices during the same period.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li></ul></em>");
+
+
 </script>
 
 </body>
