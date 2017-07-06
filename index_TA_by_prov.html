@@ -1,0 +1,313 @@
+<html>
+<head>
+<style>
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+body{
+    max-width:800px;
+    max-height:200px;
+    font-size:88%;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+
+
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+
+div.tooltip {
+  overflow:hidden;
+  max-width: 90%;
+  position:relative;
+  top:-100px;
+  height: auto;
+  border-radius: 0px;
+  font: 14px PortraitText;
+  padding: 0px;
+  text-align: left;
+}
+
+
+
+#wrapper {
+width:95%;
+max-width: 770px;
+margin:0 auto;
+overflow:hidden;
+}
+
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+
+#pieChart {
+position:relative;
+left:-50px;
+top:-80px;
+}
+
+
+</style>
+</head>
+
+
+<body>
+<div id="wrapper">
+<div id="header"><h1>Number of Temporary Activities Held in Each Province, January-June 2017</h1></div>
+<div id="pieChart"></div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+
+
+
+var pie = new d3pie("pieChart", {
+
+	"size": {
+		"canvasWidth": 770,
+		"canvasHeight": 400,
+		"pieOuterRadius": "80%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"content": [
+      {
+        "label": "Sichuan",
+        "value": 28,
+        "color": "#000000"
+      },
+      {
+        "label": "Guangdong",
+        "value": 16,
+        "color": "#ffebef"
+      },
+      {
+        "label": "Guizhou",
+        "value": 13,
+        "color": "#b80025"
+      },
+      {
+        "label": "Shaanxi",
+        "value": 11,
+        "color": "#3c3c3c"
+      },
+      {
+        "label": "Gansu",
+        "value": 10,
+        "color": "#ff99ad"
+      },
+      {
+        "label": "Yunnan",
+        "value": 9,
+        "color": "#e0002d"
+      },
+      {
+				"label": "Beijing",
+				"value": 8,
+				"color": "#666666"
+			},
+			{
+				"label": "Shanghai",
+				"value": 7,
+				"color": "#ff476c"
+			},
+      {
+        "label": "Inner Mongolia",
+        "value": 6,
+        "color": "#cccccc"
+      },
+      {
+				"label": "Chongqing",
+				"value": 5,
+				"color": "#f50031"
+			},
+      {
+        "label": "Zhejiang",
+        "value": 5,
+        "color": "#ffd6de"
+      },
+      {
+				"label": "Guangxi",
+				"value": 4,
+				"color": "#e6e6e6"
+			},
+      {
+        "label": "Qinghai",
+        "value": 4,
+        "color": "#a30021"
+      },
+      {
+        "label": "Anhui",
+        "value": 3,
+        "color": "#231f1f"
+      },
+      {
+        "label": "Jiangsu",
+        "value": 3,
+        "color": "#ffc2ce"
+      },
+      {
+        "label": "Henan",
+        "value": 2,
+        "color": "#555555"
+      },
+      {
+				"label": "Hubei",
+				"value": 2,
+				"color": "#ff708d"
+			},
+      {
+        "label": "Hunan",
+        "value": 2,
+        "color": "#8f001d"
+      },
+      {
+        "label": "Fujian",
+        "value": 1,
+        "color": "#999999"
+      },
+      {
+        "label": "Hebei",
+        "value": 1,
+        "color": "#ff1f4b"
+      },
+      {
+        "label": "Heilongjiang",
+        "value": 1,
+        "color": "#d8d8d8"
+      },
+      {
+        "label": "Liaoning",
+        "value": 1,
+        "color": "#cc0029"
+      },
+      {
+        "label": "Xinjiang",
+        "value": 1,
+        "color": "#ff859d"
+      },
+			{
+				"label": "Tibet",
+				"value": 1,
+				"color": "#f2f2f2"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"format": "value",
+			"hideWhenLessThanPercentage": 2
+		},
+		"mainLabel": {
+			"color": "#3c3c3c",
+			"fontSize": 12,
+			"font": "PortraitText"
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#ffffff",
+			"fontSize": 12
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+
+
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		},
+    "canvasPadding":{
+      "top":30,"right":5,"bottom":0,"left":5}
+	}
+});
+
+d3.select("body").append("div")
+.attr("class", "tooltip")
+.html("<em><ul><li>&ldquo;Province&rdquo; here also refers to provincial-level municipalities and autonomous regions.</li><li>Only activities that began on or before June 30, 2017 are shown here. The duration of any given temporary activity may extend beyond that date.</li></ul></em>");
+
+</script>
+
+</body>
+</html>
