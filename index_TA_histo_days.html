@@ -152,8 +152,8 @@ padding:5px;
 
   </div>
 
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
 //changed bottom margin to allow for rotated x-axis labels
@@ -196,7 +196,7 @@ var svg = d3.select("body").append("svg")
 
 svg.call(tip);
 
-d3.tsv('/TAlengthday.tsv', type, function(error, data) {
+d3.tsv('./TAlengthday.tsv', type, function(error, data) {
   x.domain(data.map(function(d) { return d.length; }));
   y.domain([0, d3.max(data, function(d) { return d.number; })]);
 
