@@ -189,11 +189,11 @@ padding:0px;
 
 function dashboard(id, fData){
     var barColor = '#666666';
-    function segColor(c){ return {Aging:"#520010", Agriculture:"#7a0018", Animals:"#a30021", Culture:"#cc0029", Capacity:"#f50031", Disabilities:"#ff1f4b", Disaster:"#ff476c", Development:"#ff708d", Education:"#ff99ad", Energy:"#ffc2ce", Environment:"#ff335c", Ethnic:"#0b536f", Health:"#0f6f95", Infrastructure:"#128aba", International:"#16a6df", Labor:"#33b7eb", Law:"#58c4ee", Poverty:"#7dd1f2", Rural:"#a2def6", Sport:"#c7ebf9", Technology:"#231f1f", Tourism:"#555555", Trade:"#999999", Women:"#d8d8d8", Youth:"#f2f2f2"
+    function segColor(c){ return {Aging:"#520010", Agriculture:"#7a0018", Animals:"#a30021", Culture:"#cc0029", Capacity:"#f50031", Disabilities:"#ff1f4b", Disaster:"#ff476c", Development:"#ff708d", Education:"#ff99ad", Energy:"#ffc2ce", Environment:"#ff335c", Ethnic:"#0b536f", Health:"#0f6f95", Infrastructure:"#128aba", International:"#16a6df", Labor:"#33b7eb", Law:"#58c4ee", Media: "#6acaf0", Poverty:"#7dd1f2", Rural:"#a2def6", Sport:"#c7ebf9", Technology:"#231f1f", Tourism:"#555555", Trade:"#999999", Women:"#d8d8d8", Youth:"#f2f2f2"
   }[c]; }
 
     // compute total for each state.
-    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Poverty+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Women+d.freq.Youth;});
+    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Media+d.freq.Poverty+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Women+d.freq.Youth;});
 
     // function to handle histogram.
     //USE THIS AREA TO ADJUST LOCATION OF X AXIS AND MAX BAR HEIGHT
@@ -407,7 +407,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
     }
 
     // calculate total frequency by segment for all state.
-    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Health','Infrastructure','International','Labor','Law','Poverty','Rural','Sport','Technology','Tourism','Trade','Women','Youth'].map(function(d){
+    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Health','Infrastructure','International','Labor','Law','Media','Poverty','Rural','Sport','Technology','Tourism','Trade','Women','Youth'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
     });
 
@@ -426,6 +426,36 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 <script>
 var freqData=[
   {
+    Province: "All of China",
+    freq:{
+  	Aging: 0,
+  	Agriculture: 0,
+  	Animals: 0,
+  	Culture: 0,
+  	Capacity: 0,
+  	Disabilities: 0,
+  	Disaster: 0,
+  	Development: 0,
+  	Education: 0,
+  	Energy: 0,
+  	Environment: 0,
+  	Ethnic: 0,
+  	Health: 0,
+  	Infrastructure: 0,
+  	International: 0,
+  	Labor: 0,
+  	Law: 0,
+    Media: 1,
+  	Poverty: 0,
+  	Rural: 0,
+  	Sport: 0,
+  	Technology: 0,
+  	Tourism: 0,
+  	Trade: 0,
+  	Women: 0,
+  	Youth: 0}
+  	},
+{
   	Province: "Anhui",
     freq:{
   	Aging: 0,
@@ -445,6 +475,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 1,
   	Rural: 0,
   	Sport: 0,
@@ -474,6 +505,7 @@ var freqData=[
 	International: 0,
 	Labor: 1,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -503,6 +535,7 @@ var freqData=[
 	International: 0,
 	Labor: 1,
 	Law: 0,
+  Media: 0,
 	Poverty: 1,
 	Rural: 1,
 	Sport: 0,
@@ -532,6 +565,7 @@ var freqData=[
   	International: 0,
   	Labor: 1,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 0,
   	Sport: 0,
@@ -561,6 +595,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 3,
 	Rural: 3,
 	Sport: 0,
@@ -590,6 +625,7 @@ var freqData=[
 	International: 2,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 7,
 	Rural: 0,
 	Sport: 0,
@@ -619,6 +655,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -648,6 +685,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 5,
 	Rural: 0,
 	Sport: 0,
@@ -677,6 +715,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -706,6 +745,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 0,
   	Sport: 0,
@@ -735,6 +775,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 0,
   	Sport: 0,
@@ -764,6 +805,7 @@ var freqData=[
 	International: 0,
 	Labor: 1,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -793,6 +835,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -822,6 +865,7 @@ var freqData=[
   	International: 1,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 0,
   	Sport: 0,
@@ -851,6 +895,7 @@ var freqData=[
 	International: 1,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -880,6 +925,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -909,6 +955,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 1,
   	Sport: 0,
@@ -938,6 +985,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 3,
 	Rural: 0,
 	Sport: 0,
@@ -967,6 +1015,7 @@ var freqData=[
 	International: 3,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -996,6 +1045,7 @@ var freqData=[
 	International: 1,
 	Labor: 1,
 	Law: 0,
+  Media: 0,
 	Poverty: 4,
 	Rural: 3,
 	Sport: 0,
@@ -1025,6 +1075,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 0,
 	Sport: 0,
@@ -1054,6 +1105,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 0,
   	Sport: 0,
@@ -1083,6 +1135,7 @@ var freqData=[
 	International: 0,
 	Labor: 0,
 	Law: 0,
+  Media: 0,
 	Poverty: 0,
 	Rural: 1,
 	Sport: 1,
@@ -1112,6 +1165,7 @@ var freqData=[
   	International: 0,
   	Labor: 0,
   	Law: 0,
+    Media: 0,
   	Poverty: 0,
   	Rural: 2,
   	Sport: 0,
