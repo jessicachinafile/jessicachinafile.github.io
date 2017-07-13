@@ -6,6 +6,7 @@ body {
   max-width:800px;
   max-height:700px;
   font-size:88%;
+  font-family: Arial;
 }
 
 .axis path,
@@ -57,6 +58,12 @@ body {
   left: 0;
 }
 
+
+.axislabel {
+  font-family: PortraitText;
+  font-style:italic;
+  font-size:18px;
+}
 
 h1 {
     font-family:DrukText;
@@ -152,12 +159,12 @@ padding:5px;
 
   </div>
 
-  <script src="./d3.v3.min.js"></script>
-  <script src="./d3.tip.v0.6.3.js"></script>
+  <script src="d3.v3.min.js"></script>
+  <script src="d3.tip.v0.6.3.js"></script>
 <script>
 
 //changed bottom margin to allow for rotated x-axis labels
-var margin = {top: 30, right: 20, bottom: 90, left: 50},
+var margin = {top: 30, right: 20, bottom: 90, left: 80},
     width = 700 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -207,7 +214,12 @@ d3.tsv("ROmultoffices.tsv", type, function(error, data) {
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-
+      .append("text")
+      .attr("x", 580)
+      .attr("dy", "2em")
+      .attr("class", "axislabel")
+      .style("text-anchor", "end")
+      .text("Number of Offices");
     ;
 
   svg.append("g")
@@ -215,10 +227,11 @@ d3.tsv("ROmultoffices.tsv", type, function(error, data) {
       .call(yAxis)
       .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
+      .attr("y", -50)
       .attr("dy", ".71em")
-      .style("text-anchor", "end");
-
+      .attr("class", "axislabel")
+      .style("text-anchor", "end")
+      .text("Number of NGOs");
 
   svg.selectAll(".bar")
       .data(data)
@@ -239,4 +252,3 @@ function type(d) {
 }
 
 </script>
-
