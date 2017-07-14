@@ -59,10 +59,10 @@ body {
 }
 
 .axislabel {
-  font-family: PortraitText;
-  font-style:italic;
-  font-size:18px;
+  font-family: DrukText;
+  font-size:22px;
 }
+
 
 h1 {
     font-family:DrukText;
@@ -77,7 +77,18 @@ h2 {
     color: #3c3c3c;
     font-weight: normal;
     line-height:12PX;
+}
 
+div.tooltip {
+  overflow:hidden;
+  max-width: 90%;
+  position:relative;
+
+  height: auto;
+  border-radius: 0px;
+  font: 14px PortraitText;
+  padding: 0px;
+  text-align: left;
 }
 
 #wrapper {
@@ -163,7 +174,7 @@ padding:5px;
 <script>
 
 //changed bottom margin to allow for rotated x-axis labels
-var margin = {top: 30, right: 20, bottom: 90, left: 80},
+var margin = {top: 30, right: 20, bottom: 65, left: 80},
     width = 700 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -248,6 +259,11 @@ d3.tsv('TAlengthday.tsv', type, function(error, data) {
 function type(d) {
   d.number = +d.number;
   return d;
-}
+};
+
+d3.select("body").append("div")
+.attr("class", "tooltip")
+
+.html("<em><ul><li>Only activities that began on or before June 30, 2017 are shown here. The duration of any given temporary activity may extend beyond that date.</li></ul></em>");
 
 </script>
