@@ -97,7 +97,7 @@ rect:hover {  fill:black; }
 .legend td{
     padding:4px 5px;
     vertical-align:bottom;
-    font-size: 14px;
+    font-size: 12px;
 
 }
 .legendFreq, .legendPerc{
@@ -172,7 +172,7 @@ padding:0px;
 
 
 <div id="wrapper">
-<div id="header"><h1>Number of Representative Offices in Certain Fields of Work, by NGOs’ Country/Region of Origin, January-June 2017</h1></div>
+<div id="header"><h1>Number of Representative Offices in Certain Fields of Work, by NGOs’ Country/Region of Origin, January-July 2017</h1></div>
 <div id='legenddiv'></div>
 <div id='piediv'></div>
 <div id='histogramdiv'></div>
@@ -189,11 +189,11 @@ padding:0px;
 
 function dashboard(id, fData){
     var barColor = '#666666';
-    function segColor(c){ return {Aging:"#520010", Agriculture:"#7a0018", Animals:"#a30021", Culture:"#cc0029", Capacity:"#f50031", Disabilities:"#ff1f4b", Disaster:"#ff476c", Development:"#ff708d", Education:"#ff99ad", Energy:"#ffc2ce", Environment:"#ff335c", Ethnic:"#0b536f", Health:"#0f6f95", Infrastructure:"#128aba", International:"#16a6df", Labor:"#33b7eb", Law:"#58c4ee", Poverty:"#7dd1f2", Rural:"#a2def6", Sport:"#c7ebf9", Technology:"#231f1f", Tourism:"#555555", Trade:"#999999", Women:"#d8d8d8", Youth:"#f2f2f2"
+    function segColor(c){ return {Aging:"#520010", Agriculture:"#7a0018", Animals:"#a30021", Culture:"#cc0029", Capacity:"#f50031", Disabilities:"#ff1f4b", Disaster:"#ff476c", Development:"#ff708d", Education:"#ff99ad", Energy:"#ffc2ce", Environment:"#ff335c", Ethnic:"#0b536f", Health:"#0f6f95", Infrastructure:"#128aba", International:"#16a6df", Labor:"#33b7eb", Law:"#58c4ee", Poverty:"#7dd1f2", Religion: "#0d6182", Rural:"#a2def6", Sport:"#c7ebf9", Technology:"#231f1f", Tourism:"#555555", Trade:"#999999", Women:"#d8d8d8", Youth:"#f2f2f2"
   }[c]; }
 
     // compute total for each state.
-    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Poverty+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Women+d.freq.Youth;});
+    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Poverty+d.freq.Religion+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Women+d.freq.Youth;});
 
     // function to handle histogram.
     //USE THIS AREA TO ADJUST LOCATION OF X AXIS AND MAX BAR HEIGHT
@@ -407,7 +407,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
     }
 
     // calculate total frequency by segment for all state.
-    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Health','Infrastructure','International','Labor','Law','Poverty','Rural','Sport','Technology','Tourism','Trade','Women','Youth'].map(function(d){
+    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Health','Infrastructure','International','Labor','Law','Poverty','Religion','Rural','Sport','Technology','Tourism','Trade','Women','Youth'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
     });
 
@@ -450,6 +450,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -478,11 +479,12 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
 	Tourism: 0,
-	Trade: 1,
+	Trade: 2,
 	Women: 0,
 	Youth: 0}},
 {
@@ -506,6 +508,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -534,6 +537,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -562,6 +566,7 @@ var freqData=[
 	Labor: 2,
 	Law: 2,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 1,
 	Sport: 0,
 	Technology: 0,
@@ -576,27 +581,28 @@ var freqData=[
 	Agriculture: 0,
 	Animals: 0,
 	Culture: 6,
-	Capacity: 4,
-	Disabilities: 1,
-	Disaster: 14,
+	Capacity: 6,
+	Disabilities: 3,
+	Disaster: 20,
 	Development: 0,
-	Education: 11,
+	Education: 15,
 	Energy: 0,
 	Environment: 1,
 	Ethnic: 1,
-	Health: 7,
-	Infrastructure: 3,
-	International: 3,
-	Labor: 3,
+	Health: 9,
+	Infrastructure: 5,
+	International: 5,
+	Labor: 4,
 	Law: 0,
-	Poverty: 12,
-	Rural: 1,
+	Poverty: 14,
+  Religion: 0,
+	Rural: 3,
 	Sport: 0,
 	Technology: 0,
 	Tourism: 0,
-	Trade: 6,
+	Trade: 7,
 	Women: 0,
-	Youth: 11}},
+	Youth: 17}},
 {
 	origin: "India",
 	freq:{
@@ -618,6 +624,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -643,14 +650,15 @@ var freqData=[
 	Health: 0,
 	Infrastructure: 0,
 	International: 1,
-	Labor: 0,
+	Labor: 1,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 1,
 	Tourism: 1,
-	Trade: 11,
+	Trade: 13,
 	Women: 0,
 	Youth: 0}},
 {
@@ -674,6 +682,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -702,6 +711,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -730,6 +740,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -758,6 +769,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -786,6 +798,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -814,6 +827,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 1,
@@ -842,6 +856,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -870,6 +885,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 1,
+  Religion: 0,
 	Rural: 1,
 	Sport: 1,
 	Technology: 0,
@@ -883,28 +899,58 @@ var freqData=[
 	Aging: 0,
 	Agriculture: 0,
 	Animals: 0,
-	Culture: 0,
-	Capacity: 0,
+	Culture: 2,
+	Capacity: 1,
 	Disabilities: 0,
 	Disaster: 0,
 	Development: 0,
-	Education: 0,
+	Education: 1,
 	Energy: 0,
 	Environment: 0,
 	Ethnic: 0,
 	Health: 0,
 	Infrastructure: 0,
-	International: 0,
+	International: 2,
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 1,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
 	Tourism: 0,
-	Trade: 3,
+	Trade: 4,
 	Women: 0,
-	Youth: 0}},
+	Youth: 1}},
+  {
+  	origin: "Turkey",
+  	freq:{
+  	Aging: 0,
+  	Agriculture: 0,
+  	Animals: 0,
+  	Culture: 1,
+  	Capacity: 0,
+  	Disabilities: 0,
+  	Disaster: 0,
+  	Development: 0,
+  	Education: 0,
+  	Energy: 0,
+  	Environment: 0,
+  	Ethnic: 0,
+  	Health: 0,
+  	Infrastructure: 0,
+  	International: 1,
+  	Labor: 0,
+  	Law: 0,
+  	Poverty: 0,
+    Religion: 0,
+  	Rural: 0,
+  	Sport: 0,
+  	Technology: 0,
+  	Tourism: 1,
+  	Trade: 1,
+  	Women: 0,
+  	Youth: 0}},
 {
 	origin: "United Arab Emirates",
 	freq:{
@@ -926,6 +972,7 @@ var freqData=[
 	Labor: 0,
 	Law: 0,
 	Poverty: 0,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
@@ -954,11 +1001,12 @@ var freqData=[
 	Labor: 0,
 	Law: 1,
 	Poverty: 2,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 0,
 	Tourism: 0,
-	Trade: 2,
+	Trade: 3,
 	Women: 0,
 	Youth: 1}},
 {
@@ -974,19 +1022,20 @@ var freqData=[
 	Development: 5,
 	Education: 13,
 	Energy: 1,
-	Environment: 8,
+	Environment: 9,
 	Ethnic: 0,
-	Health: 11,
+	Health: 13,
 	Infrastructure: 1,
 	International: 5,
 	Labor: 0,
 	Law: 0,
 	Poverty: 4,
+  Religion: 0,
 	Rural: 0,
 	Sport: 0,
 	Technology: 1,
-	Tourism: 0,
-	Trade: 17,
+	Tourism: 1,
+	Trade: 19,
 	Women: 3,
 	Youth: 8}}
 ]
