@@ -1,6 +1,104 @@
-<html>
-<head>
+<!DOCTYPE html>
+<meta charset="utf-8">
 <style>
+body {
+  max-width:800px;
+  max-height:700px;
+  font-size:88%;
+    font-family: Arial;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.bar {
+  fill: #a30021;
+  fill-opacity: .9;
+}
+.bar:hover {
+  fill: #3d000c ;
+}
+.x.axis path {
+  display: none;
+}
+.d3-tip {
+  line-height: 1;
+  font-size: 20px;
+  font-family: DrukText;
+  padding: 12px;
+  background: #e6e6e6;
+  color: #000;
+  border-radius: 2px;
+}
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: #e6e6e6;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+.axislabel {
+  font-family: DrukText;
+  font-size:22px;
+}
+label {
+  position: relative;
+  top: -25px;
+  left: 575px;
+  font-family: DrukText;
+  font-size:16px;
+}
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+div.tooltip {
+  overflow:hidden;
+  max-width: 90%;
+  position:relative;
+  height: auto;
+  border-radius: 0px;
+  font: 14px PortraitText;
+  padding: 0px;
+  text-align: left;
+}
+#wrapper {
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#histogramdiv {
+padding:5px;
+}
 @font-face {
    font-family: 'DrukText';
    src: url('./fonts/Druk-Medium-Web.woff');
@@ -49,245 +147,116 @@
   font-weight: 500;
   font-style: italic;
 }
-	
-body{
-    max-width:800px;
-    max-height:500px;
-    font-size:88%;
-}
-	
-h1 {
-    font-family:DrukText;
-    font-size: 40px;
-    display: block;
-}
-
-
-h2 {
-    font-family:PortraitText;
-    font-size: 18px;
-    color: #3c3c3c;
-    font-weight: normal;
-    line-height:12PX;
-}
-
-div.tooltip {
-  overflow:hidden;
-  max-width: 90%;
-  position:relative;
-  top:-120px;
-  height: auto;
-  border-radius: 8px;
-  font: 14px PortraitText;
-  padding: 5px;
-  text-align: left;
-}
-
-#wrapper {
-width:95%;
-max-width: 770px;
-margin:0 auto;
-overflow:hidden;
-}
-
-#header
-{
-overflow:hidden;
-max-width: 90%;
-margin-bottom:5px;
-text-align:center;
-vertical-align: text-top;
-}
-
-#pieChart {
-position:relative;
-left:-50px;
-top:-80px;
-}
-
-
 </style>
-</head>
-
-
 <body>
-<div id="wrapper">
-<div id="header"><h1>Number of Representative Offices Registered in Each Province, January-June 2017</h1></div>
-<div id="pieChart"></div>
-</div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
-<script src="d3pie.min.js"></script>
+
+  <div id="wrapper">
+  <div id="header"><h1>Number of Representative Offices Registered in Each Province, January-July 2017</h1></div>
+<label><input type="checkbox"> Sort values</label>
+<div id="histogramdiv"></div>
+  </div>
+
+
+  <script src="./d3.v3.min.js"></script>
+  <script src="./d3.tip.v0.6.3.js"></script>
 <script>
-
-
-
-var pie = new d3pie("pieChart", {
-	"footer": {
-		"color": "#999999",
-		"fontSize": 10,
-		"font": "PortraitText",
-		"location": "bottom-left"
-	},
-	"size": {
-		"canvasWidth": 770,
-		"canvasHeight": 500,
-		"pieOuterRadius": "75%"
-	},
-	"data": {
-		"sortOrder": "value-desc",
-		"content": [
-			{
-				"label": "Beijing",
-				"value": 47,
-				"color": "#ff0032"
-			},
-			{
-				"label": "Shanghai",
-				"value": 35,
-				"color": "#999999"
-			},
-			{
-				"label": "Guangdong",
-				"value": 12,
-				"color": "#ff335c"
-			},
-			{
-				"label": "Yunnan",
-				"value": 9,
-				"color": "#cccccc"
-			},
-      {
-        "label": "Sichuan",
-        "value": 5,
-        "color": "#666666"
-      },
-      {
-        "label": "Tianjin",
-        "value": 5,
-        "color": "#ff5c7c"
-      },
-			    {
-				"label": "Gansu",
-				"value": 4,
-				"color": "#e6e6e6"
-			},
-      {
-        "label": "Liaoning",
-        "value": 4,
-        "color": "#b80025"
-      },
-      {
-				"label": "Shandong",
-				"value": 4,
-				"color": "#d8d8d8"
-			},
-						{
-				"label": "Chongqing",
-				"value": 3,
-				"color": "#ffadbe"
-			},
-			
-      {
-				"label": "Hunan",
-				"value": 3,
-				"color": "#555555"
-			},
-      {
-				"label": "Jiangsu",
-				"value": 3,
-				"color": "#ff708d"
-			},
-      {
-        "label": "Shaanxi",
-        "value": 3,
-        "color": "#8f001d"
-      },
-  
-      {
-				"label": "Hubei",
-				"value": 2,
-				"color": "#3c3c3c"
-			},
-
-			{
-				"label": "Guangxi",
-				"value": 1,
-				"color": "#520010"
-			},
-			{
-				"label": "Guizhou",
-				"value": 1,
-				"color": "#f2f2f2"
-			},
-			{
-				"label": "Heilongjiang",
-				"value": 1,
-				"color": "#231f1f"
-			},
-			{
-				"label": "Jiangxi",
-				"value": 1,
-				"color": "#ffebef"
-			},
-			{
-				"label": "Tibet",
-				"value": 1,
-				"color": "#290008"
-			}
-		]
-	},
-	"labels": {
-		"outer": {
-			"pieDistance": 32
-		},
-		"inner": {
-			"format": "value",
-			"hideWhenLessThanPercentage": 2
-		},
-		"mainLabel": {
-			"color": "#3c3c3c",
-			"fontSize": 16,
-			"font": "PortraitText"
-		},
-		"percentage": {
-			"color": "#ffffff",
-			"decimalPlaces": 0
-		},
-		"value": {
-			"color": "#ffffff",
-			"fontSize": 12
-		},
-		"lines": {
-			"enabled": true
-		},
-		"truncation": {
-			"enabled": true
-		}
-	},
-	"effects": {
-		"pullOutSegmentOnClick": {
-			"effect": "linear",
-			"speed": 400,
-			"size": 8
-		}
-	},
-	"misc": {
-		"gradient": {
-			"enabled": true,
-			"percentage": 100
-		},
-		"canvasPadding":{
-      "top":30,"right":5,"bottom":0,"left":5}
-	}
-	
+//changed bottom margin to allow for rotated x-axis labels
+var margin = {top: 30, right: 20, bottom: 120, left: 80},
+    width = 700 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+var formatPercent = d3.format(".0%");
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+var y = d3.scale.linear()
+    .range([height, 0]);
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "Number of Offices: <span style='color:#ff0032'>" + d.offices + "</span>" + "<br>" ;
+  })
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+svg.call(tip);
+d3.tsv("ROprov.tsv", function(error, data) {
+  data.forEach(function(d) {
+    d.offices = +d.offices;
+  })  ;
+  x.domain(data.map(function(d) { return d.Province; }));
+  y.domain([0, d3.max(data, function(d) { return d.offices; })]);
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      //added to rotate x-axis labels
+      .selectAll("text")
+      .attr("y", 0)
+      .attr("x", -8)
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(-90)")
+      .style("text-anchor", "end");
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -50)
+      .attr("dy", ".71em")
+      .attr("class", "axislabel")
+      .style("text-anchor", "end")
+      .text("Number of Representative Offices");
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.Province); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.offices); })
+      .attr("height", function(d) { return height - y(d.offices); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
+d3.select("input").on("change", change);
+  var sortTimeout = setTimeout(function() {
+   d3.select("input").property("checked", true).each(change);
+  }, 2000);
+  function change() {
+    clearTimeout(sortTimeout);
+    // Copy-on-write since tweens are evaluated after a delay.
+    var x0 = x.domain(data.sort(this.checked
+        ? function(a, b) { return b.offices - a.offices; }
+        : function(a, b) { return d3.ascending(a.Province, b.Province); })
+        .map(function(d) { return d.Province; }))
+        .copy();
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a.Province) - x0(b.Province); });
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("x", function(d) { return x0(d.Province); });
+    transition.select(".x.axis")
+        .call(xAxis)
+      .selectAll("g")
+        .delay(delay)
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", -8)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "end");
+  }
 });
-
 d3.select("body").append("div")
 .attr("class", "tooltip")
 .html("<em><ul><li>&ldquo;Province&rdquo; here also refers to provincial-level municipalities and autonomous regions.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li><li>Only provinces that have registered foreign NGO representative offices are shown here.</li></ul></em>");
-
 </script>
-
-</body>
-</html>
