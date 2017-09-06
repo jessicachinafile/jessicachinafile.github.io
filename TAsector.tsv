@@ -1,1 +1,30 @@
-sector	activitiesAging	3Agriculture	4Animal Protection	2Arts and Culture	4Capacity-Building	16Disabilities	12Disaster Relief	18Economic Development	3Education	48Energy	1Environment	16Ethnic Affairs	1Health	19Infrastructure	15International Relations	10Labor and Migrants	4Law and Governance	0LGBTQ Issues	0Media	1Poverty Alleviation	25Religion	1Rural Issues	12Sport	1Technology	4Tourism	2Trade	3Women's Issues	6Youth	58Unknown	1
+sector	activities
+Aging	10
+Agriculture	4
+Animal Protection	2
+Arts and Culture	5
+Capacity-Building	26
+Disabilities	24
+Disaster Relief	24
+Economic Development	6
+Education	67
+Energy	1
+Environment	19
+Ethnic Affairs	1
+Health	23
+Infrastructure	23
+International Relations	13
+Labor and Migrants	6
+Law and Governance	2
+LGBTQ Issues	0
+Media	1
+Poverty Alleviation	25
+Religion	1
+Rural Issues	13
+Sport	1
+Technology	6
+Tourism	2
+Trade	4
+Women's Issues	6
+Youth	71
+Unknown	1
