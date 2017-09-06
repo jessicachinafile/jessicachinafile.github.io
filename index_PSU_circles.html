@@ -4,7 +4,7 @@
 <script src="./d3.v3.min.js"></script>
 <script src="./SpotMatrix1.js"></script>
 <title>Actual Sponsoring PSUs</title>
-  
+
 
 <style>
 @font-face {
@@ -76,15 +76,24 @@ path {
 	box-shadow: 0 0 5px #999999;
 	color: #000000;
   font-family: 'DrukText';
-	font-size: 14px;
-	left: 130px;
+	font-size: 16px;
 	padding: 5px;
 	position: absolute;
 	text-align: center;
-	top: 95px;
-	z-index: 10;
 	display: block;
 	opacity: 0;
+  transform: translate(130px, -30px);
+}
+div.tooltip1 {
+  overflow:hidden;
+  max-width: 600px;
+  height: auto;
+  border-radius: 0px;
+  font: 14px PortraitText;
+  padding: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left;
 }
 .table {
     border-collapse: collapse;
@@ -93,7 +102,8 @@ path {
 }
 td, th, tr {
     border: 1px solid black;
-}
+  }
+
 table{
     border-collapse: collapse;
     vertical-align:middle;
@@ -101,260 +111,363 @@ table{
 td{
     border: 1px solid black;
 }
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+
+
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+
+}
+#wrapper
+{
+width:95%;
+max-width: 600px;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:0px;
+text-align:center;
+vertical-align: text-top;
+}
+
+#SpotMatrix
+{
+  float:left;
+  margin-left: 35px;
+
+}
+
+
 </style>
 </head>
 
 <body>
 
-<div id="SpotMatrix"></div>
+  <div id="wrapper">
+  <div id="header"><h1>Number of Foreign NGOs Sponsored at the National and Provincial Levels, January-July 2017</h1></div>
+  <div id="SpotMatrix"></div>
+  </div>
+
 
 <script>
+
+//add asterisks to PSUS that werent' on list originally, fix tooltip spacing
+
 var dataset = [{
-  "Functional Hierarchy*": "All-China Federation of Trade Unions",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "All-China Federation of Trade Unions",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 1,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "All-China Women's Federation",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "All-China Women's Federation",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 1,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Association for Science <br>and Technology",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Association for Science and Technology",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Banking Regulatory Commission",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Banking Regulatory Commission",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Disabled Persons' Federation",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Disabled Persons' Federation",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Insurance Regulatory Commission",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Insurance Regulatory Commission",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Meteorological Administration",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Meteorological Administration",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "China Securities Regulatory Commission",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "China Securities Regulatory Commission",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Cyberspace Administration of China",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Cyberspace Administration of China",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "General Administration of Quality <br>Supervision, Inspection, and Quarantine",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "General Administration of Quality Supervision, </br>Inspection, and Quarantine",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "General Administration of Sport",
-  "National-<br>level": 1,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "General Administration of Sport",
+  "National-<br>Level Entity": 1,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Agriculture",
-  "National-<br>level": 1,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Agriculture",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 2,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Civil Affairs",
-  "National-<br>level": 11,
-  "Local-<br>level": 10
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Civil Affairs",
+  "National-<br>Level Entity": 11,
+  "Local-<br>Level Entity": 15,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Commerce",
-  "National-<br>level": 0,
-  "Local-<br>level": 35
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Commerce",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 66,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Culture",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Culture",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Education",
-  "National-<br>level": 0,
-  "Local-<br>level": 4
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Education",
+  "National-<br>Level Entity": 1,
+  "Local-<br>Level Entity": 7,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Environmental Protection",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Environmental Protection",
+  "National-<br>Level Entity": 2,
+  "Local-<br>Level Entity": 1,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Finance",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Finance",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Housing and Urban-Rural <br>Development",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Housing and Urban-Rural Development",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Human Resources and <br>Social Security",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Human Resources and Social Security",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Industry and Information <br>Technology",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Industry and Information Technology",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Justice",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Justice",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Science and Technology",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Science and Technology",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 1,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Transport",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Transport",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Ministry of Water Resources",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Ministry of Water Resources",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Audit Office",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Audit Office",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Bureau of Statistics",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Bureau of Statistics",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Copyright Administration",
-  "National-<br>level": 2,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Copyright Administration",
+  "National-<br>Level Entity": 4,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Development and Reform <br>Commission",
-  "National-<br>level": 3,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Development and Reform Commission",
+  "National-<br>Level Entity": 3,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Energy Administration",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Energy Administration",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Health and Family Planning <br>Commission",
-  "National-<br>level": 5,
-  "Local-<br>level": 12
+  "Functional Hierarchy* or Single-Tiered Entity": "National Health and Family Planning Commission",
+  "National-<br>Level Entity": 5,
+  "Local-<br>Level Entity": 15,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "National Tourism Administration",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "National Tourism Administration",
+  "National-<br>Level Entity": 1,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "Overseas Chinese Affairs Office of the <br>State Council",
-  "National-<br>level": 3,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "Overseas Chinese Affairs Office of the State Council",
+  "National-<br>Level Entity": 4,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "People's Bank of China",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "People's Bank of China",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration for Industry and <br>Commerce",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration for Industry and Commerce",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Cultural <br>Heritage",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration of Cultural Heritage",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Foreign Experts <br>Affairs",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration of Foreign Experts Affairs",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Press, Publication, <br>Radio, Film, and Television",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration of Press, Publication, Radio, <br>Film, and Television",
+  "National-<br>Level Entity": 2,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Taxation",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration of Taxation",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Traditional <br>Chinese Medicine",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": " State Administration of Traditional Chinese Medicine ",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Administration of Work Safety",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Administration of Work Safety",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Council Leading Group Office of <br>Poverty Alleviation and Development",
-  "National-<br>level": 0,
-  "Local-<br>level": 3
+  "Functional Hierarchy* or Single-Tiered Entity": "State Council Leading Group Office of Poverty <br>Alleviation and Development",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 5,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Food and Drug Administration",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Food and Drug Administration",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Forestry Administration",
-  "National-<br>level": 2,
-  "Local-<br>level": 1
+  "Functional Hierarchy* or Single-Tiered Entity": "State Forestry Administration",
+  "National-<br>Level Entity": 3,
+  "Local-<br>Level Entity": 1,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Intellectual Property Office",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Intellectual Property Office",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Oceanic Administration",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
+  "Functional Hierarchy* or Single-Tiered Entity": "State Oceanic Administration",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
   },
   {
-  "Functional Hierarchy*": "State Post Bureau",
-  "National-<br>level": 0,
-  "Local-<br>level": 0
-  }
+  "Functional Hierarchy* or Single-Tiered Entity": "State Post Bureau",
+  "National-<br>Level Entity": 0,
+  "Local-<br>Level Entity": 0,
+  "Single-Tiered<br>Entity": 0
+},
+{
+"Functional Hierarchy* or Single-Tiered Entity": "Test Org**",
+"National-<br>Level Entity": 0,
+"Local-<br>Level Entity": 0,
+"Single-Tiered<br>Entity": 12
+}
 ]
     var chart_options = {
-        spot_radius : 10,
+        spot_radius : 14,
         spot_cell_padding : 1,
-        spot_cell_margin : 1,
+        spot_cell_margin : 0,
         min_color : '#e6e6e6',
         max_color : '#ff1e32',
         stroke_color : '#ff1e32',
         spot_matrix_type : 'size'
     }
     SpotMatrix(dataset,chart_options);
+
+    d3.select("body").append("div")
+    .attr("class", "tooltip1")
+    .html("<em><ul><li>*&ldquo;Functional hierarchies&rdquo; refers to the central-to-local government structures that often include a ministry and its subordinate governments units at the provincial and local levels.</li><li>For the sake of clarity, we have used the names of the highest-level entity in each functional hierarchy (for example, the Ministry of Justice). Technically speaking, there are no ministries at the provincial level, but rather bureaus or departments.</li><li>**This entity was not included on the Ministry of Public Security's initial list of Professional Supervisory Units for 2017.</li></ul></em>");
 </script>
 </body>
 </html>
