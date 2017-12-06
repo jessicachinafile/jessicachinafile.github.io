@@ -208,6 +208,7 @@ function dashboard(id, fData){
     International:"#0f6f95",
     Labor:"#128aba",
     Law:"#16a6df",
+    Media:"#FFFFFF",
     Migrants:"#33b7eb",
     Poverty:"#58c4ee",
     Religion: "#7dd1f2",
@@ -221,7 +222,7 @@ function dashboard(id, fData){
   }[c]; }
 
     // compute total for each state.
-    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Gender+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Migrants+d.freq.Poverty+d.freq.Religion+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Urban+d.freq.Youth;});
+    fData.forEach(function(d){d.total=d.freq.Aging+d.freq.Agriculture+d.freq.Animals+d.freq.Culture+d.freq.Capacity+d.freq.Disabilities+d.freq.Disaster+d.freq.Development+d.freq.Education+d.freq.Energy+d.freq.Environment+d.freq.Ethnic+d.freq.Gender+d.freq.Health+d.freq.Infrastructure+d.freq.International+d.freq.Labor+d.freq.Law+d.freq.Media+d.freq.Migrants+d.freq.Poverty+d.freq.Religion+d.freq.Rural+d.freq.Sport+d.freq.Technology+d.freq.Tourism+d.freq.Trade+d.freq.Urban+d.freq.Youth;});
 
     // function to handle histogram.
     //USE THIS AREA TO ADJUST LOCATION OF X AXIS AND MAX BAR HEIGHT
@@ -435,7 +436,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
     }
 
     // calculate total frequency by segment for all state.
-    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Gender','Health','Infrastructure','International','Labor','Law','Migrants','Poverty','Religion','Rural','Sport','Technology','Tourism','Trade','Urban','Youth'].map(function(d){
+    var tF = ['Aging','Agriculture','Animals','Culture','Capacity','Disabilities','Disaster','Development','Education','Energy','Environment','Ethnic','Gender','Health','Infrastructure','International','Labor','Law','Media','Migrants','Poverty','Religion','Rural','Sport','Technology','Tourism','Trade','Urban','Youth'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
     });
 
