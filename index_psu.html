@@ -78,12 +78,10 @@ font-style: italic;
   <body>
 
 
+<table id="filter" class="sortable">
 
-
-<table class="sortable">
 <!–– add your tableizer data below this line––>
 
-<table class="tableizer-table">
 <thead><tr class="tableizer-firstrow"><th>Professional Supervisory Unit (English)</th><th>Professional Supervisory Unit (Chinese)</th><th>Number of Foreign NGOs Sponsored</th><th>Sponsored Foreign NGOs' Field(s) of Work</th><th>Sponsored Foreign NGOs' Registration Location(s)</th><th>Sponsored Foreign NGOs' Permitted Area(s) of Operation</th></tr></thead><tbody>
  <tr><td>Anhui Health and Family Planning Commission</td><td>安徽省卫生和计划生育委员会</td><td>1</td><td>Disabilities, Education, Health, International Relations/Exchange, Labor, Youth</td><td>Anhui</td><td>All of China</td></tr>
  <tr><td>Chinese People's Association for Friendship with Foreign Countries</td><td>北京市商务委员会</td><td>12</td><td>Agriculture, Arts and Culture, Civil Society Capacity-Building, Disaster Relief, Economic Development, Education, Environment, Gender Issues, Health, International Relations/Exchange, Poverty Alleviation, Trade, Youth</td><td>Beijing</td><td>All of China, Anhui, Beijing, Chongqing, Fujian, Gansu, Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hubei, Inner Mongolia, Jiangsu, Jiangxi, Jilin, Liaoning, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Tianjin, Tibet, Xinjiang, Zhejiang</td></tr>
@@ -195,5 +193,25 @@ font-style: italic;
 
     
 <!–– add your tableizer data above this line––>
+
+    <script src="./tablefilter/tablefilter.js"></script>
+
+<script>
+var filtersConfig = {
+    base_path: 'tablefilter/',
+    auto_filter: true,
+    auto_filter_delay: 1100, //milliseconds
+    filters_row_index: 1,
+    state: true,
+    alternate_rows: true,
+    rows_counter: true,
+    btn_reset: true,
+    status_bar: true,
+    msg_filter: 'Filtering...'
+};
+var tf = new TableFilter('filter', filtersConfig);
+tf.init();
+</script>
+    
 </body>
 </html>
