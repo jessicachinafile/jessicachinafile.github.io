@@ -247,7 +247,7 @@
     var w = 850
     var h = 600
     var colors = ['rgb(237,248,233)', 'rgb(186,228,179)', 'rgb(116,196,118)', 'rgb(49,163,84)','rgb(0,109,44)']
-    var projection = d3.geo.mercator().center([105, 38]).scale(750).translate([w/2, h/2])
+    var projection = d3.geo.mercator().center([105, 38]).scale(500).translate([w/2, h/2])
     var path = d3.geo.path().projection(projection)
     var colorScale = d3.scale.quantize().range(colors)
 
