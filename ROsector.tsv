@@ -1,32 +1,33 @@
 sector	offices
-Aging	6
-Agriculture	10
+Aging	16
+Agriculture	8
 Animal Protection	6
-Arts and Culture	26
-Civil Soc'y Cap'y building	30
-Disabilities	17
-Disaster Relief	40
-Econ. Development	31
-Education	77
-Energy	5
-Environment	43
-Ethnic Affairs	5
-Gender Issues	13
-Health	57
-Human Rights	0
-Infrastructure	15
-Int'l Relations/Exchange	78
+Arts and Culture	17
+Civil Society Capacity Building	53
+Disabilities	39
+Disaster Relief	38
+Economic Development	19
+Education	313
+Energy	2
+Environment	49
+Ethnic Affairs	3
+Gender Issues	14
+Health	81
+Human Rights	2
+Infrastructure	51
+International Relations/Exchange	33
 Labor	10
-Law and Governance	18
-LGBTQ Issues	0
-Media	3
-Migrants	7
-Poverty Alleviation	53
-Religion	1
-Rural Issues/Devt	15
-Sport	5
-Technology	24
-Tourism	10
-Trade	191
-Urban Issues/Devt	8
-Youth	60
+Law and Governance	20
+LGBTQ Issues	1
+Media	2
+Migrants	1
+Poverty Alleviation	136
+Religion	3
+Rural Issues/Development	29
+Sport	7
+Technology	13
+Tourism	2
+Trade	16
+Urban Issues/Development	7
+Youth	122
+Unknown	3
