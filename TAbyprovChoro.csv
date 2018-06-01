@@ -1,33 +1,35 @@
 ﻿name,total
-Anhui	2
-Beijing	135
-Chongqing	7
-Fujian	9
-Gansu	4
-Guangdong	17
-Guangxi	6
-Guizhou	1
-Hainan	1
-Hebei	1
-Heilongjiang	2
-Henan	4
-Hubei	4
-Hunan	7
-Inner Mongolia	3
-Jiangsu	6
-Jiangxi	1
-Jilin	2
-Liaoning	17
-Ningxia	0
-Qinghai	1
-Shaanxi	5
-Shandong	8
-Shanghai	86
-Shanxi	0
-Sichuan	17
-Tianjin	9
-Tibet	1
-Xinjiang	0
-Xinjiang Bingtuan	0
-Yunnan	25
-Zhejiang	3
+China,31
+Anhui,14
+Beijing,120
+Chongqing,36
+Fujian,12
+Gansu,44
+Guangdong,124
+Guangxi,30
+Guizhou,67
+Hainan,8
+Hebei,17
+Heilongjiang,13
+Henan,26
+Hubei,25
+Hunan,31
+Inner Mongolia,16
+Jiangsu,20
+Jiangxi,10
+Jilin,9
+Liaoning,12
+Ningxia,14
+Qinghai,28
+Shaanxi,47
+Shandong,16
+Shanghai,37
+Shanxi,10
+Sichuan,80
+Tianjin,11
+Tibet,4
+Xinjiang,12
+Xinjiang Bingtuan,1
+Yunnan,76
+Zhejiang,34
+Unknown,2
