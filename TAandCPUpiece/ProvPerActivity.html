@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  max-width:800px;
+  max-height:700px;
+  font-size:88%;
+  font-family: Arial;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: #555555;
+}
+
+.bar:hover {
+  fill: #ff0032 ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-size: 20px;
+  font-family: DrukText;
+  padding: 12px;
+  background: #e6e6e6;
+  color: #000;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: #e6e6e6;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+
+.axislabel {
+  font-family: DrukText;
+  font-size:22px;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+
+
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+
+}
+
+#wrapper {
+
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#histogramdiv {
+padding:5px;
+}
+
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+</style>
+<body>
+
+
+  <div id="wrapper">
+  <div id="header"><h1>Number of Provinces Covered Per Temporary Activity, March 2017-June 2018</h1></div>
+<div id="histogramdiv"></div>
+
+
+  </div>
+
+  <script src="./d3.v3.min.js"></script>
+  <script src="./d3.tip.v0.6.3.js"></script>
+<script>
+
+//changed bottom margin to allow for rotated x-axis labels
+var margin = {top: 0, right: 20, bottom: 60, left: 100},
+    width = 700 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
+
+var formatPercent = d3.format(".0%");
+
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "Number of Activities: <span style='color:#ff0032'>" + d.number + "</span>" + "<br>" ;
+  })
+
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+d3.tsv("ProvPerActivity.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.week; }));
+  y.domain([0, d3.max(data, function(d) { return d.number; })]);
+
+
+
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      //added to rotate x-axis labels
+      .selectAll("text")
+      .attr("y", 0)
+      .attr("x", -7)
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(-90)")
+      .style("text-anchor", "end");
+      svg.append("g")
+          .attr("class", "x axis")
+          .append("text")
+          .attr("x", 300)
+          .attr("y", 520)
+          .attr("dy", ".71em")
+          .attr("class", "axislabel")
+          .style("text-anchor", "middle")
+          .text("Number of Provinces Covered Per Activity");
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end");
+      svg.append("g")
+          .attr("class", "y axis")
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -60)
+          .attr("x", -220)
+          .attr("dy", ".71em")
+          .attr("class", "axislabel")
+          .style("text-anchor", "middle")
+          .text("Number of Activities");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.week); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.number); })
+      .attr("height", function(d) { return height - y(d.number); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+
+});
+
+function type(d) {
+  d.number = +d.number;
+  return d;
+}
+
+</script>
