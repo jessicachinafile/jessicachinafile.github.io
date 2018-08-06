@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<style>
+
+.axis .domain {
+  display: none;
+}
+
+div.tooltip {
+  position: absolute;
+  top:220px;
+  left: 40px;
+  min-width: 40px;
+  height: auto;
+  background: none repeat scroll 0 0 #e6e6e6;
+  border-radius: 8px;
+  font: 20px DrukText;
+  color: #ff0032;
+  padding: 5px;
+  text-align: center;
+  border: 1px;
+  pointer-events: none;
+}
+
+.axislabel {
+  font-family: DrukText;
+  font-size:22px;
+}
+
+.bar:hover {
+  fill: #ff0032 ;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+#wrapper {
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#svg {
+padding:5px;
+}
+
+
+
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+</style>
+
+
+  <div id="wrapper">
+  <div id="header"><h1>Number of Temporary Activities Filed by &ldquo;New Entrant&rdquo; Foreign NGOs Per Month, as Compared to Total Temporary Activities Per Month, April 2017-June 2018</h1></div>
+<div id="svg"></div>
+</div>
+
+<svg width="700" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+ <script src="./d3.tip.v0.6.3.js"></script>
+<script>
+
+//code from https://bl.ocks.org/mbostock/3887051
+
+var svg = d3.select("svg"),
+    margin = {top: 10, right: 20, bottom: 85, left: 70},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+var x0 = d3.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.1);
+
+var x1 = d3.scaleBand()
+    .padding(0.05);
+
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+var z = d3.scaleOrdinal()
+    .range(["#999999", "#3c3c3c"]);
+
+
+
+d3.csv("NewEntrantNumbers.csv", function(d, i, columns) {
+  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+  //added for tooltip
+  var div = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
+  x0.domain(data.map(function(d) { return d.month; }));
+  x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+  y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+  g.append("g")
+    .selectAll("g")
+    .data(data)
+    .enter().append("g")
+      .attr("transform", function(d) { return "translate(" + x0(d.month) + ",0)"; })
+    .selectAll("rect")
+    .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x1(d.key); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("width", x1.bandwidth())
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("fill", function(d) { return z(d.key); });
+
+  g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x0))
+
+      .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+      ;
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+    .append("text")
+    .attr("transform", "rotate(-90)")
+     .attr("x", -200)
+     .attr("y", -60)
+      .attr("dy", ".99em")
+      .attr("class", "axislabel")
+      .attr("fill", "#000")
+      .style("text-anchor", "middle")
+      .text("Number of Temporary Activities")
+      ;
+
+
+//added for tooltip
+      svg.selectAll("rect")
+         .on("mouseover", function(d) {
+           div.transition()
+             .duration(200)
+             .style("opacity", 1);
+           div.text(d.value)
+             .style("left", (d3.event.pageX) + "px")
+             .style("top", (d3.event.pageY - 28) + "px");
+           })
+         .on("mouseout", function(d) {
+           div.transition()
+             .duration(500)
+             .style("opacity", 0);
+});
+
+
+  var legend = g.append("g")
+      .attr("font", "PortraitText")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+
+
+
+
+});
+
+</script>
