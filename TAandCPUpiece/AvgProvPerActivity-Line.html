@@ -28,6 +28,25 @@ body {
   font-size:22px;
 }
 
+.gridline {
+  stroke: #cccccc;
+  stroke-width: .5px;
+}
+
+div.tooltip {
+  position: absolute;
+  top:220px;
+  left: 40px;
+  min-width: 40px;
+  height: auto;
+  background: none repeat scroll 0 0 #cccccc;
+  border-radius: 8px;
+  font: 20px DrukText;
+  padding: 5px;
+  text-align: center;
+  border: 1px;
+  pointer-events: none;
+}
 
 
 h1 {
@@ -60,7 +79,7 @@ margin-bottom:5px;
 text-align:center;
 vertical-align: text-top;
 }
-#histogramdiv {
+#linediv {
 padding:5px;
 }
 
@@ -126,7 +145,7 @@ padding:5px;
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 0, right: 20, bottom: 120, left: 80},
+var margin = {top: 10, right: 20, bottom: 120, left: 80},
     width = 700 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
@@ -141,6 +160,11 @@ var y = d3.scaleLinear().range([height, 0]);
 var valueline = d3.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
+
+//added for tooltip
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
@@ -174,29 +198,29 @@ d3.csv("AvgProvPerActivity.csv", function(error, data) {
       .attr("class", "line")
       .attr("d", valueline);
 
-  // Add the X Axis
+      // Add the X Axis
+    //changed the class to xAxis for gridline purposes
+          svg.append("g")
+              .attr("class", "xAxis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x)
+                      .tickFormat(d3.timeFormat("%B %Y")))
+              .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-65)");
 
+
+
+// Add the Y Axis
+//changed the class to yAxis for gridline purposes
+svg.append("g")
+  .attr("class", "yAxis")
+    .call(d3.axisLeft(y));
 
       svg.append("g")
-          .attr("class", "axis axis--x")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x)
-                  .tickFormat(d3.timeFormat("%B %Y")))
-          .selectAll("text")
-            .style("text-anchor", "end")
-            .attr("dx", "-.8em")
-            .attr("dy", ".15em")
-            .attr("transform", "rotate(-65)");
-
-
-
-  // Add the Y Axis
-  svg.append("g")
-    .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y));
-
-      svg.append("g")
-          .attr("class", "y axis")
+          .attr("class", "yAxis")
           .append("text")
           .attr("x", -230)
           .attr("y", -50)
@@ -206,6 +230,53 @@ d3.csv("AvgProvPerActivity.csv", function(error, data) {
           .style("text-anchor", "middle")
           .text("Average Number of Provinces Per Temporary Activity");
 
+          //added this to get the gridlines, used CSS for styling https://stackoverflow.com/questions/40766379/d3-adding-grid-to-simple-line-chart
+                d3.selectAll("g.yAxis g.tick")
+                    .append("line")
+                    .attr("class", "gridline")
+                    .attr("x1", 0)
+                    .attr("y1", 0)
+                    .attr("x2", width)
+                    .attr("y2", 0);
+
+                d3.selectAll("g.xAxis g.tick")
+                    .append("line")
+                    .attr("class", "gridline")
+                    .attr("x1", 0)
+                    .attr("y1", -height)
+                    .attr("x2", 0)
+                    .attr("y2", 0);
+
+
+// Add the valueline path.
+//moved this to the end so the gridlines appeared behind the line
+svg.append("path")
+    .data([data])
+    .attr("class", "line")
+    .attr("d", valueline);
+
+
+// add the dots with tooltips
+svg.selectAll("dot")
+   .data(data)
+ .enter().append("circle")
+   .attr("fill","#3c3c3c")
+   .attr("r", 5)
+   .attr("cx", function(d) { return x(d.date); })
+   .attr("cy", function(d) { return y(d.close); })
+   .on("mouseover", function(d) {
+     div.transition()
+       .duration(200)
+       .style("opacity", .9);
+     div.text(d.close)
+       .style("left", (d3.event.pageX) + "px")
+       .style("top", (d3.event.pageY - 28) + "px");
+     })
+   .on("mouseout", function(d) {
+     div.transition()
+       .duration(500)
+       .style("opacity", 0);
+     });
 
 
 });
