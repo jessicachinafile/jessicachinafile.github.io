@@ -1,0 +1,145 @@
+<html>
+
+<style>
+
+#wrapper {
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#China_chart_div {
+position: absolute;
+left: 100px;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+</style>
+
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+//Sources:
+//https://developers.google.com/chart/interactive/docs/basic_multiple_charts
+//https://developers.google.com/chart/interactive/docs/gallery/piechart
+
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart for China's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChinaChart);
+
+      // Callback that draws the pie chart for China's CPUs.
+      function drawChinaChart() {
+
+        // Create the data table for China's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 200],
+          ['Party or Government Entity', 106],
+          ['School or Training Institution', 104],
+          ['Hospital or Medical Center', 27],
+          ['Unknown', 19],
+          ['Think Tank or Research Institution', 10],
+          ['LLC', 2],
+          ['Industry Association', 1],
+          ['Other', 4],
+          ['Foreign Chamber of Commerce', 2]
+        ]);
+
+        // Set options for China's pie chart.
+        var options = {width:500,
+                       height:500,
+                       chartArea:{left:80,top:50,right:80,bottom:80},
+                       colors:['#520010','#8f001d','#b80025','#e0002d','#ff0032','#ff335c','#ff5c7c','#ff859d','#ffadbe','#ffd6de',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for China's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('China_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+
+    </script>
+  </head>
+  <body>
+      <div id="wrapper">
+      <div id="header"><h1>Number of Unique CPUs, by CPU Type, March 2017-June 2018</h1></div>
+
+    <!--Table and divs that hold the pie charts-->
+    <div id="China_chart_div" ></div>
+    </div>
+  </body>
+</html>
