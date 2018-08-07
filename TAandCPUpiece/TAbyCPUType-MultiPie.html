@@ -1,0 +1,317 @@
+<html>
+
+<style>
+
+#wrapper {
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#table2 {
+position: absolute;
+left: 130px;
+}
+
+h1 {
+    font-family:DrukText;
+    font-size: 40px;
+    display: block;
+}
+h2 {
+    font-family:PortraitText;
+    font-size: 18px;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height:12PX;
+}
+
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+</style>
+
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+//Sources:
+//https://developers.google.com/chart/interactive/docs/basic_multiple_charts
+//https://developers.google.com/chart/interactive/docs/gallery/piechart
+
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart for Beijing's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawBeijingChart);
+
+      // Draw the pie chart for the Guangdong's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawGuangdongChart);
+
+      // Draw the pie chart for the Guizhou's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawGuizhouChart);
+
+      // Draw the pie chart for the Guizhou's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawSichuanChart);
+
+      // Draw the pie chart for the Guizhou's CPUs when Charts is loaded.
+      google.charts.setOnLoadCallback(drawYunnanChart);
+
+      // Callback that draws the pie chart for Beijing's CPUs.
+      function drawBeijingChart() {
+
+        // Create the data table for Beijing's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 115],
+          ['Party or Government Entity', 10],
+          ['School or Training Institution', 36],
+          ['Hospital or Medical Center', 1],
+          ['Unknown', 2],
+          ['Think Tank or Research Institution', 11],
+          ['LLC', 1],
+          ['Industry Association', 3],
+          ['Other', 0],
+          ['Foreign Chamber of Commerce', 0]
+        ]);
+
+        // Set options for Beijing's pie chart.
+        var options = {title:'Beijing',
+                      titleTextStyle:{ color: '#231f1f', fontName: 'PortraitText', fontSize: '16' },
+                       width:200,
+                       height:240,
+                       chartArea:{left:30,top:30,right:30,bottom:30},
+                       colors:['#062938','#0d6182','#128aba','#16a6df','#33b7eb','#58c4ee','#7dd1f2','#a2def6','#c7ebf9','#ecf8fd',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for Beijing's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('Beijing_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+
+      // Callback that draws the pie chart for Guangdong's CPUs.
+      function drawGuangdongChart() {
+
+        // Create the data table for Guangdong's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 57],
+          ['Party or Government Entity', 27],
+          ['School or Training Institution', 21],
+          ['Hospital or Medical Center', 12],
+          ['Unknown', 3],
+          ['Think Tank or Research Institution', 1],
+          ['LLC', 1],
+          ['Industry Association', 0],
+          ['Other', 0],
+          ['Foreign Chamber of Commerce', 0]
+        ]);
+
+        // Set options for Guangdong's pie chart.
+        var options = {title:'Guangdong',
+                      titleTextStyle:{ color: '#231f1f', fontName: 'PortraitText', fontSize: '14' },
+                       width:200,
+                       height:240,
+                       chartArea:{left:30,top:30,right:30,bottom:30},
+                       colors:['#062938','#0d6182','#128aba','#16a6df','#33b7eb','#58c4ee','#7dd1f2','#a2def6','#c7ebf9','#ecf8fd',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for Guangdong's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('Guangdong_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+
+
+      // Callback that draws the pie chart for Guizhou's CPUs.
+      function drawGuizhouChart() {
+
+        // Create the data table for Guizhou's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 11],
+          ['Party or Government Entity', 34],
+          ['School or Training Institution', 12],
+          ['Hospital or Medical Center', 0],
+          ['Unknown', 2],
+          ['Think Tank or Research Institution', 0],
+          ['LLC', 0],
+          ['Industry Association', 0],
+          ['Other', 0],
+          ['Foreign Chamber of Commerce', 0]
+        ]);
+
+        // Set options for Guizhou's pie chart.
+        var options = {title:'Guizhou',
+                      titleTextStyle:{ color: '#231f1f', fontName: 'PortraitText', fontSize: '14' },
+                       width:200,
+                       height:240,
+                       chartArea:{left:30,top:30,right:30,bottom:30},
+                       colors:['#062938','#0d6182','#128aba','#16a6df','#33b7eb','#58c4ee','#7dd1f2','#a2def6','#c7ebf9','#ecf8fd',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for Guizhou's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('Guizhou_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+      // Callback that draws the pie chart for Sichuan's CPUs.
+      function drawSichuanChart() {
+
+        // Create the data table for Sichuan's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 44],
+          ['Party or Government Entity', 8],
+          ['School or Training Institution', 6],
+          ['Hospital or Medical Center', 1],
+          ['Unknown', 0],
+          ['Think Tank or Research Institution', 0],
+          ['LLC', 0],
+          ['Industry Association', 0],
+          ['Other', 0],
+          ['Foreign Chamber of Commerce', 0]
+        ]);
+
+        // Set options for Sichuan's pie chart.
+        var options = {title:'Sichuan',
+                      titleTextStyle:{ color: '#231f1f', fontName: 'PortraitText', fontSize: '14' },
+                       width:200,
+                       height:240,
+                       chartArea:{left:30,top:30,right:30,bottom:30},
+                       colors:['#062938','#0d6182','#128aba','#16a6df','#33b7eb','#58c4ee','#7dd1f2','#a2def6','#c7ebf9','#ecf8fd',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for Sichuan's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('Sichuan_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+      // Callback that draws the pie chart for Yunnan's CPUs.
+      function drawYunnanChart() {
+
+        // Create the data table for Yunnan's CPUs.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'CPUType');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Non-Profit or Foundation', 22],
+          ['Party or Government Entity', 29],
+          ['School or Training Institution', 4],
+          ['Hospital or Medical Center', 5],
+          ['Unknown', 2],
+          ['Think Tank or Research Institution', 1],
+          ['LLC', 0],
+          ['Industry Association', 0],
+          ['Other', 0],
+          ['Foreign Chamber of Commerce', 0]
+        ]);
+
+        // Set options for Yunnan's pie chart.
+        var options = {title:'Yunnan',
+                      titleTextStyle:{ color: '#231f1f', fontName: 'PortraitText', fontSize: '14' },
+                       width:200,
+                       height:240,
+                       chartArea:{left:30,top:30,right:30,bottom:30},
+                       colors:['#062938','#0d6182','#128aba','#16a6df','#33b7eb','#58c4ee','#7dd1f2','#a2def6','#c7ebf9','#ecf8fd',],
+                       legend: 'none'};
+
+        // Instantiate and draw the chart for Yunnan's CPUs.
+        var chart = new google.visualization.PieChart(document.getElementById('Yunnan_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+    </script>
+  </head>
+  <body>
+      <div id="wrapper">
+      <div id="header"><h1>Number of Temporary Activity Filings, by CPU Type, for Selected Provinces, March 2017-June 2018</h1></div>
+    <div id="table1">
+
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns">
+      <tr>
+        <td><div id="Beijing_chart_div" ></div></td>
+        <td><div id="Guangdong_chart_div" ></div></td>
+        <td><div id="Guizhou_chart_div" ></div></td>
+      </tr>
+      </table>
+      </div>
+<div id="table2">
+  <table class="columns">
+    <tr>
+        <td><div id="Sichuan_chart_div" ></div></td>
+        <td><div id="Yunnan_chart_div" ></div></td>
+      </tr>
+    </table>
+    </div>
+    </div>
+  </body>
+</html>
