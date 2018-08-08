@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
 body {
   max-width:800px;
   max-height:700px;
   font-size:88%;
   font-family: Arial;
 }
-
 .axis path,
 .axis line {
   fill: none;
@@ -16,23 +14,19 @@ body {
   stroke-width: 2px;
   shape-rendering: crispEdges;
 }
-
 .line {
   fill: none;
   stroke: #ff0032;
   stroke-width: 3px;
 }
-
 .axislabel {
   font-family: DrukText;
   font-size:22px;
 }
-
 .gridline {
   stroke: #cccccc;
   stroke-width: .5px;
 }
-
 div.tooltip {
   position: absolute;
   top:220px;
@@ -47,15 +41,11 @@ div.tooltip {
   border: 1px;
   pointer-events: none;
 }
-
-
 h1 {
     font-family:DrukText;
     font-size: 40px;
     display: block;
 }
-
-
 h2 {
     font-family:PortraitText;
     font-size: 18px;
@@ -63,10 +53,7 @@ h2 {
     font-weight: normal;
     line-height:12PX;
 }
-
-
 #wrapper {
-
 width:95%;
 margin:0 auto;
 overflow:hidden;
@@ -82,7 +69,6 @@ vertical-align: text-top;
 #linediv {
 padding:5px;
 }
-
 @font-face {
    font-family: 'DrukText';
    src: url('./fonts/Druk-Medium-Web.woff');
@@ -131,41 +117,33 @@ padding:5px;
   font-weight: 500;
   font-style: italic;
 }
-
 </style>
 
 <body>
   <div id="wrapper">
-  <div id="header"><h1>Average Number of Provinces Covered Per Temporary Activity, March 2017-June 2018</h1></div>
 <div id="linediv"></div>
 
   </div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 20, bottom: 120, left: 80},
     width = 700 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
-
 // parse the date / time
 var parseTime = d3.timeParse("%b-%y");
-
 // set the ranges
 var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
-
 // define the line
 var valueline = d3.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
-
 //added for tooltip
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
-
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
@@ -175,29 +153,22 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-
-
-
 // Get the data
 d3.csv("AvgProvPerActivity.csv", function(error, data) {
   if (error) throw error;
-
   // format the data
   data.forEach(function(d) {
       d.date = parseTime(d.date);
       d.close = +d.close;
   });
-
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) { return d.date; }));
   y.domain([0, d3.max(data, function(d) { return d.close; })]);
-
   // Add the valueline path.
   svg.append("path")
       .data([data])
       .attr("class", "line")
       .attr("d", valueline);
-
       // Add the X Axis
     //changed the class to xAxis for gridline purposes
           svg.append("g")
@@ -210,15 +181,11 @@ d3.csv("AvgProvPerActivity.csv", function(error, data) {
                 .attr("dx", "-.8em")
                 .attr("dy", ".15em")
                 .attr("transform", "rotate(-65)");
-
-
-
 // Add the Y Axis
 //changed the class to yAxis for gridline purposes
 svg.append("g")
   .attr("class", "yAxis")
     .call(d3.axisLeft(y));
-
       svg.append("g")
           .attr("class", "yAxis")
           .append("text")
@@ -229,7 +196,6 @@ svg.append("g")
           .attr("transform", "rotate(-90)")
           .style("text-anchor", "middle")
           .text("Average Number of Provinces Per Temporary Activity");
-
           //added this to get the gridlines, used CSS for styling https://stackoverflow.com/questions/40766379/d3-adding-grid-to-simple-line-chart
                 d3.selectAll("g.yAxis g.tick")
                     .append("line")
@@ -238,7 +204,6 @@ svg.append("g")
                     .attr("y1", 0)
                     .attr("x2", width)
                     .attr("y2", 0);
-
                 d3.selectAll("g.xAxis g.tick")
                     .append("line")
                     .attr("class", "gridline")
@@ -246,16 +211,12 @@ svg.append("g")
                     .attr("y1", -height)
                     .attr("x2", 0)
                     .attr("y2", 0);
-
-
 // Add the valueline path.
 //moved this to the end so the gridlines appeared behind the line
 svg.append("path")
     .data([data])
     .attr("class", "line")
     .attr("d", valueline);
-
-
 // add the dots with tooltips
 svg.selectAll("dot")
    .data(data)
@@ -277,9 +238,6 @@ svg.selectAll("dot")
        .duration(500)
        .style("opacity", 0);
      });
-
-
 });
-
 </script>
 </body>
