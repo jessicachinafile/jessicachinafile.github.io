@@ -251,7 +251,7 @@
     var path = d3.geo.path().projection(projection)
     var colorScale = d3.scale.quantize().range(colors)
 
-    d3.csv('RObyprovChoro.csv', function(data) {
+    d3.tsv('RObyprovChoro.tsv', function(data) {
       colorScale.domain([ d3.min(data, function(d) { return d.total }), d3.max(data, function(d) { return d.total })])
 
       d3.json('china_provinces1.json', function(json) {
