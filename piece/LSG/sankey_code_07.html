@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Party, State, Leading Small Group Connections</title>
+    <script src="d3.v3.min.js"></script>
+    <script src="d3.chart.min.js"></script>
+    <script src="d3.chart.sankey.min.js"></script>
+    <style>
+      body {
+        padding: 0px;
+        min-width: 600px;
+        max-width: 1200px;
+	background-color: #F0EAE5;
+      }
+
+      #chart {
+        height: 800px;
+        font: 11px sans-serif;
+	margin-top: 15px;
+
+      }
+
+
+
+     .node rect {
+        fill-opacity: .9;
+        shape-rendering: crispEdges;
+        stroke-width: 0;
+      }
+
+
+      .link {
+        fill: none;
+        stroke: #000;
+        stroke-opacity: .3;
+      }
+
+
+
+	  .info {
+		max-width: 1200px;
+		margin: 120px 0px;
+		padding: 10px 10px 10px 10px;
+		font: 14px sans-serif;
+		background-repeat: no-repeat;
+		background-position: 10px center;
+		color: #000000;
+		background-color: #FFFFFF;
+		}
+
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+	<div class="info">Click on a node above to see additional information about a particular person or organization.</div>
+    <script>
+
+//information about how to add info div from here: http://www.jankoatwarpspeed.com/css-message-boxes-for-different-message-types/
+//information about building this sankey chart from here: https://github.com/q-m/d3.chart.sankey
+//live demo of sankey chart here: http://bl.ocks.org/wvengen/cab9b01816490edb7083
+
+
+//adding title svg - change .info css top margin to match height attr here
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+var svg = d3.select("#chart")
+			.append("svg")
+			.attr("height", "120")
+			.attr("width", x)
+        		.append("g");
+
+
+
+//this is the original code, just modified for our graphic
+        var colors = {
+            'p':         	   		'#971418',
+            's':               	   '#EC6500',
+            'fallback':            '#116179'
+          };
+
+
+      d3.json("./LSG_sankey_data_20160729_M1.json", function(error, json)
+
+	  {
+        var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
+
+        chart
+          .name(label)
+          .colorNodes(function(name, node) {
+            return color(node, 1) || colors.fallback;})
+          .colorLinks(function(link) {
+            return color(link.source, 4) || color(link.target, 1) || colors.fallback;})
+          .nodeWidth(20)
+          .nodePadding(08)
+          .spread(true)
+          .iterations(0)
+          .draw(json);
+
+
+        function label(node) {
+          return node.name.replace(/\s*\(.*?\)$/, '');}
+
+		  //changed this from original code to return first character of id and choose colors that way
+        function color(node, depth) {
+          var id = node.id.charAt(0);
+          if (colors[id]) {
+            return colors[id];}
+        }
+
+
+
+
+
+ //this returns all the additional information to the info div, help here: http://stackoverflow.com/questions/29164092/on-click-display-other-data-in-separate-div-in-d3-js-passing-by-value
+		  //used this solution to get line breaks: http://stackoverflow.com/questions/13049050/can-you-insert-a-line-break-in-text-when-using-d3-js
+		  //used this to figure out how to do the if/then properly: http://stackoverflow.com/questions/4361585/javascript-how-to-test-if-a-variable-is-not-null, also: http://www.w3schools.com/js/js_if_else.asp
+
+chart.on('node:click', function(d) {
+
+		  //i recognize that this is undoubtedly the most inelegant way to solve the problem of how to display membership information, but i didn't have time to figure out how to run loops properly
+		  if (d.yearstarted !=="" && d.member49 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member45
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member46 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member47 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member48
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member49
+					);}
+			else if (d.yearstarted !=="" && d.member48 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member45
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member46 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member47 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member48
+					);}
+			else if (d.yearstarted !=="" && d.member47 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member45
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member46 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member47
+					);}
+			else if (d.yearstarted !=="" && d.member46 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member45
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member46
+					);}
+			else if (d.yearstarted !=="" && d.member45 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member45
+					);}
+			else if (d.yearstarted !=="" && d.member44 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member44
+					);}
+			else if (d.yearstarted !=="" && d.member43 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member43
+					);}
+			else if (d.yearstarted !=="" && d.member42 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member42
+					);}
+			else if (d.yearstarted !=="" && d.member41 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member41
+					);}
+			else if (d.yearstarted !=="" && d.member40 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member40
+					);}
+			else if (d.yearstarted !=="" && d.member39 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member39
+					);}
+			else if (d.yearstarted !=="" && d.member38 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member38
+					);}
+			else if (d.yearstarted !=="" && d.member37 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member37
+					);}
+			else if (d.yearstarted !=="" && d.member36 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member36
+					);}
+			else if (d.yearstarted !=="" && d.member35 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member35
+					);}
+			else if (d.yearstarted !=="" && d.member34 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member34
+					);}
+			else if (d.yearstarted !=="" && d.member33 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member33
+					);}
+			else if (d.yearstarted !=="" && d.member32 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member32
+					);}
+			else if (d.yearstarted !=="" && d.member31 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member31
+					);}
+			else if (d.yearstarted !=="" && d.member30 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member30
+					);}
+			else if (d.yearstarted !=="" && d.member29 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member29
+					);}
+			else if (d.yearstarted !=="" && d.member28 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member28
+					);}
+			else if (d.yearstarted !=="" && d.member27 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member27
+					);}
+			else if (d.yearstarted !=="" && d.member26 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member26
+					);}
+			else if (d.yearstarted !=="" && d.member25 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member25
+					);}
+			else if (d.yearstarted !=="" && d.member24 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member24
+					);}
+			else if (d.yearstarted !=="" && d.member23 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member23
+					);}
+			else if (d.yearstarted !=="" && d.member22 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member22
+					);}
+			else if (d.yearstarted !=="" && d.member21 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member21
+					);}
+			else if (d.yearstarted !=="" && d.member20 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member20
+					);}
+			else if (d.yearstarted !=="" && d.member19 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member19
+					);}
+			else if (d.yearstarted !=="" && d.member18 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member18
+					);}
+			else if (d.yearstarted !=="" && d.member17 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member17
+					);}
+			else if (d.yearstarted !=="" && d.member16 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member16
+					);}
+			else if (d.yearstarted !=="" && d.member15 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member15
+					);}
+			else if (d.yearstarted !=="" && d.member14 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member14
+					);}
+			else if (d.yearstarted !=="" && d.member13 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member13
+					);}
+			else if (d.yearstarted !=="" && d.member12 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member12
+					);}
+			else if (d.yearstarted !=="" && d.member11 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member11
+					);}
+			else if (d.yearstarted !=="" && d.member10 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member10
+					);}
+			else if (d.yearstarted !=="" && d.member9 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member9
+					);}
+			else if (d.yearstarted !=="" && d.member8 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member8
+					);}
+			else if (d.yearstarted !=="" && d.member7 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member7
+					);}
+			else if (d.yearstarted !=="" && d.member6 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member6
+					);}
+			else if (d.yearstarted !=="" && d.member5 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member5
+					);}
+			else if (d.yearstarted !=="" && d.member4 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member4
+					);}
+			else if (d.yearstarted !=="" && d.member3 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member3
+					);}
+			else if (d.yearstarted !=="" && d.member2 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>"
+					+ "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member2
+					);}
+			else if (d.yearstarted !=="" && d.member1 !=="")
+				{d3.select(".info").html("<b>" + d.fullname + " / " + d.chname + "</b>" + "<br/>" + "<br/>" + "<b>" + "Year Established: " + "</b>" + d.yearstarted + "<br/>" + "<br/>" + "<b>" + "Members: " + "</b>" + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.member1);}
+
+			else if (d.position3 !=="")
+				{d3.select(".info").html("<b>" + d.name + " / " + d.chname + "</b>" + "<br/>" + "<br/>" +"<b>" + "State or Party Positions: " + "</b>" + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position2 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position3);}
+			else if (d.position2 !=="")
+				{d3.select(".info").html("<b>" + d.name + " / " + d.chname + "</b>" + "<br/>" + "<br/>" +"<b>" + "State or Party Positions: " + "</b>" + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position1 + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position2);}
+			else if (d.position1 !=="")
+				{d3.select(".info").html("<b>" + d.name + " / " + d.chname + "</b>" + "<br/>" + "<br/>" +"<b>" + "State or Party Positions: " + "</b>" + "<br/>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + d.position1);}
+
+			else if (d.name == "Unknown Individuals" || d.name == "Unknown Party or State body affiliation" || d.name == "No official Party or State body affiliation")
+				{d3.select(".info").html("<b>" + d.name + "</b>");}
+
+			else {d3.select(".info").html("<b>" + d.name + " / " + d.chname + "</b>");}
+			})
+
+
+
+
+
+// adding Title and Legend
+
+svg.append("text")
+		.attr("y", 15)
+		.attr("text-anchor", "start")
+		.style("font-size", "20px")
+		.text("Party, State, and Leading Small Group Connections");
+
+svg.append("text")
+		.attr("y", 110)
+		.attr("text-anchor", "start")
+		.style("font-size", "13px")
+		.style("font-style", "italic")
+		.text("Permanent Organizations or Positions");
+
+svg.append("text")
+		.attr("y", 110)
+		.attr("x", x/2)
+		.attr("text-anchor", "middle")
+		.style("font-size", "13px")
+		.style("font-style", "italic")
+		.text("Individuals");
+
+svg.append("text")
+		.attr("y", 110)
+		.attr("x", x - 46)
+		.attr("text-anchor", "end")
+		.style("font-size", "13px")
+		.style("font-style", "italic")
+		.text("Leading Small Groups");
+
+svg.append("text")
+		.attr("y", 55)
+		.attr("x", 20)
+		.attr("text-anchor", "start")
+		.style("font-size", "12px")
+		.text("Party Organizations");
+
+svg.append("rect")
+		.attr("y", 45)
+		.attr("width", "15px")
+		.attr("height", "12px")
+		.style("fill", "#971418")
+		.style("fill-opacity", ".9");
+
+svg.append("text")
+		.attr("y", 55)
+		.attr("x", 190)
+		.attr("text-anchor", "start")
+		.style("font-size", "12px")
+		.text("State Organizations");
+
+svg.append("rect")
+		.attr("y", 45)
+		.attr("x", 170)
+		.attr("width", "15px")
+		.attr("height", "12px")
+		.style("fill", "#EC6500")
+		.style("fill-opacity", ".8");
+
+svg.append("image")
+		.attr("y", -10)
+		.attr("x", x - 150)
+		.attr("width", "100px")
+		.attr("height", "100px")
+   		.attr("xlink:href","./merics_logo_a.png")
+
+
+      }
+	);
+
+
+
+
+
+    </script>
+  </body>
+</html>
