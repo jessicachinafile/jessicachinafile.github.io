@@ -14,11 +14,11 @@ body {
   shape-rendering: crispEdges;
 }
 .bar {
-  fill: #a30021;
+  fill: #ff335c;
   fill-opacity: .9;
 }
 .bar:hover {
-  fill: #3d000c ;
+  fill: #ff708d ;
 }
 .x.axis path {
   display: none;
@@ -180,7 +180,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "Number of Offices: <span style='color:#ff0032'>" + d.offices + "</span>" + "<br>" ;
+    return "Number of Offices: <span style='color:#ff335c'>" + d.offices + "</span>" + "<br>" ;
   })
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
