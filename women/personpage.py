@@ -3,9 +3,18 @@ import requests
 from pprint import pprint
 import re
 
-#TODO: strip out p-tags from data dump? -- other than that, this section is finished
+
+# TODO ASSIGN UIDS
+# TODO what about error handling when a page is missing?
+# TODO convert date_archived and date_scraped to date format
+# TODO make sure image gets named by UID
+
+
 # TODO: pull date last updated from url once the page loads
 
+
+def regexcleaner(rawstring) :
+    return str((re.sub("\'|\]|\\[", "", rawstring)))
 
 url = 'https://web.archive.org/web/20171212033200/http://ldzl.people.com.cn:80/dfzlk/front/personPage6129.htm'
 
@@ -36,9 +45,9 @@ for entry in soup.find("span", {"class": "red2"}):
     title_list = {}
 
     for item in title_split:
-        title_list[item] = (title_split.index(item)+1)
-
+        title_list[(title_split.index(item)+1)] = item
     print(title_list)
+
 
 # this is the name section
 name_unparsed = str(soup.find('div', {'class': 'p2j_text'}).contents[1])
@@ -55,7 +64,7 @@ print(gender)
 
 #this is the dob section
 dob_unparsed = soup.find('p').contents[5]
-print(dob_unparsed)
+#print(dob_unparsed)
 dob_year = dob_unparsed[0:4]
 print(dob_year)
 dob_month = dob_unparsed[5:7]
@@ -63,7 +72,7 @@ print(dob_month)
 
 # this is the birth_province and birth_place section
 birth_location_unparsed = soup.find('p').contents[9]
-print(birth_location_unparsed)
+#print(birth_location_unparsed)
 birth_province = birth_location_unparsed[0:2]
 print(birth_province)
 birth_place = birth_location_unparsed[2:4]
@@ -78,6 +87,17 @@ ethnicity_unparsed = str(soup.find('div', {'class': 'p2j_text'}).contents[1])
 eth_cut = ethnicity_unparsed.split('，')
 ethnicity = eth_cut[2]
 print(ethnicity)
+
+
+# this is to catalogue the date the information was archive and the date we scraped it
+date_archived_raw = str(re.findall(r"(?<=FILE ARCHIVED ON ).*?(?= AND RETRIEVED)", str(soup)))
+date_archived_processed = regexcleaner(date_archived_raw)
+date_archived_split = (date_archived_processed[9:])
+print(date_archived_split)
+date_scraped_raw = str(re.findall(r"(?<=INTERNET ARCHIVE ON ).*?(?=\.)", str(soup)))
+date_scraped_processed = regexcleaner(date_scraped_raw)
+date_scraped_split = (date_scraped_processed[9:])
+print(date_scraped_split)
 
 # this is the picture section
 img_url_unparsed = str(soup.find('img', {'id': 'userimg'}))
