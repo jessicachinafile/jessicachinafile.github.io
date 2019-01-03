@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  text-align: center;
+}
+
+svg {
+  font: 30px DrukText;
+}
+
+div.tooltip {
+  position: absolute;
+  top:220px;
+  left: 40px;
+  min-width: 15px;
+  height: auto;
+  background: none repeat scroll 0 0 #e6e6e6;
+  border-radius: 8px;
+  font: 18px DrukText;
+  padding: 5px;
+  text-align: center;
+  border: 1px;
+  pointer-events: none;
+}
+
+#wrapper {
+width:95%;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+#svg {
+padding:5px;
+}
+
+@font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Medium-Web.woff');
+   font-weight: 500;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-MediumItalic-Web.woff');
+   font-weight: 500;
+   font-style: italic;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-Bold-Web.woff');
+   font-weight: 700;
+   font-style: normal;
+ }
+ @font-face {
+   font-family: 'DrukText';
+   src: url('./fonts/Druk-BoldItalic-Web.woff');
+   font-weight: 700;
+   font-style: italic;
+ }
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Regular-Web.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-RegularItalic-Web.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-Medium-Web.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PortraitText';
+  src: url('./fonts/Portrait-MediumItalic-Web.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+</style>
+<body>
+
+<div id="wrapper">
+<div id="piecharts"></div>
+</div>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+//basic code from here: http://bl.ocks.org/mbostock/1305337
+
+// Define the margin, radius, and color scale. Colors are assigned lazily, so
+// if you want deterministic behavior, define a domain for the color scale.
+var m = 10,
+    r = 100,
+    //GOT THE COLOR SCALE CODE HERE: http://jonathansoma.com/lede/data-studio/d3/examples-of-scales/
+    z = d3.scale.category10()
+	   .range(["#020e13", "#041c25", "#062938", "#07374a", "#09455d", "#0b536f", "#0d6182", "#0f6f95", "#117ca7", "#128aba", "#1498cc", "#16a6df", "#20b0e9", "#33b7eb", "#45bded", "#58c4ee", "#6acaf0", "#7dd1f2", "#90d8f4", "#a2def6", "#b5e5f8", "#c7ebf9", "#daf2fb", "#ecf8fd", "#ffffff"]);
+    //category20c();
+
+// Define a pie layout: the pie angle encodes the count of flights. Since our
+// data is stored in CSV, the counts are strings which we coerce to numbers.
+var pie = d3.layout.pie()
+    .value(function(d) { return +d.count; })
+    .sort(function(a, b) { return b.count - a.count; });
+
+// Define an arc generator. Note the radius is specified here, not the layout.
+var arc = d3.svg.arc()
+    .innerRadius(r / 2)
+    .outerRadius(r);
+
+// Load the flight data asynchronously.
+d3.tsv("2018_RO_Sector.tsv", function(error, number) {
+  if (error) throw error;
+
+  // Nest the flight data by originating airport. Our data has the counts per
+  // airport and carrier, but we want to group counts by aiport.
+  var years = d3.nest()
+      .key(function(d) { return d.year; })
+      .entries(number);
+
+  // Insert an svg element (with margin) for each airport in our dataset. A
+  // child g element translates the origin to the pie center.
+  var svg = d3.select("body").selectAll("piecharts")
+      .data(years)
+    .enter().append("div") // http://code.google.com/p/chromium/issues/detail?id=98951
+      .style("display", "inline-block")
+      .style("width", (r + m) * 2 + "px")
+      .style("height", (r + m) * 2 + "px")
+    .append("svg")
+      .attr("width", (r + m) * 2)
+      .attr("height", (r + m) * 2)
+    .append("g")
+      .attr("transform", "translate(" + (r + m) + "," + (r + m) + ")");
+
+  //ADDED FOR TOOLTIP
+  var div = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
+  // Add a label for the airport. The `key` comes from the nest operator.
+  svg.append("text")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.key; });
+
+  // Pass the nested per-airport values to the pie layout. The layout computes
+  // the angles for each arc. Another g element will hold the arc and its label.
+  var g = svg.selectAll("g")
+      .data(function(d) { return pie(d.values); })
+    .enter().append("g");
+
+  // Add a colored arc path, with a mouseover title showing the count.
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return z(d.data.sector); })
+    // GOT RID OF THE TOOLTIPS THAT WERE THERE
+    //.append("title")
+      //.text(function(d) { return d.data.sector + ": " + d.data.count; })
+      ;
+
+/*  // TOOK THIS WHOLE THING OUT AS WE'RE USING TOOLTIPS RATHER THAN LABELS
+  // Add a label to the larger arcs, translated to the arc centroid and rotated.
+  g.filter(function(d) { return d.endAngle - d.startAngle > .2; }).append("text")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")rotate(" + angle(d) + ")"; })
+      .text(function(d) { return d.data.sector; });
+
+  // Computes the label angle of an arc, converting from radians to degrees.
+  function angle(d) {
+    var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
+    return a > 90 ? a - 180 : a;
+  }
+*/
+
+//ADDED FOR TOOLTIP
+      svg.selectAll("path")
+         .on("mouseover", function(d) {
+           div.transition()
+             .duration(10)
+             .style("opacity", 1);
+           div.html(d.data.sector + ": <span style='color:#117ca7'>" + d.data.count)
+           //got the correct hover position code from here: http://bl.ocks.org/arpitnarechania/577bd1d188d66dd7dffb69340dc2d9c9
+            .style('top', (d3.event.layerY + 10) + 'px')
+			      .style('left', (d3.event.layerX - 25) + 'px');
+           })
+         .on("mouseout", function(d) {
+           div.transition()
+             .duration(10)
+             .style("opacity", 0);
+});
+
+});
+
+</script>
