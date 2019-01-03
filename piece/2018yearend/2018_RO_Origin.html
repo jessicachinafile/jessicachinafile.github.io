@@ -121,13 +121,13 @@ padding:5px;
 
 <svg width="700" height="400"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
- <script src="./d3.tip.v0.6.3.js"></script>
+ <script src="https://d3.tip.v0.6.3.js"></script>
 <script>
 
 //code from https://bl.ocks.org/mbostock/3887051
 
 var svg = d3.select("svg"),
-    margin = {top: 10, right: 20, bottom: 100, left: 70},
+    margin = {top: 10, right: 20, bottom: 100, left: 60},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
