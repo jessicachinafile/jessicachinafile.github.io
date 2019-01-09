@@ -3,7 +3,7 @@ import requests
 from pprint import pprint
 import re
 from datetime import datetime
-
+import pandas as pd
 
 '''
 use timestring
@@ -23,15 +23,20 @@ def regexcleaner1(rawstring) :
 # https://stackoverflow.com/questions/18982610/difference-between-except-and-except-exception-as-e-in-python
 
 
-url = 'https://web.archive.org/web/20170904175537/http://ldzl.people.com.cn/dfzlk/front/personPage16164.htm'
+url = 'https://web.archive.org/web/20150413123909/http://ldzl.people.com.cn/dfzlk/front/personPage5855.htm'
 # functional: https://web.archive.org/web/20170904175537/http://ldzl.people.com.cn/dfzlk/front/personPage16164.htm
 # broken: https://web.archive.org/web/20150413115724/http://ldzl.people.com.cn/dfzlk/front/personPage8491.htm
+# shanxi super broken: https://web.archive.org/web/20150413123909/http://ldzl.people.com.cn/dfzlk/front/personPage5855.htm
+# hebei broken: https://web.archive.org/web/20150329235635/http://ldzl.people.com.cn/dfzlk/front/personPage4097.htm
 
 #get the web page
 page = requests.get(url)
 
 #creates a new BS holder based on the URL
 soup = BeautifulSoup(page.text, 'lxml')
+
+# creates a list where we can add all the information about each official to get converted/printed to a csv
+prov_official_csv_holder = []
 
 # this is the name section
 try:
@@ -43,6 +48,7 @@ try:
     print(name)
 except Exception as e:
     print ('Error:', e)
+    name = 'Error:', e
     pass
 
 # this gets the person's job title(s) and rank_indiv (which is the relative ranking of each person's titles, based on the order in which they appear)
@@ -66,7 +72,24 @@ try:
         print(title_list)
 except Exception as e:
     print ('Error:', e)
+    title_list = 'Error:', e
     pass
+
+# this breaks the title_list into discrete titles (still in order) for writing to the csv later
+number_of_titles = len(title_list)
+if number_of_titles > 1 :
+    title_2 = title_list[2]
+else :
+    title_2 = ("")
+if number_of_titles > 2 :
+    title_3 = title_list[3]
+else :
+    title_3 = ("")
+if number_of_titles > 3:
+    title_4 = title_list[4]
+else :
+    title_4 = ("")
+
 
 # this is the gender section
 try:
@@ -74,6 +97,7 @@ try:
     print(gender)
 except Exception as e:
     print ('Error:', e)
+    gender = 'Error:', e
     pass
 
 # this is the ethnicity section
@@ -84,6 +108,7 @@ try:
     print(ethnicity)
 except Exception as e:
     print ('Error:', e)
+    ethnicity = 'Error:', e
     pass
 
 #this is the dob section
@@ -95,6 +120,8 @@ try:
     print(dob_month)
 except Exception as e:
     print ('Error:', e)
+    dob_year = 'Error:', e
+    dob_month = 'Error:', e
     pass
 
 # this is the birth_province and birth_place section
@@ -106,6 +133,8 @@ try:
     print(birth_place)
 except Exception as e:
     print ('Error:', e)
+    birth_province = 'Error:', e
+    birth_place = 'Error:', e
     pass
 
 # this is the education section
@@ -114,6 +143,7 @@ try:
     print(education)
 except Exception as e:
     print ('Error:', e)
+    education = 'Error:', e
     pass
 
 # this is to catalogue the date the information was archived by IA
@@ -125,6 +155,7 @@ try:
     print(date_archived)
 except Exception as e:
     print ('Error:', e)
+    date_archived = 'Error:', e
     pass
 
 # this is to catalogue the date we scraped the information
@@ -136,15 +167,14 @@ try:
     print(date_scraped)
 except Exception as e:
     print ('Error:', e)
+    date_scraped = 'Error:', e
     pass
-
 
 
 ## TODO WHEN THIS IS IMPORTED TO THE FULL SCRAPER, A UID COUNTER WILL NEED TO BE ADDED ABOVE AND BELOW, AND THE UID WILL NEED TO BE ADDED TO THE IMAGE NAME
 
 
-
-# this is the picture section
+# this grabs the url for the person's photo
 try:
     img_url_unparsed = str(soup.find('img', {'id': 'userimg'}))
     img_url_end = img_url_unparsed.split('"')[7]
@@ -152,8 +182,10 @@ try:
     print(img_url)
 except Exception as e:
     print ('Error:', e)
+    img_url = 'Error:', e
     pass
 
+# this names and saves the image file
 try:
     #I assume this will be a dynamically created variable
     url_save_file_name = name + '_' + dob_unparsed + '.jpg'
@@ -164,6 +196,7 @@ try:
     print(url_save_file_name + " saved")
 except Exception as e:
     print ('Error:', e)
+    url_save_file_name = 'Error:', e
     pass
 
 #this is the person's CV as listed at the bottom of the page, pulled in full then cleaned up to strip out unnecessary characters/tags
@@ -173,4 +206,23 @@ try:
     print(full_person_resume)
 except Exception as e:
     print ('Error:', e)
+    full_person_resume = 'Error:', e
     pass
+
+# DataFrame explanation: https://www.tutorialspoint.com/python_pandas/python_pandas_dataframe.htm
+# indicates that each row of the pandas DataFrame will consist of these items, as we defined them above
+row_holder = [name, title_list[1], title_2, title_3, title_4, gender, ethnicity, dob_year, dob_month, birth_province, birth_place, education, date_archived, date_scraped, img_url, url_save_file_name, full_person_resume]
+
+# adds the row we just created to the holder file we created at top
+prov_official_csv_holder.append(row_holder)
+
+# converts the row info into a DataFrame, defines the column and row headings
+prov_official_row = pd.DataFrame(prov_official_csv_holder, columns=['Name','Title 1', 'Title 2', 'Title 3', 'Title 4', 'Gender', 'Ethnicity', 'Birth Year', 'Birth Month', "Birth Province", "Birth Place", "Education", "Archived", "Scraped", "Image URL", "Image Filename", "Resume"])
+
+#FOR USE WITH UIDS/INDEXES
+#df1 = pd.DataFrame(data, index=['first', 'second'], columns=['a', 'b'])
+
+# writes that DF info to a csv and encodes it so we can read the csv
+# TODO HAVE THE CSV INFO APPEND RATHER THAN OVERWRITE
+# TODO ONCE THIS IS ON THE BIG PAGE, MAKE SURE THAT THE PROVINCE/COUNTY/ETC GET WRITTEN INTO CSV
+prov_official_row.to_csv('new.csv', encoding='utf-8')
