@@ -1,0 +1,424 @@
+<meta charset="utf-8">
+     <style>
+
+
+
+     @font-face {
+        font-family: 'DrukText';
+        src: url('./fonts/Druk-Medium-Web.woff');
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'DrukText';
+        src: url('./fonts/Druk-MediumItalic-Web.woff');
+        font-weight: 500;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: 'DrukText';
+        src: url('./fonts/Druk-Bold-Web.woff');
+        font-weight: 700;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'DrukText';
+        src: url('./fonts/Druk-BoldItalic-Web.woff');
+        font-weight: 700;
+        font-style: italic;
+      }
+     @font-face {
+       font-family: 'PortraitText';
+       src: url('./fonts/Portrait-Regular-Web.woff');
+       font-weight: 400;
+       font-style: normal;
+     }
+     @font-face {
+       font-family: 'PortraitText';
+       src: url('./fonts/Portrait-RegularItalic-Web.woff');
+       font-weight: 400;
+       font-style: italic;
+     }
+     @font-face {
+       font-family: 'PortraitText';
+       src: url('./fonts/Portrait-Medium-Web.woff');
+       font-weight: 500;
+       font-style: normal;
+     }
+     @font-face {
+       font-family: 'PortraitText';
+       src: url('./fonts/Portrait-MediumItalic-Web.woff');
+       font-weight: 500;
+       font-style: italic;
+     }
+
+     body{
+         max-width:1200px;
+         max-height:700px;
+         font-size:88%;
+     }
+
+     h1 {
+         font-family:DrukText;
+         font-size: 40px;
+         display: block;
+     }
+
+     h2 {
+         font-family:PortraitText;
+         font-size: 18px;
+         color: #3c3c3c;
+         font-weight: normal;
+     }
+
+      /* disable text selection */
+      svg *::selection {
+         background : transparent;
+      }
+
+      svg *::-moz-selection {
+         background:transparent;
+      }
+
+      svg *::-webkit-selection {
+         background:transparent;
+      }
+      rect.selection {
+        stroke          : #ff0032;
+        stroke-dasharray: 4px;
+        stroke-opacity  : 0.5;
+        fill            : transparent;
+      }
+
+      rect.cell-border {
+        stroke: #eee;
+        stroke-width:0.3px;
+      }
+
+      rect.cell-selected {
+        stroke: rgb(#ff0032);
+        stroke-width:0.5px;
+      }
+
+      rect.cell-hover {
+        stroke: #ff0032;
+        stroke-width:0.3px;
+      }
+
+      text.mono {
+        font-size: 11pt;
+        font-family: PortraitText;
+        fill: #000000;
+      }
+
+      text.text-selected {
+        fill: #ff0032;
+      }
+
+      text.text-highlight {
+        fill: #ff0032;
+      }
+      text.text-hover {
+        fill: #ff0032;
+      }
+      #tooltip {
+        position: absolute;
+        font: 20px DrukText;
+        max-width: 250px;
+        height: auto;
+        padding: 10px;
+        background: none repeat scroll 0 0 #e6e6e6;
+        border-radius: 8px;
+      }
+
+
+      #tooltip.hidden {
+        display: none;
+      }
+
+    /*  #tooltip p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 12px;
+        line-height: 20px;
+      } */
+
+      div.tooltip1 {
+        overflow:hidden;
+        max-width: 90%;
+        height: auto;
+        border-radius: 0px;
+        font: 14px PortraitText;
+        padding: 0px;
+        text-align: left;
+      }
+
+      #wrapper
+      {
+      width:95%;
+      margin:0 auto;
+
+      }
+      #header
+      {
+      	overflow:hidden;
+      margin-bottom:5px;
+      text-align:center;
+      vertical-align: text-top;
+      }
+
+
+    </style>
+
+</head>
+<div id="tooltip" class="hidden">
+        <p><span id="value"></p>
+</div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.v3.min.js"></script>
+
+<div id="wrapper">
+<div id="header"><h1>Professional Supervisory Units, by Number of Foreign NGOs Sponsored</h1></div>
+<div id="chart" style='overflow:hidden; width:1100px; height:1250px;'></div>
+
+<script type="text/javascript">
+var margin = { top: 190, right: 10, bottom: 50, left: 435 },
+  cellSize=18;
+  col_number=35;
+  row_number=58;
+  width = cellSize*col_number, // - margin.left - margin.right,
+  height = cellSize*row_number , // - margin.top - margin.bottom,
+  //gridSize = Math.floor(width / 24),
+  legendElementWidth = cellSize*2.7,
+  colorBuckets = 13,
+  colors = ['#ffffff','#ffd6de','#ffadbe','#ff859d','#ff5c7c','#ff335c','#ff0032','#e0002d','#b80025','#8f001d','#660014','#3d000c','#140004'];
+  hcrow = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],
+  hccol = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35], // these are what shows up in the first two columns of your TSV data, they match up with the labels below
+  rowLabel = ["All-China Federation of Trade Unions", "All-China Women’s Federation", "China Association for Science and Technology", "China Banking Regulatory Commission", "China Disabled Persons’ Federation", "China Insurance Regulatory Commission", "China Meteorological Administration", "China Securities Regulatory Commission", "Cyberspace Administration of China", "General Administration of Quality Supervision, Inspection, and Quarantine", "General Administration of Sport", "Ministry of Agriculture", "Ministry of Civil Affairs", "Ministry of Commerce", "Ministry of Culture", "Ministry of Education", "Ministry of Environmental Protection", "Ministry of Finance", "Ministry of Housing and Urban-Rural Development", "Ministry of Human Resources and Social Security", "Ministry of Industry and Information Technology*", "Ministry of Justice", "Ministry of Science and Technology", "Ministry of Transport", "Ministry of Water Resources", "National Audit Office", "National Bureau of Statistics", "National Copyright Administration†", "National Development and Reform Commission", "National Energy Administration", "National Health and Family Planning Commission", "National Tourism Administration", "Overseas Chinese Affairs Office of the State Council", "People’s Bank of China", "State Administration for Industry and Commerce", "State Administration of Cultural Heritage", "State Administration of Foreign Experts Affairs", "State Administration of Press, Publication, Radio, Film and Television", "State Administration of Taxation", "State Administration of Traditional Chinese Medicine", "State Administration of Work Safety", "State Council Leading Group Office of Poverty Alleviation and Development", "China Food and Drug Administration", "State Forestry Administration", "State Intellectual Property Office", "State Oceanic Administration", "State Post Bureau", "Chinese People’s Association for Friendship with Foreign Countries**", "Chinese Association for International Understanding**†", "Ministry of Land and Resources**", "Shanghai Institutes for International Studies**†", "State Administration of Grain**", "State Ethnic Affairs Commission**", "Communist Youth League of China**", "Ministry of Foreign Affairs**", "Civil Aviation Administration of China**", "State Council Taiwan Affairs Office**", "Standardization Administration of the People's Republic of China**‡", "All-China Youth Federation**"], // change to gene name or probe id
+  colLabel = ["Total Foreign NGOs Sponsored", "National-Level Total", "Provincial-Level Total", "Anhui", "Beijing", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hubei", "Hunan", "Inner Mongolia", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi", "Sichuan", "Tianjin", "Tibet", "Xinjiang", "Xinjiang Bingtuan", "Yunnan", "Zhejiang"]; // change to contrast name
+
+d3.tsv("PSUheatmapdata.tsv",
+function(d) {
+  return {
+    row:   +d.PSU,
+    col:   +d.Location,
+    value: +d.Number
+  };
+},
+function(error, data) {
+  var colorScale = d3.scale.threshold()
+      .domain([1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90])
+      .range(colors);
+
+
+  var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      ;
+  var rowSortOrder=false;
+  var colSortOrder=false;
+  var rowLabels = svg.append("g")
+      .selectAll(".rowLabelg")
+      .data(rowLabel)
+      .enter()
+      .append("text")
+      .text(function (d) { return d; })
+      .attr("x", 0)
+      .attr("y", function (d, i) { return hcrow.indexOf(i+1) * cellSize; })
+      .style("text-anchor", "end")
+      .attr("transform", "translate(-6," + cellSize / 1.5 + ")")
+      .attr("class", function (d,i) { return "rowLabel mono r"+i;} )
+      .on("mouseover", function(d) {d3.select(this).classed("text-hover",true);})
+      .on("mouseout" , function(d) {d3.select(this).classed("text-hover",false);})
+      .on("click", function(d,i) {rowSortOrder=!rowSortOrder; sortbylabel("r",i,rowSortOrder);d3.select("#order").property("selectedIndex", 4).node().focus();;})
+      ;
+
+  var colLabels = svg.append("g")
+      .selectAll(".colLabelg")
+      .data(colLabel)
+      .enter()
+      .append("text")
+      .text(function (d) { return d; })
+      .attr("x", 0)
+      .attr("y", function (d, i) { return hccol.indexOf(i+1) * cellSize; })
+      .style("text-anchor", "left")
+      .attr("transform", "translate("+cellSize/2 + ",-6) rotate (-90)")
+      .attr("class",  function (d,i) { return "colLabel mono c"+i;} )
+      .on("mouseover", function(d) {d3.select(this).classed("text-hover",true);})
+      .on("mouseout" , function(d) {d3.select(this).classed("text-hover",false);})
+      .on("click", function(d,i) {colSortOrder=!colSortOrder;  sortbylabel("c",i,colSortOrder);d3.select("#order").property("selectedIndex", 4).node().focus();;})
+      ;
+
+  var heatMap = svg.append("g").attr("class","g3")
+        .selectAll(".cellg")
+        .data(data,function(d){return d.row+":"+d.col;})
+        .enter()
+        .append("rect")
+        .attr("x", function(d) { return hccol.indexOf(d.col) * cellSize; })
+        .attr("y", function(d) { return hcrow.indexOf(d.row) * cellSize; })
+        .attr("class", function(d){return "cell cell-border cr"+(d.row-1)+" cc"+(d.col-1);})
+        .attr("width", cellSize)
+        .attr("height", cellSize)
+        .style("fill", function(d) { return colorScale(d.value); })
+        /* .on("click", function(d) {
+               var rowtext=d3.select(".r"+(d.row-1));
+               if(rowtext.classed("text-selected")==false){
+                   rowtext.classed("text-selected",true);
+               }else{
+                   rowtext.classed("text-selected",false);
+               }
+        })*/
+        .on("mouseover", function(d){
+               //highlight text
+               d3.select(this).classed("cell-hover",true);
+               d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ return ri==(d.row-1);});
+               d3.selectAll(".colLabel").classed("text-highlight",function(c,ci){ return ci==(d.col-1);});
+
+               //Update the tooltip position and value
+               d3.select("#tooltip")
+                 .style("left", (d3.event.pageX+10) + "px")
+                 .style("top", (d3.event.pageY-10) + "px")
+                 .select("#value")
+                 .html("<b>" + rowLabel[d.row-1] + "</b>" + "</br>" + colLabel[d.col-1] + ": " + d.value);
+               //Show the tooltip  "<b>Field of Work: </b>"
+               d3.select("#tooltip").classed("hidden", false);
+        })
+        .on("mouseout", function(){
+               d3.select(this).classed("cell-hover",false);
+               d3.selectAll(".rowLabel").classed("text-highlight",false);
+               d3.selectAll(".colLabel").classed("text-highlight",false);
+               d3.select("#tooltip").classed("hidden", true);
+        })
+        ;
+
+//  var legend = svg.selectAll(".legend")
+//      .data(["0", "1", "2", "3", "4", "5", "6-10", "11-20", "21-30", "31-50", "51-70", "71-100", ">100"])
+  //    .enter().append("g")
+////      .attr("class", "legend");
+
+//  legend.append("rect")
+//    .attr("x", function(d, i) { return legendElementWidth * i; })
+//    .attr("y", height+(cellSize*2))
+//    .attr("width", legendElementWidth)
+//    .attr("height", cellSize)
+//    .style("fill", function(d, i) { return colors[i]; });
+
+//  legend.append("text")
+//    .attr("class", "mono")
+//    .text(function(d) { return d; })
+//    .attr("width", legendElementWidth)
+//    .attr("x", function(d, i) { return legendElementWidth * i+5; })
+//    .attr("y", height + (cellSize*4))    ;
+
+// removed code that changed ordering of cells
+
+  //
+  var sa=d3.select(".g3")
+      .on("mousedown", function() {
+          if( !d3.event.altKey) {
+             d3.selectAll(".cell-selected").classed("cell-selected",false);
+             d3.selectAll(".rowLabel").classed("text-selected",false);
+             d3.selectAll(".colLabel").classed("text-selected",false);
+          }
+         var p = d3.mouse(this);
+         sa.append("rect")
+         .attr({
+             rx      : 0,
+             ry      : 0,
+             class   : "selection",
+             x       : p[0],
+             y       : p[1],
+             width   : 1,
+             height  : 1
+         })
+      })
+      .on("mousemove", function() {
+         var s = sa.select("rect.selection");
+
+         if(!s.empty()) {
+             var p = d3.mouse(this),
+                 d = {
+                     x       : parseInt(s.attr("x"), 10),
+                     y       : parseInt(s.attr("y"), 10),
+                     width   : parseInt(s.attr("width"), 10),
+                     height  : parseInt(s.attr("height"), 10)
+                 },
+                 move = {
+                     x : p[0] - d.x,
+                     y : p[1] - d.y
+                 }
+             ;
+
+             if(move.x < 1 || (move.x*2<d.width)) {
+                 d.x = p[0];
+                 d.width -= move.x;
+             } else {
+                 d.width = move.x;
+             }
+
+             if(move.y < 1 || (move.y*2<d.height)) {
+                 d.y = p[1];
+                 d.height -= move.y;
+             } else {
+                 d.height = move.y;
+             }
+             s.attr(d);
+
+                 // deselect all temporary selected state objects
+             d3.selectAll('.cell-selection.cell-selected').classed("cell-selected", false);
+             d3.selectAll(".text-selection.text-selected").classed("text-selected",false);
+
+             d3.selectAll('.cell').filter(function(cell_d, i) {
+                 if(
+                     !d3.select(this).classed("cell-selected") &&
+                         // inner circle inside selection frame
+                     (this.x.baseVal.value)+cellSize >= d.x && (this.x.baseVal.value)<=d.x+d.width &&
+                     (this.y.baseVal.value)+cellSize >= d.y && (this.y.baseVal.value)<=d.y+d.height
+                 ) {
+
+                     d3.select(this)
+                     .classed("cell-selection", true)
+                     .classed("cell-selected", true);
+
+                     d3.select(".r"+(cell_d.row-1))
+                     .classed("text-selection",true)
+                     .classed("text-selected",true);
+
+                     d3.select(".c"+(cell_d.col-1))
+                     .classed("text-selection",true)
+                     .classed("text-selected",true);
+                 }
+             });
+         }
+      })
+      .on("mouseup", function() {
+            // remove selection frame
+         sa.selectAll("rect.selection").remove();
+
+             // remove temporary selection marker class
+         d3.selectAll('.cell-selection').classed("cell-selection", false);
+         d3.selectAll(".text-selection").classed("text-selection",false);
+      })
+      .on("mouseout", function() {
+         if(d3.event.relatedTarget.tagName=='html') {
+                 // remove selection frame
+             sa.selectAll("rect.selection").remove();
+                 // remove temporary selection marker class
+             d3.selectAll('.cell-selection').classed("cell-selection", false);
+             d3.selectAll(".rowLabel").classed("text-selected",false);
+             d3.selectAll(".colLabel").classed("text-selected",false);
+         }
+      })
+      ;
+});
+
+d3.select("body").append("div")
+.attr("class", "tooltip1")
+.html("<em><ul><li>*At the provincial level, the corresponding entities are called &ldquo;Economy and Informatization Commissions.&rdquo;</li><li>**Not included on the Ministry of Public Security’s (MPS’s) 2017 list of eligible Professional Supervisory Units (PSUs); as the MPS is known to be updating this list, it is likely that these PSUs will be added to the next iteration.</li><li>†Does not have corresponding local offices (if a national-level entity) or does not have a corresponding national office (if a local entity).</li><li>‡At the provincial level, the corresponding entities are called &ldquo;Administrations of Quality and Technical Supervision.&rdquo;</li><li>&ldquo;Province&rdquo; here also refers to provincial-level municipalities and autonomous regions.</li><li>For foreign NGOs that have opened multiple representative offices, each office is included in these totals.</li></ul></em>");
+
+
+
+
+</script>
