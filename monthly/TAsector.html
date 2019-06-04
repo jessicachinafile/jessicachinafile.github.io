@@ -162,7 +162,7 @@ padding:5px;
   <script src="./scripts/d3.tip.v0.6.3.js"></script>
 <script>
 //changed bottom margin to allow for rotated x-axis labels
-var margin = {top: 30, right: 20, bottom: 160, left: 80},
+var margin = {top: 30, right: 20, bottom: 165, left: 80},
     width = 700 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 var formatPercent = d3.format(".0%");
@@ -210,7 +210,7 @@ d3.tsv("TAsector.tsv", function(error, data) {
       .call(yAxis)
       .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -50)
+      .attr("y", -60)
       .attr("dy", ".71em")
       .attr("class", "axislabel")
       .style("text-anchor", "end")
