@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta charset='utf-8' />
-      <title>July 2019 Foreign NGO Professional Supervisory Units</title>
+      <title>July 2019 Foreign NGO Professional Supervisory Units<</title>
       <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 
 <style>
@@ -68,7 +68,7 @@ font-style: italic;
       		font-family: 'PortraitText';
       	}
         table.sortable {border-spacing: 0}
-        table.sortable td, th {padding: 0 0.3em}
+        table.sortable td, th {padding: 0 0.4em}
         tr:nth-child(even) {background: #e6e6e6}
         tr:nth-child(odd) {background: #FFF}
       </style>
@@ -79,12 +79,20 @@ font-style: italic;
 
 
 
-<table class="sortable">
+<table id="filter" class="sortable">
+
+	<thead>
+    <tr style="text-align: center;">
+      <th style="width:17%">Eligible PSUs as Listed in 2019 (English)</th>
+      <th style="width:15%">Eligible PSUs as Listed in 2019 (Chinese)</th>
+      <th style="width:18%">Previously Listed as (English)</th>
+      <th style="width:15%">Previously Listed as (Chinese)</th>
+      <th style="width:25%">Notes on Restructuring Status</th>
+      <th style="width:10%">Notes on Listing Status</th>
+      </tr></thead><tbody>
+
 <!–– add your tableizer data below this line––>
 
-
-
-<thead><tr><th>Eligible PSUs as Listed in 2019 (English)</th><th>Eligible PSUs as Listed in 2019 (Chinese) </th><th>Previously Listed as (English)</th><th>Previously Listed as (Chinese)</th><th>Notes on Restructuring Status</th><th>Notes on Listing Status</th></tr></thead><tbody>
  <tr><td>All-China Federation of Trade Unions</td><td>中华全国总工会</td><td>(Name not affected by restructuring)</td><td>(Name not affected by restructuring)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>All-China Women's Federation</td><td>中华全国妇女联合会</td><td>(Not affected by restructuring)</td><td>(Name not affected by restructuring)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>China Association for Science and Technology</td><td>中国科学技术协会</td><td>(Name not affected by restructuring)</td><td>(Name not affected by restructuring)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -140,6 +148,28 @@ font-style: italic;
  <tr><td>China Council for the Promotion of International Trade</td><td>中国国际贸易促进委员会</td><td>N/A</td><td>N/A</td><td>&nbsp;</td><td>New to 2019 list</td></tr>
 </tbody></table>
 
+
 <!–– add your tableizer data above this line––>
+
+<script src="./tablefilter/tablefilter.js"></script>
+
+<script>
+var filtersConfig = {
+    base_path: 'tablefilter/',
+    auto_filter: true,
+    auto_filter_delay: 1100, //milliseconds
+    filters_row_index: 1,
+    state: true,
+    alternate_rows: true,
+    rows_counter: true,
+    btn_reset: true,
+    status_bar: true,
+    msg_filter: 'Filtering...'
+};
+var tf = new TableFilter('filter', filtersConfig);
+tf.init();
+</script>
+
+
 </body>
 </html>
