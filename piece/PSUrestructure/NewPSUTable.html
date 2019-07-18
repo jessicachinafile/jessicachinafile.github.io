@@ -63,14 +63,29 @@ font-style: italic;
             font-size: 16px;
             cursor: default;
         }
+
         table.sortable {
       		font-size: 12px;
       		font-family: 'PortraitText';
       	}
+
         table.sortable {border-spacing: 0}
-        table.sortable td, th {padding: 0 0.4em}
-        tr:nth-child(even) {background: #e6e6e6}
+
+				tr:nth-child(even) {background: #e6e6e6}
+
         tr:nth-child(odd) {background: #FFF}
+
+        table.sortable td, th {padding: 0 1em}
+
+
+
+				table.sortable thead th {
+					 padding: 8px;
+					 background-color: #d8d8d8;
+					 font-size: 16px;
+					 font-weight: bold;
+					 position: sticky; top: 0;
+				}
       </style>
   </head>
 
@@ -79,7 +94,7 @@ font-style: italic;
 
 
 
-<table id="filter" class="sortable">
+<table class="sortable">
 
 	<thead>
     <tr style="text-align: center;">
@@ -92,6 +107,8 @@ font-style: italic;
       </tr></thead><tbody>
 
 <!–– add your tableizer data below this line––>
+
+
 
  <tr><td>All-China Federation of Trade Unions</td><td>中华全国总工会</td><td>(Name not affected by restructuring)</td><td>(Name not affected by restructuring)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>All-China Women's Federation</td><td>中华全国妇女联合会</td><td>(Not affected by restructuring)</td><td>(Name not affected by restructuring)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -150,25 +167,6 @@ font-style: italic;
 
 
 <!–– add your tableizer data above this line––>
-
-<script src="./tablefilter/tablefilter.js"></script>
-
-<script>
-var filtersConfig = {
-    base_path: 'tablefilter/',
-    auto_filter: true,
-    auto_filter_delay: 1100, //milliseconds
-    filters_row_index: 1,
-    state: true,
-    alternate_rows: true,
-    rows_counter: true,
-    btn_reset: true,
-    status_bar: true,
-    msg_filter: 'Filtering...'
-};
-var tf = new TableFilter('filter', filtersConfig);
-tf.init();
-</script>
 
 
 </body>
