@@ -10,7 +10,7 @@ Guizhou	54
 Hainan	43
 Hebei	66
 Heilongjiang	62
-Henan	50
+Henan	51
 Hubei	61
 Hunan	71
 Inner Mongolia	49
@@ -22,7 +22,7 @@ Ningxia	35
 Qinghai	50
 Shaanxi	56
 Shandong	76
-Shanghai	89
+Shanghai	90
 Shanxi	40
 Sichuan	100
 Tianjin	73
@@ -30,4 +30,5 @@ Tibet	24
 Xinjiang	32
 Xinjiang Bingtuan	4
 Yunnan	98
-Zhejiang	74
+Zhejiang	75
+Unknown	0
