@@ -56,22 +56,35 @@ font-weight: 500;
 font-style: italic;
 }
 
-        table.sortable thead {
+ table.tableizer-table thead {
             background-color:#eee;
             color:#000000;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
             cursor: default;
-          position: sticky; top: 0;
         }
-        table.sortable {
-      		font-size: 12px;
-      		font-family: 'PortraitText';
+        table.tableizer-table {
+		        font-size: 12px;
+		        border: 1px solid #CCC;
+		        font-family: Arial, Helvetica, sans-serif;
       	}
-        table.sortable {border-spacing: 0}
-        table.sortable td, th {padding: 0 0.3em}
-        tr:nth-child(even) {background: #e6e6e6}
-        tr:nth-child(odd) {background: #FFF}
+        table.tableizer-table {border-spacing: 0}
+        tr:nth-child(odd) {background: #e6e6e6}
+        tr:nth-child(even) {background: #FFF}
+        tr td:nth-child(3) {text-align: center;}
+        td {
+            padding: 4px;
+        		margin: 3px;
+        		border: 1px solid #CCC;}
+        table.tableizer-table thead th {
+	         padding: 8px;
+	         background-color: #FFF;
+	         font-size: 16px;
+           font-weight: bold;
+           border: 1px solid #CCC;
+		position: sticky; top: 0;
+        }
+
       </style>
   </head>
 
