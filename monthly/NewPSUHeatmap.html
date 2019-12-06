@@ -156,7 +156,7 @@
 
 <div id="wrapper">
 <div id="header"><h1>Professional Supervisory Units, by Number of Foreign NGOs Sponsored</h1></div>
-<div id="chart" style='overflow:hidden; width:1100px; height:1260px;'></div>
+<div id="chart" style='overflow:hidden; width:1100px; height:1280px;'></div>
 
 <script type="text/javascript">
 var margin = { top: 190, right: 10, bottom: 50, left: 435 },
@@ -169,23 +169,23 @@ var margin = { top: 190, right: 10, bottom: 50, left: 435 },
   legendElementWidth = cellSize*2.7,
   colorBuckets = 13,
   colors = ['#ffffff','#ffd6de','#ffadbe','#ff859d','#ff5c7c','#ff335c','#ff0032','#e0002d','#b80025','#8f001d','#660014','#3d000c','#140004'];
-  hcrow = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],
+  hcrow = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],
   hccol = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35], // these are what shows up in the first two columns of your TSV data, they match up with the labels below
   rowLabel = ["All China-Federation of Returned Overseas Chinese",
   "All-China Federation of Trade Unions",
   "All-China Women's Federation",
-  "All-China Youth Federation",
+  "All-China Youth Federation**",
   "China Association for Science and Technology",
   "China Banking and Insurance Regulatory Commission",
   "China Council for the Promotion of International Trade",
   "China Disabled Persons' Federation",
   "China Meteorological Administration",
   "China Securities Regulatory Commission",
-  "Chinese Association for International Understanding†",
+  "Chinese Association for International Understanding†**",
   "Chinese People's Association for Friendship with Foreign Countries",
   "Civil Aviation Administration of China",
   "Communist Party Central Committee International Liaison Department",
-  "Communist Youth League of China",
+  "Communist Youth League of China**",
   "Cyberspace Administration of China",
   "General Administration of Customs",
   "General Administration of Sport",
@@ -197,7 +197,7 @@ var margin = { top: 190, right: 10, bottom: 50, left: 435 },
   "Ministry of Education",
   "Ministry of Emergency Management",
   "Ministry of Finance",
-  "Ministry of Foreign Affairs",
+  "Ministry of Foreign Affairs**",
   "Ministry of Housing and Urban-Rural Development",
   "Ministry of Human Resources and Social Security",
   "Ministry of Industry and Information Technology*",
@@ -217,7 +217,7 @@ var margin = { top: 190, right: 10, bottom: 50, left: 435 },
   "National Medical Products Administration",
   "National Radio and Television Administration",
   "People’s Bank of China",
-  "Shanghai Institutes for International Studies†",
+  "Shanghai Institutes for International Studies†**",
   "State Administration for Market Regulation",
   "State Administration of Cultural Heritage",
   "State Administration for Market Regulation",
@@ -225,10 +225,12 @@ var margin = { top: 190, right: 10, bottom: 50, left: 435 },
   "State Administration of Traditional Chinese Medicine",
   "State Council Leading Group Office of Poverty Alleviation and Development",
   "State Council Overseas Chinese Affairs Office",
-  "State Council Taiwan Affairs Office",
+  "State Council Taiwan Affairs Office**",
   "State Ethnic Affairs Commission",
   "State Intellectual Property Office",
-  "State Post Bureau","State Press and Publication Administration"], // change to gene name or probe id
+  "State Post Bureau",
+	"State Press and Publication Administration",
+	"State Council Hong Kong and Macau Affairs Office**"], // change to gene name or probe id
 
   colLabel = ["Total Foreign NGOs Sponsored", "National-Level Total", "Provincial-Level Total", "Anhui", "Beijing", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hubei", "Hunan", "Inner Mongolia", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi", "Sichuan", "Tianjin", "Tibet", "Xinjiang", "Xinjiang Bingtuan", "Yunnan", "Zhejiang"]; // change to contrast name
 d3.tsv("NewPSUHeatmapData.tsv",
@@ -430,5 +432,5 @@ function(error, data) {
 });
 d3.select("body").append("div")
 .attr("class", "tooltip1")
-.html("<em><ul><li>*At the provincial level, the corresponding entities are called “Economy and Informatization Commissions.”</li><li>†Does not have corresponding local offices (if a national-level entity) or does not have a corresponding national office (if a local entity).</li></li></ul></em>");
+.html("<em><ul><li>*At the provincial level, the corresponding entities are called “Economy and Informatization Commissions.”</li><li>†Does not have corresponding local offices (if a national-level entity) or does not have a corresponding national office (if a local entity).</li><li>**Not included on the official MPS 2019 list of eligible PSUs.</li></ul></em>");
 </script>
