@@ -1,20 +1,21 @@
 country	offices
-Australia	9
+Australia	10
 Austria	1
-Belgium	4
+Belgium	5
 Brazil	2
-Canada	14
+Canada	12
 Colombia	1
 Croatia	2
 Denmark	1
-France	12
+France	14
 Germany	26
-Hong Kong	91
+Hong Kong	94
 Hungary	1
 India	2
 Italy	6
-Japan	54
-Macau	11
+Japan	53
+Kyrgyzstan	1
+Macau	12
 Madagascar	8
 Malaysia	3
 Monaco	1
@@ -22,10 +23,11 @@ Mongolia	1
 New Zealand	1
 North Korea	2
 Norway	1
+Pakistan	1
 Peru	1
 Russia	3
 Singapore	5
-South Korea	38
+South Korea	39
 Spain	2
 Sweden	1
 Switzerland	13
@@ -35,5 +37,5 @@ The Netherlands	7
 The Philippines	1
 Turkey	1
 United Arab Emirates	1
-United Kingdom	22
-United States	125
+United Kingdom	24
+United States	127
