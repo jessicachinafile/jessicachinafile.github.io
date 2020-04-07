@@ -1,0 +1,96 @@
+onLoadData({
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.988873,22.889645 ]
+    },
+    "properties": {
+    "UID":201502725219,
+    "orig_date":"2008年6月",
+    "date":"2008-6",
+    "start":"2008-06-01",
+    "end":"2020-01-01",
+    "camera_num":24,
+    "camera_info":"监控电视墙 (X+Y): 6+1",
+    "location_name":"大同村委会",
+    "other_notes":"these are rough approximations as there are not exact lat/long for these"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.979479,22.882728 ]
+    },
+    "properties": {
+    "UID":201502725219,
+    "orig_date":"2006年1月",
+    "date":"2006-1",
+    "start":"2006-01-01",
+    "end":"2020-01-01",
+    "camera_num":25,
+    "camera_info":"监控电视墙 (X+Y): 6+1",
+    "location_name":"朝山村委会",
+    "other_notes":"these are rough approximations as there are not exact lat/long for these"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.987787,22.891493 ]
+    },
+    "properties": {
+    "UID":201502725219,
+    "orig_date":"2009年12月",
+    "date":"2009-12",
+    "start":"2009-12-01",
+    "end":"2020-01-01",
+    "camera_num":24,
+    "camera_info":"监控电视墙 (X+Y): 6+1",
+    "location_name":"七星村委会",
+    "other_notes":"these are rough approximations as there are not exact lat/long for these"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.993805,22.895717 ]
+    },
+    "properties": {
+    "UID":201502725219,
+    "orig_date":"2009 年",
+    "date":"2009-01",
+    "start":"2009-01-01",
+    "end":"2020-01-01",
+    "camera_num":36,
+    "camera_info":"监控电视墙 (X+Y): 8+1",
+    "location_name":"显岗社区",
+    "other_notes":"these are rough approximations as there are not exact lat/long for these"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.930828,22.894544 ]
+    },
+    "properties": {
+    "UID":201502725219,
+    "orig_date":"2009年5月",
+    "date":"2009-5",
+    "start":"2009-05-01",
+    "end":"2020-01-01",
+    "camera_num":22,
+    "camera_info":"监控电视墙 (X+Y): 6+1",
+    "location_name":"新田村委会",
+    "other_notes":"these are rough approximations as there are not exact lat/long for these"
+    }
+  }
+]
+}
+)
