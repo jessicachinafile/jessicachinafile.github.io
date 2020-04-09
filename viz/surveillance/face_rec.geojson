@@ -1,0 +1,4831 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8750128,22.8597589 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"庆云洞观光车候车点",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借杆 取电协商 1 枪对外",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8505665,22.8602986 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"龙涛湾收费处",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8816086,22.8723872 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西岸小学幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8965524,22.8757201 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"沧江水闸",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借墙支架对西岸方向",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8787532,22.8789546 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"山林水语幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借屋底支架",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.923178,22.8806931 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新田南村市场恒兴市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新田",
+    "other_notes":"待协商借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8772426,22.8809692 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西岸中队门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8776216,22.8813095 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西岸大桥往高明方向桥头 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"立杆4m 支架 1枪对南",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.877763,22.8813393 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西岸大桥往高明方向桥头 2",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"立杆4m 支架 1枪对北 待建",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8776093,22.8816768 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西岸大桥桥底",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"立杆4m 2枪左右",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8582118,22.8828764 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"潮甸村三洲交界",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西岸",
+    "other_notes":"借302 1枪对三洲",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9742992,22.8867961 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"朝山幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"朝山",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9853617,22.8883759 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大桐社区民警中队",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"大同",
+    "other_notes":"借楼底支架 1 枪对外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9251453,22.8896871 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新田小学门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新田",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9252281,22.8902847 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新田幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新田",
+    "other_notes":"接墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9845921,22.8935471 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大桐市场桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"桥头限高架 1 枪对外",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.984607,22.893724 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大桐市场桥头 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"桥头限高架 1 枪对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9807834,22.8939083 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"七星幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"借墙支架对外 1 枪 302",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9802353,22.8940339 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"第四社区卫生服务站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"借墙支架，1 枪对外 新增光纤",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9207775,22.8955276 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"海舟下圩市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"海舟",
+    "other_notes":"借墙支架 2 枪对左右",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9807155,22.8961606 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大桐堡小学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"借墙支架对外 1 枪 302",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.983716,22.8963146 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"黄飞鸿国际文武学校",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"七星",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.921025,22.898716 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"海舟幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"海舟",
+    "other_notes":"借墙支架对外 1 枪对门口",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9902426,22.8998964 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"显岗幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"大同",
+    "other_notes":"借楼底支架 1 枪对外，302 迁改",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.951495,22.9061128 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"儒溪幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"儒溪",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9970319,22.9063201 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"显岗东北工业区沙头岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"显岗",
+    "other_notes":"借 302 杆支架对外",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.951459,22.9066757 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"社区服务中心儒溪",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"儒溪",
+    "other_notes":"借墙支架对西南",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9516006,22.9068023 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"儒溪市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"儒溪",
+    "other_notes":"借墙支架 1 枪对市场",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9693851,22.9098306 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"国艺影视城午门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵山",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9704047,22.9106334 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"国艺影视城住入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵山",
+    "other_notes":"接墙在里对外 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9708153,22.911293 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵山南门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵山",
+    "other_notes":"借墙1枪支架",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9290189,22.9129064 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"海舟赛特乔治学校",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"海舟",
+    "other_notes":"43329",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8868513,22.9145334 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"平沙高明渡口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"平沙",
+    "other_notes":"借墙支架对渡口 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9244428,22.9146605 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"海舟开发区市场惠多福百货",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"海舟",
+    "other_notes":"借墙1.5横臂 1枪对东",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9242188,22.9153874 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"海舟开发区市场 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"海舟",
+    "other_notes":"",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9288888,22.9181443 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新西方百乐邨商场侧保安亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9074936,22.9230622 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平渡口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"平沙",
+    "other_notes":"立杆4m 支架 对渡口",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.898912,22.9236276 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"平沙西樵渡口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"平沙",
+    "other_notes":"借墙支架对渡口 1 枪 302",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.940203,22.9271789 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"黄飞鸿狮艺武术馆-售票处",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"岭西",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9451365,22.9278199 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"岭西幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"岭西",
+    "other_notes":"立杆4m 支架对外1枪302没有点位",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9444346,22.9280923 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"岭西小学门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"岭西",
+    "other_notes":"待建 借墙支架对外1枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9989256,22.9299096 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"山根小学后门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"山根",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9924188,22.9303342 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"执信中学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"山根",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9121113,22.9310136 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"官太路太平开发区农业银行侧面",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.91035,22.9310683 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平中队在门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9428938,22.9318856 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"岭西市场和昌百货",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"岭西",
+    "other_notes":"借墙支架对左右两枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9070611,22.9318936 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平中学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9985867,22.9320457 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵实验小学(山根小学)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"山根",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9111486,22.9320626 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平市场东角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙一枪对十字路口",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9103823,22.9320796 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平市场西角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借杆支架 1 对十字路口",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.910147,22.9321592 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平市场综合楼后面墙角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"借柱立小杆 支架1枪对门口待协商具 体位置",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9690398,22.9323172 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵山南海观音",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵山",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9533959,22.9327703 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵中学",
+    "location_type":"middle school ",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9625107,22.9328875 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵山天湖公园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵山",
+    "other_notes":"立杆支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9097662,22.9340248 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8997711,22.9345612 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵泰社区陶然居出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9082189,22.9348493 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平第三社区卫生服务站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9074601,22.9360083 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"太平小学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"太平",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9007229,22.9360603 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"康华去南苑平价超市",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"借楼底支架对外 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.959724,22.9366661 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵园西樵山大酒店票房",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借杆 黑色支架，1 枪对东。电池取电",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.95914,22.9368151 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"奎光楼",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借杆支架 1 枪对售票口",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9519427,22.9381034 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"听音湖中海桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"立杆4m 黑色杆借杆支架。对左右开挖 电箱取电",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9028803,22.9387724 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵泰社区祥和区",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9034117,22.9389516 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"朝阳市场 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9028611,22.9390619 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵泰社区朝阳区",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵太",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9813006,22.9391067 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"碧玉广场右侧出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架对楼梯 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9579652,22.9391475 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"听音湖瀑布坝顶",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"听音湖",
+    "other_notes":"立杆 4m 两枪对左右取电顶管，杆用白色",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9845229,22.939388 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"碧玉肉菜市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架对人行道 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9811741,22.9394084 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"碧玉广场服务站出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借 302 杆支架对楼梯",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9607776,22.9399451 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"樵园公厕(单车驿站)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"立杆 4m 黑色杆 支架对左右",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9824023,22.9402004 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵综治办门口内",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9040694,22.9406989 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"稔岗幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"稔岗",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9548901,22.9408054 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"观心小镇与绿道交汇处",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"听音湖",
+    "other_notes":"立杆3.5 颜色灰黑色。两枪对左右",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9820939,22.9408722 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵镇政府",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架对外1枪 协商",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9858527,22.9409909 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵一小(碧玉校区)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9720653,22.9412453 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵社区卫生服务中心",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借墙支架对外枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9820976,22.941745 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"登山大道农行自助服务厅",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对人行道 2 枪 协商",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9730697,22.9421647 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"江浦西路杰胜公馆路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆 2 枪对西对南",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9127484,22.9422483 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新河市场正门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新河",
+    "other_notes":"借墙支架 1 枪对外 待建中",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9756141,22.9424233 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"嘉业后巷高街西三巷",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架 1 枪对 东北",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9756141,22.9424233 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"嘉业后巷高街西三巷",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架 1 枪对 东北",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9846553,22.9426871 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"碧玉幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架对门口 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9762202,22.943086 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江浦路旧宫山红绿灯",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借杆支架2枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9743165,22.9430877 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"荣军医院正门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"初定借墙角对外。后期协商确定安装位\n       置。",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9803846,22.94328 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"金典广场农商银行路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架对斑马线 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9081337,22.9432904 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"孖榕桥桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"稔岗",
+    "other_notes":"借302杆 2支架对桥内外 302迁移",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9556787,22.9433424 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"爱国市场 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"爱国",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9768109,22.9433474 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江浦西路卖香街",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对外 1 枪 302",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9789266,22.9433612 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"南海丝厂公交车站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架对对左右 电池 协商街电线杆 市政",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9717242,22.943403 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"官山苑东后面吉祥街五巷",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借楼底 吊落 70 公分。对南 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9824402,22.9434183 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"官山中队",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对门口 1 枪",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9709684,22.9434222 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"兴隆街文明路 7 号(影剧院)1",
+    "location_type":"cinema",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"巷子墙对射人行道",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9709648,22.9434931 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"兴隆街文明路 7 号(影剧院)2",
+    "location_type":"cinema",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借墙支架对射人行道",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9815032,22.9435016 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"金典广场乔丹体育门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架对广场",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9787542,22.9437895 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江浦东路四号之二路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙1枪对西",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.914486,22.9439154 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新河幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新河",
+    "other_notes":"借墙，1 枪对门口",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9653534,22.9439282 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"樵园南门牌坊",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借墙支架 2 枪对内外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9682965,22.9440473 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"金鼎楼墙角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架 2 支对人行道 302 光纤",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9808161,22.9441003 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵岭国际广场潮汕甘草水果",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"1 枪对巷子",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9830063,22.9441487 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"官山二桥龙泉红绿灯路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对人行道",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.975804,22.9441844 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"旧官山桥学海图书馆( 旧官山桥供销大 厦)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借杆支架对官山方向 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9701125,22.9442711 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"文明路信和大厦后巷西墙角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借杆支架对十字路口",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9829666,22.9444151 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"二桥红绿灯岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借岗亭 1 枪对君欣方向",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9755585,22.9445162 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"旧官山桥海北桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9956054,22.9445876 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"南海中学后门保安室",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9842501,22.9445892 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"江浦东路农商银行侧",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙，伸横臂出人行道。特殊横臂 2 枪对 左右",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9779247,22.9446149 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"长堤路 6 号金花街入口(海怡酒店金花 街入口)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架 1 枪对路口",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9843595,22.9448788 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江浦东路永安公交站(中大牙科)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"立杆4m 1枪对西",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9833912,22.944936 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"坑边村口永安岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借岗亭墙，支架 1 枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9748495,22.9449708 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"西樵一小泰和校区",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借旧杆支架 1 枪对学校",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9797897,22.9450098 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"文武南五巷 2 座",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9846493,22.945028 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"雅薇网吧路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借302支架 借墙横臂",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9832004,22.9450646 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"坑边村恒苑发酒楼门闸",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对门闸",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.971197,22.9452478 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"官山文明桥 2",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借杆支架对外 1 枪 电池",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9790979,22.9454868 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"文武南街四巷 1-28",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对左右 2 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9850088,22.9456257 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"坑边村联通营业厅路口(金樵大酒店)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对内 302",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9710713,22.9458578 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"官山文明桥 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借杆支架 1 枪对桥外电池",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9800476,22.9459642 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"建设路6巷1-5",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧",
+    "other_notes":"借墙支架 2 枪对内对人行道",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9743382,22.9463123 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"周家报障性住房",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9857258,22.9464256 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江浦路沙边村岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9661251,22.9465458 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水大道牌坊入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借杆 1 枪对入口",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9489473,22.9466626 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"简村出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"简村",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9489473,22.9466626 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"简村出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"简村",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9493732,22.9466666 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"简村百嘉顺百货",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"简村",
+    "other_notes":"借墙支架对外 1 枪 协商",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9941613,22.9470131 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"南海中学正门保安室",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对外",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9566107,22.9473704 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"爱国幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"爱国",
+    "other_notes":"柱顶立支架，对小学方向 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9063388,22.9474733 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"今易德联赢超市",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"稔岗",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9570484,22.9474763 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"爱国小学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"爱国",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9484276,22.9477543 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"简村幼儿园待建搬迁后",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"简村",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9063445,22.9477556 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"今易德 b1，b2 出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"稔岗",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9125784,22.9478682 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新河裕宏达厂对出三角花基",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"新河",
+    "other_notes":"借杆，1 枪支架对西南",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9761369,22.9478709 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"阳光宝贝幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9060287,22.9479722 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"今易德市场福利彩票墙角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"稔岗",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9893427,22.948176 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"五院门诊服务中心前台侧",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"前台柱子，借墙支架对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9895745,22.9482995 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"五院急诊部门口左侧柱子",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"东碧 ?",
+    "other_notes":"借墙支架对门口 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9788683,22.9483347 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"海北东太和窦电排站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借杆支架对左右 2 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9694213,22.9485806 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水新村碧云轩入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借杆支架 1 枪对外",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9701803,22.9491442 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"欢乐天地市场出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵园",
+    "other_notes":"借墙支架 1 枪对市场协商",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9791503,22.949329 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"泰和幼儿园侧门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架协商 1 枪对外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9686172,22.9494204 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外1枪 302",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.960875,22.9495131 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水新村白云路入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9797067,22.9498628 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"泰和幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外协商",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9645322,22.9500529 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水新旧村交界桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借杆支架对桥头 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9798867,22.9500818 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"泰和幼儿园对出路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借302杆 1枪对辅道出口",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9645162,22.9501259 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵景新村路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外斜坡 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9659037,22.9511628 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"吉水治安队办公室(樵高路吉水闸口)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9805084,22.9512004 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西吴新村二街闸口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对闸口 1 枪 协商",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9817396,22.95127 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"解放路陆家村监控室",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9784208,22.9517072 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新城广场 7-11",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对东门方向 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9618684,22.9518676 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵派出所",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9773533,22.9518768 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"新城广场正门显示屏前(正新鸡排)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借杆支架内 1 枪协商",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9608219,22.9520917 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"行政服务中心 24 小时自助厅",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"正中借天花吊下 2 枪对两门",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9610192,22.9521695 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"行政服务中心正门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9607852,22.9521883 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"行政服务中心后门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9850391,22.9522895 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"路边陈英才幼儿园对出岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9799843,22.9525332 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百胜广场北门电梯口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对西南，取电安装待协商",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9891962,22.9527296 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"江滨花园人行天桥",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"3 枪对 3 方向，取电困难",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9850374,22.9530485 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"英才幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对外1枪 协商",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9010821,22.9533373 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"河岗幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"河岗",
+    "other_notes":"借杆1枪对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.970991,22.9535168 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"北张中坊村队址",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙1.5m横臂 一枪对西",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9714351,22.9536445 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"中纺村球场路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对左右 302",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9879432,22.9538938 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"碧桂园悦府入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借302杆 1枪对西南取电架空后面商 铺",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9706311,22.9546143 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"北张祠堂鱼塘边",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借 302 杆，1 枪对西北",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9900822,22.9546253 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江滨花园出入口 2",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9901004,22.9546407 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"江滨花园出入口 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9771662,22.9546581 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"雅居乐广场商场门口对出",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借墙支架 2 枪对左右",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.977041,22.9548409 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"雅居乐人人超市入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借墙支架对外 1 枪 协商",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9768615,22.9549896 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"雅居乐农行侧地铁口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵华",
+    "other_notes":"借墙支架 1 枪对入电梯方向 协商",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9839194,22.9553933 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"致盈广场农商银行墙角",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"1 枪墙底吊落 50 公分 对银行门口方向",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9846926,22.9557218 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"致盈广场 5 号观光梯",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对电梯口方向，需协商安装取电",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9791483,22.9561511 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"四季康城后面康基集团农行对出花基",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"2枪支架 借302",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9819681,22.9568935 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"伟业楼安定里出口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9848149,22.9571796 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大德市场陈家路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借杆支架对市场方向 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9841365,22.9573203 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":3,
+    "location_name":"大德市场内",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"未拍，3 枪三个方向",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9833433,22.9576051 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大德陈家公寓楼(佳乐超市)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对超市门口1枪 需协商",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9205386,22.9576609 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"第四小学(百西校区)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9828976,22.9579154 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"崇南涌口村电房水泥杆",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借杆支架，左右 2 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9764876,22.9581157 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"南海区西樵颐和实验幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"1 枪支架对外",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9199712,22.9581823 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"第四小学(百西小学)侧门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"未拍照",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9760585,22.9589999 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"北华村宝福街 8 号",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"借墙支架对内 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9506214,22.9591853 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"民乐",
+    "other_notes":"借 302 1 枪对外 柱顶立支架",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9376513,22.9591898 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"云窖市场敦伦路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"民乐",
+    "other_notes":"借墙 1 枪支架对外",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9371901,22.9596352 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐云滘敦伦村市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"民乐",
+    "other_notes":"借杆支架 1 枪对外",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8926269,22.9597438 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"河岗市场入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"河岗",
+    "other_notes":"借杆支架 1 枪对外",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9800097,22.9603738 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"崇南 16 队安定新村怡佳超市",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架 1枪对外村委协商",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.8901563,22.9604479 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"兴辉陶瓷员工宿舍",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"河岗",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9498725,22.9609476 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐小学侧门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9801389,22.960964 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新城区幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对闸口 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9492121,22.961049 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐小学正门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9746292,22.9613391 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"恒益路口元帅庙",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.950724,22.9613683 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场延陵村岗亭出口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆支架对外 1 枪",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9503831,22.9615764 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场湘川粮油店",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆支架 1 枪对外",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.976906,22.9619842 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"瑞龙国际幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"西樵社区",
+    "other_notes":"柱子立杆 1枪对门口",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9509086,22.9621295 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场邮政银行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架对外 1 枪 银行取电",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9494257,22.9621298 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐光阳幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架 1 枪对外 幼儿园借电",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9495745,22.9621878 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"民乐市场肇庆农家土猪",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆支架 2 枪对左右",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9514587,22.9622842 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐桥民乐桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"1 枪借限高架，对桥上",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9846772,22.9623006 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大地国际幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9501485,22.9623361 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场农商银行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆支架 1 枪对门口",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9514075,22.9623555 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐桥民乐桥头",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"1 枪借限高架，对桥上",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9821844,22.9624547 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"南海西樵高级中学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9493623,22.9627244 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场多乐购百货",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"储物柜上借墙支架 1 枪对外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.948256,22.9630199 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"民乐医院门口执法平台",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆 1.5m 302 点 两枪对左右",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9268633,22.9630285 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百东小学(四小百东校区)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9493599,22.9630443 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"穗丰市场公厕侧",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9526063,22.9631229 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐大桥限高架",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"限高架上安装，对外一枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9462605,22.9631444 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"樵乐社区对面民乐市场公交站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"民乐",
+    "other_notes":"借 302 2 枪对左右",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9258031,22.9632309 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百东幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9524584,22.9632336 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐大桥",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"借桥头限高架 1 枪对桥头借村居监控电",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9677941,22.9633974 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"恒邦广场9号楼1梯",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9482181,22.9633983 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐医院(民乐第二社区卫生服务站)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借墙支架 1枪对外 医院接电",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.950315,22.9634247 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"民乐市场工商银行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借302横臂 1枪对银行门口",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9683722,22.9638748 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"恒邦广场9号公寓楼2梯",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"楼梯防火门前，借墙支架对门口",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9476911,22.9638924 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"樵乐社区三厂大道崔家大道交界桥",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"樵乐",
+    "other_notes":"借杆1m横臂 2枪对左右 街电",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9684894,22.9640196 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"恒邦广场9号楼3梯",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对门口 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9058655,22.9640719 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"百西梁家市场 8 号岗亭",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架 2 枪对左右",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9519469,22.9643938 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"联新康和市场农商银行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"天花吊落1枪对外银行取电 协商",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9059453,22.9646651 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百西梁家市场第七社区卫生服务站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架对外，1 枪",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9701839,22.9650131 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵车站公厕出站通道",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"楼底吊落对车站内",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9055739,22.9650471 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"梁家市场 c1 座 01 路口(舒健药店后)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架 1 枪对内",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.904916,22.9651249 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"百西黎家文化楼路口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架 2 枪对左右",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9044214,22.9654587 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百西市场内",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借杆 1 枪对发廊方向路口",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9051368,22.9654901 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百西市场科技园购物超市",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架对外 1 枪，超市街电安装协商",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9744443,22.9655045 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵第二小学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9156177,22.9656017 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百西幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9036234,22.9656334 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"百西市场黎家路口开心公寓",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百西",
+    "other_notes":"立杆4m 2对内外枪",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9698459,22.9657797 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"西樵车站公交站上客点(沙县小吃前)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借楼顶支架 2 枪对左右",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9694918,22.9662682 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵车站售票处 1",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对售票处 1 枪",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9695085,22.9662806 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵车站安检口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借墙支架对闸口 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9479239,22.9681218 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西樵第三小学(民乐校区)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"民乐",
+    "other_notes":"借302 借墙支架1枪对校门",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9659583,22.9681742 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"崇南市场好易购百货店",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"借杆支架 2 枪对内对百货店门口",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9657675,22.9682275 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"崇南市场派出所执勤牌上",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"1 枪对桥横臂",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9225351,22.96825 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百东市场 c1 鸡档",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借墙1枪对外",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9227285,22.9682901 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":2,
+    "location_name":"百东市场大参林门口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借天花 2枪对左右",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9241177,22.9687617 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"百东村委农行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9650468,22.9691627 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵北中学路口十字桥",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇南",
+    "other_notes":"1 枪对桥头 借 302 横臂光纤",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9649664,22.971316 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"樵北中学",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇北",
+    "other_notes":"借墙支架1枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9489154,22.9719087 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"联新 12 队基围出入口",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"借墙支架 1 枪对西北",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9203028,22.973136 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大岗中队民乐社区民警中队",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"百东",
+    "other_notes":"借天花 ，1 枪对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9447181,22.9749588 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"联新幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"借墙 1 枪对门口",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9128383,22.9807591 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"上金瓯南海卫校",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.940404,22.9815361 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"联新清河市场后门",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"",
+    "other_notes":"借墙支架 1 枪对西北",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9585588,22.9830592 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大岸农商银行",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"大岸",
+    "other_notes":"门口天花吊下 1 枪对自助提款机",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9126662,22.9852453 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"上金瓯幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"借302 迁至校门保安亭侧，借墙支架对 外",
+    "fake_category":"Food",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9131916,22.9854668 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"上金瓯市场 2",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"借支架对外 1 枪",
+    "fake_category":"Travel",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9127091,22.9856371 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"上金瓯市场侧门(港式点心)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"借墙支架对外 1 枪",
+    "fake_category":"Transportation",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.912793,22.9860788 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"第四小学(上金瓯)",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"1 枪借墙对外 302",
+    "fake_category":"Clothing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9569041,22.9865769 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大岸综合市场",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"大岸",
+    "other_notes":"借墙横臂 1.5m 一枪对外",
+    "fake_category":"Finance",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9125032,22.9881751 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"西乡员工村 加上",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"",
+    "fake_category":"Education and Fine Arts",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9599223,22.9888747 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"大岸幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"大岸",
+    "other_notes":"借墙支架 1 枪对外",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9084927,22.9931274 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"上金瓯桂香员工村",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"上金瓯",
+    "other_notes":"43327",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9327281,22.9958353 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"新芳华学校",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"华夏",
+    "other_notes":"借墙支架，1枪对外 302点位",
+    "fake_category":"Entertainment",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9327847,22.9970206 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"佛山市南海区华夏幼儿园",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"华夏",
+    "other_notes":"借保安室楼顶支架 借杆支架 1 枪对 门前",
+    "fake_category":"Housing",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 112.9421353,23.0033555 ]
+    },
+    "properties": {
+    "UID":201900421503,
+    "bid_date":"2019/07",
+    "video_channels":1,
+    "location_name":"崇北第六社区卫生服务站",
+    "location_type":"",
+    "location_category":"",
+    "other_location_notes":"崇北",
+    "other_notes":"借墙支架 1 枪对门口",
+    "fake_category":"Healthcare",
+    "fake_tooltip":"Do we want any further information here? Michael says no."
+    }
+  }
+]
+}

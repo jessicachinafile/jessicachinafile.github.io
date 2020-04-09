@@ -1,0 +1,141 @@
+<html>
+<head>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+  <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <style>
+    #map{ height: 100% }
+
+		/* all this fade-in fade-out business is from here: https://stackoverflow.com/a/27029716/7841877
+		... and some more styling here: https://www.w3schools.com/css/css3_animations.asp */
+		.leaflet-marker-icon,
+		.leaflet-marker-shadow {
+			fill: red;
+			-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+			-moz-animation: fadein 3s; /* Firefox < 16 */
+			-ms-animation: fadein 3s; /* Internet Explorer */
+			-o-animation: fadein 3s; /* Opera < 12.1 */
+			animation: fadein 3s;
+			animation-fill-mode: both;
+		}
+
+
+		@keyframes fadein {
+				0%   {opacity: 0; }
+				5%	 {opacity: .2; }
+				10%	 {opacity: .4; }
+				15%	 {opacity: .6; }
+				20%	 {opacity: .8; }
+				25%  {opacity: 1;}
+				50%  {opacity: .9;}
+				75%  {opacity: .8;}
+				100% {opacity: .7;}
+		}
+		/* Firefox < 16 */
+		@-moz-keyframes fadein {
+			0%   {opacity: 0; }
+			5%	 {opacity: .2; }
+			10%	 {opacity: .4; }
+			15%	 {opacity: .6; }
+			20%	 {opacity: .8; }
+			25%  {opacity: 1;}
+			50%  {opacity: .9;}
+			75%  {opacity: .8;}
+			100% {opacity: .7;}
+		}
+		/* Safari, Chrome and Opera > 12.1 */
+		@-webkit-keyframes fadein {
+			0%   {opacity: 0; }
+			5%	 {opacity: .2; }
+			10%	 {opacity: .4; }
+			15%	 {opacity: .6; }
+			20%	 {opacity: .8; }
+			25%  {opacity: 1;}
+			50%  {opacity: .9;}
+			75%  {opacity: .8;}
+			100% {opacity: .7;}
+		}
+		/* Internet Explorer */
+		@-ms-keyframes fadein {
+			0%   {opacity: 0; }
+			5%	 {opacity: .2; }
+			10%	 {opacity: .4; }
+			15%	 {opacity: .6; }
+			20%	 {opacity: .8; }
+			25%  {opacity: 1;}
+			50%  {opacity: .9;}
+			75%  {opacity: .8;}
+			100% {opacity: .7;}
+		}
+		/* Opera < 12.1 */
+		@-o-keyframes fadein {
+			0%   {opacity: 0; }
+			5%	 {opacity: .2; }
+			10%	 {opacity: .4; }
+			15%	 {opacity: .6; }
+			20%	 {opacity: .8; }
+			25%  {opacity: 1;}
+			50%  {opacity: .9;}
+			75%  {opacity: .8;}
+			100% {opacity: .7;}
+		}
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+// http://bl.ocks.org/awoodruff/2488ee1fdf0cf063904e
+  // initialize the map
+  var map = L.map('map').setView([22.926161653963995, 112.94053389709286], 12);
+
+	var CameraIcon = L.Icon.extend({
+options: {
+		iconSize: [19,17]
+		}
+	});
+
+	var oneIcon = new CameraIcon({iconUrl: 'camera_red.png'}),
+	twoIcon = new CameraIcon({iconUrl: 'cameras_two_red.png', iconSize: [40,40]}),
+	threeIcon = new CameraIcon({iconUrl: 'cameras_three_red.png', iconSize: [60,60]});
+
+  // load a tile layer
+  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
+    {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 20,
+      minZoom: 3
+    }).addTo(map);
+
+  // load GeoJSON from an external file
+  $.getJSON("face_rec.geojson",function(data){
+
+    L.geoJson(data,{
+      pointToLayer: function(feature,latlng){
+//https://gis.stackexchange.com/a/233518
+				if (feature.properties.video_channels === 1) {
+						return L.marker(latlng, {
+								icon: oneIcon
+						}).bindPopup(feature.properties.fake_category);
+				}
+				else if (feature.properties.video_channels === 2) {
+						return L.marker(latlng, {
+								icon: twoIcon
+						}).bindPopup(feature.properties.fake_category);
+				} else {
+						return L.marker(latlng, {
+								icon: threeIcon
+						}).bindPopup(feature.properties.fake_category);
+				}
+
+      }
+    }).addTo(map);
+  });
+
+
+
+  </script>
+</body>
+</html>
