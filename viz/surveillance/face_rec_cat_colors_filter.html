@@ -26,6 +26,21 @@
 		.other {border: 2px solid #555555; color: black;}
 		.other:hover {background-color: #555555; color: white;}
 
+		.points {
+		/* max-width: 1200px; */
+		/* margin: 120px 0px;
+		padding: 10px 10px 10px 10px; */
+		font: 14px sans-serif;
+		/* background-repeat: no-repeat;
+		background-position: 10px center; */
+		color: #000000;
+		background-color: #FFFFFF;
+/* https://stackoverflow.com/questions/32511634/move-a-div-above-and-to-the-right-of-another-div */
+		}
+
+
+
+
   </style>
 </head>
 <body>
@@ -35,6 +50,7 @@
 			<button id="food" class="food">Food</button>
 			<button id="other" class="other">Other</button>
 	</div>
+	<div id="points" class="points"></div>
   <div id="map"></div>
 
   <script>
@@ -109,32 +125,49 @@ stuff.then(function(data) {
 				}
 		});
 
+		var allPoints = all_cameras.getLayers().length;
+		var housingPoints = housing.getLayers().length;
+		var foodPoints = food.getLayers().length;
+		var otherPoints = other.getLayers().length;
 
     housing.addTo(map)
 		food.addTo(map)
     other.addTo(map)
-    // The JavaScript below is new
+		$("#points").html(allPoints);
+
+
     $("#other").click(function() {
         map.addLayer(other)
         map.removeLayer(housing)
 				map.removeLayer(food)
+				$("#points").html(otherPoints)
     });
     $("#housing").click(function() {
 			map.addLayer(housing)
 			map.removeLayer(other)
 			map.removeLayer(food)
+			$("#points").html(housingPoints)
     });
 		$("#food").click(function() {
 			map.addLayer(food)
 			map.removeLayer(housing)
 			map.removeLayer(other)
+			$("#points").html(foodPoints)
 		});
     $("#all").click(function() {
 			map.addLayer(food)
 			map.addLayer(housing)
 			map.addLayer(other)
+			$("#points").html(allPoints)
     });
 });
+
+
+/* //information about how to add info div from here: http://www.jankoatwarpspeed.com/css-message-boxes-for-different-message-types/
+
+ //this returns all the additional information to the info div, help here: http://stackoverflow.com/questions/29164092/on-click-display-other-data-in-separate-div-in-d3-js-passing-by-value
+
+ //d3.select(".info").html("<b>" + d.name + " / " + d.chname + "</b>"); */
 
 /*
 // THIS IS FROM THE OLDER VERSION
