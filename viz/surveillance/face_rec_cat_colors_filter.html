@@ -1,11 +1,21 @@
 <html>
 <head>
-  <title>A Leaflet map!</title>
+  <title>Facial Recognition Cameras in Xiqiao Town, Nanhai District, Foshan City, Guangdong Province</title>
   <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
   <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <style>
+
+	body {
+    margin: 0;
+    height: calc(100% - 55px); /* minus navbar incl. border */
+}
+
     #map{ height: 100% }
+
+		.btn-group {
+			margin-bottom: 0;
+		}
 
 		button {
         width: 100px;
@@ -69,7 +79,7 @@ options: {
 		}
 	});
 
-
+// WE NEED TO MAKE SURE WE HAVE ATTRIBUTION ON THE MAP SOMEWHERE FOR THE ICON ###############################
 	var housingIcon = new CameraIcon({iconUrl: 'camera_red.png'}),
 	foodIcon = new CameraIcon({iconUrl: 'camera_green.png', shadowUrl: 'shadow.png', shadowSize:[60, 30], shadowAnchor: [22, 94]}),
 	healthIcon = new CameraIcon({iconUrl: 'camera_purple.png'}),
@@ -133,32 +143,32 @@ stuff.then(function(data) {
     housing.addTo(map)
 		food.addTo(map)
     other.addTo(map)
-		$("#points").html(allPoints);
+		$("#points").html("Number of Cameras: " + allPoints);
 
 
     $("#other").click(function() {
         map.addLayer(other)
         map.removeLayer(housing)
 				map.removeLayer(food)
-				$("#points").html(otherPoints)
+				$("#points").html("Number of Cameras: " + otherPoints)
     });
     $("#housing").click(function() {
 			map.addLayer(housing)
 			map.removeLayer(other)
 			map.removeLayer(food)
-			$("#points").html(housingPoints)
+			$("#points").html("Number of Cameras: " + housingPoints)
     });
 		$("#food").click(function() {
 			map.addLayer(food)
 			map.removeLayer(housing)
 			map.removeLayer(other)
-			$("#points").html(foodPoints)
+			$("#points").html("Number of Cameras: " + foodPoints)
 		});
     $("#all").click(function() {
 			map.addLayer(food)
 			map.addLayer(housing)
 			map.addLayer(other)
-			$("#points").html(allPoints)
+			$("#points").html("Number of Cameras: " + allPoints)
     });
 });
 
