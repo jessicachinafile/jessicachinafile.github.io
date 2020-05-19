@@ -71,6 +71,12 @@
 		}
 
 
+		@media only screen and (max-width: 600px) {
+		  body {
+		    background-color: lightblue;
+		  }
+		}
+
 		/* .leaflet-marker-icon,
 		.leaflet-marker-shadow {
 			-webkit-animation: fadein 1.5s;
@@ -207,7 +213,7 @@
 	var CameraIcon = L.Icon.extend({
 		options: {
 		iconSize: [38,35],
-		//shadowUrl: 'shadow.png', 
+		//shadowUrl: 'shadow.png',
 		//shadowSize:   [60, 30],
 		iconAnchor:   [19, 17],
 		//shadowAnchor: [22, 94],
@@ -216,8 +222,8 @@
 	});
 
 
-	var Icon_red = new CameraIcon({iconUrl: 'red_filled_camera.png'}),
-	Icon_gray = new CameraIcon({iconUrl: 'gray_gradient1_camera.png'});
+	var Icon_red = new CameraIcon({iconUrl: 'red_gradient1_camera.png'}),
+	Icon_gray = new CameraIcon({iconUrl: 'gray_gradient3_camera.png'});
 
   // load a tile layer
   L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
