@@ -82,7 +82,13 @@
 		opacity: 0.6;
 	}
 
+	/* this is to deal with the weird tile gapping: https://github.com/Leaflet/Leaflet/issues/3575 */
+		.leaflet-tile-container img {
+		    width: 256.5px !important;
+		    height: 256.5px !important;
+		}
 
+		
 		#buttons{
 			float:left;
 			padding:5px;
@@ -109,13 +115,13 @@
 
 		.all {}
 		.all:hover {
-			background-color: #ff1e32;
+			background-color: #dd2f26;
 			color: white;
 		}
 
 		/* https://stackoverflow.com/a/44264124/7841877 */
 		button:focus{
-			background-color:#ff1e32;
+			background-color:#dd2f26;
 			border: 1px solid #d8d8d8;
 			border-radius: 4px;
 			color: white;
@@ -176,7 +182,9 @@
 			}
 		}
 
-		@media screen and (max-width: 672px) {
+
+
+		@media screen and (max-width: 680px) {
 			#buttons{
 				margin-left: calc((100% - 490px)/2);
 				padding:5px;

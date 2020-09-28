@@ -82,6 +82,11 @@
 		opacity: 0.6;
 	}
 
+	/* this is to deal with the weird tile gapping: https://github.com/Leaflet/Leaflet/issues/3575 */
+		.leaflet-tile-container img {
+		    width: 256.5px !important;
+		    height: 256.5px !important;
+		}
 
 		#buttons{
 			float:left;
