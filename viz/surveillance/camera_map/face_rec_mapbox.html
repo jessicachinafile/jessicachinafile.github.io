@@ -29,7 +29,11 @@
 		}
 
 		.h1 {
-		font: 20px sans-serif;
+		font-size: 24px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 700;
 		color: #000000;
 		background-color: #FFFFFF;
 		display: block;
@@ -38,14 +42,17 @@
 		padding-bottom:  10px;
 		}
 		.h2 {
-		font: 16px sans-serif;
+		font-size: : 16px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
 		color: #000000;
 		background-color: #FFFFFF;
 		display: block;
 		text-align: center;
 		padding-top:  10px;
 		padding-bottom:  25px;
-		padding-right: 10px;
+		padding-right: 75px;
 		padding-left:  10px;
 		}
 
@@ -82,24 +89,39 @@
 		}
 
 		button {
-        width: 180px;
+        width: 160px;
 				height: 30px;
 				background-color: white;
   			color: black;
-				font-size: 16px;
-				border-radius: 2px;
-				transition-duration: 0.4s;
+				font-family: Georgia, Times, "Times New Roman", serif;
+				font-style: normal;
+				font-variant: normal;
+				font-size: 13px;
+				border: 1px solid #d8d8d8;
+				border-radius: 4px;
+				transition-duration: 0.3s;
 				display: block;
     }
 
 		.all {}
 		.all:hover {
-			background-color: #FF0000;
+			background-color: #ff1e32;
+			color: white;
+		}
+
+		/* https://stackoverflow.com/a/44264124/7841877 */
+		button:focus{
+			background-color:#ff1e32;
+			border: 1px solid #d8d8d8;
+			border-radius: 4px;
 			color: white;
 		}
 
 		.points {
-		font: 14px sans-serif;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
+		font-size: : 14px;
 		color: #000000;
 		background-color: #FFFFFF;
 		display: block;
@@ -141,8 +163,8 @@
 </head>
 <body>
 	<div id="wrapper">
-	<div id="H1" class='h1'>LOOK AT THIS FANCY MAP. LOOK AT IT.</div>
-	<div id="H2" class='h2'>Here is a very sensible explanation of all the clicky things that one might do when looking at this map. Is is this long?  It's hard to say, but it's probably better to include a bit more text just to see. In that spirit, here are some additional words, filling up space and time and reminding us of how very little we do with the precious time allotted to us on this earth.</div>
+	<div id="H1" class='h1'>Placeholder Title</div>
+	<div id="H2" class='h2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada fames ac turpis. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse. Arcu odio ut sem nulla pharetra diam sit. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Leo urna molestie at elementum.</div>
 	<div id="buttons" class="btn-group">
 			<button id="all" class="all">All</button>
 			<button id="housing" class="all">Housing</button>
@@ -188,7 +210,7 @@
   L.tileLayer('https://api.mapbox.com/styles/v1/jessicachinfile/ckebi0eds19xs1aqlg9wmc00g/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken,
     {
       attribution: '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 20,
+      maxZoom: 15,
       minZoom: 3
     }).addTo(map);
 
