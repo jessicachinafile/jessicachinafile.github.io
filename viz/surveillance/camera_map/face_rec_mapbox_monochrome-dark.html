@@ -46,8 +46,8 @@
 		max-width: 700;
 		font-size: : 16px;
 		font-family: Georgia, Times, "Times New Roman", serif;
-		font-style: normal;
-		font-variant: normal;
+		/* font-style: normal;
+		font-variant: normal; */
 		color: #000000;
 		background-color: #FFFFFF;
 		display: inline-block;
@@ -60,16 +60,16 @@
 		}
 		.h3 {
 		max-width: 700;
-		font-size: : 16px;
+		font-size: : 11px;
 		font-family: Georgia, Times, "Times New Roman", serif;
 		font-style: normal;
 		font-variant: normal;
 		color: #000000;
 		background-color: #FFFFFF;
-		display: table-footer-group;
+		position: relative;
 		text-align: center;
 		margin: auto;
-		padding-top:  10px;
+		padding-top:  30px;
 		padding-bottom:  25px;
 		padding-right: 25px;
 		padding-left:  25px;
@@ -266,7 +266,7 @@
 
 		@media only screen and (max-width: 500px) {
 			#buttons{
-				margin-left: calc((100% - 320px)/2);
+				margin-left: calc((100% - 300px)/2);
 				padding:5px;
 				padding-top: 0px;
 				padding-right: 10px;
@@ -288,10 +288,10 @@
 			#map {
 				height:auto;
 				min-height: 50vh;
-				width: 320px;
+				width: 300px;
 				/* width: 90vw; */
 				padding-top:  20px;
-				margin-left: calc((100% - 320px)/2 + 6px);
+				margin-left: calc((100% - 300px)/2 + 6px);
 				clear:right;
 			}
 		}
@@ -301,9 +301,13 @@
   </style>
 </head>
 <body>
+<!-- added a table to allow for the footer to stay neatly at the bottom of this whole mess https://stackoverflow.com/a/9090522/7841877 -->
+	<table id="container">
+			<tr>
+					<td valign="top">
 	<div id="wrapper">
 	<div id="H1" class='h1'>Placeholder Title</div>
-	<div id="H2" class='h2'>Lorem21 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada fames ac turpis. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse. Arcu odio ut sem nulla pharetra diam sit. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Leo urna molestie at elementum.</div>
+	<div id="H2" class='h2'>Lorem22 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada fames ac turpis. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse. Arcu odio ut sem nulla pharetra diam sit. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Leo urna molestie at elementum.</div>
 	<div id="buttons" class="btn-group">
 			<button id="all" class="all">All</button>
 			<button id="housing" class="all">Housing</button>
@@ -320,7 +324,15 @@
 
 	<div id="map"></div>
 	<div id="points" class="points"></div>
-	<div id="H3" class='h3'>Probably some notes here about why we only have one thing for clothing.</div>
+</td>
+</tr>
+<tr>
+<td valign="bottom">
+		<div id="H3" class='h3'>Probably some notes here about why we only have one thing for clothing.</div>
+</td>
+</tr>
+</table>
+
 
 </div>
   <script>
