@@ -1,0 +1,839 @@
+<html>
+<head>
+  <title>Facial Recognition Cameras in Xiqiao Town, Nanhai District, Foshan City, Guangdong Province</title>
+  <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+  <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+	<!-- the meta tag is necessary for the @media CSS to work https://stackoverflow.com/questions/7859336/why-are-my-css3-media-queries-not-working -->
+  <style>
+
+/* to get it so you don't lose the buttons upon zooming https://stackoverflow.com/questions/28820335/leaflet-clicking-zoom-control-removes-paging-top */
+	body {
+    margin: 0;
+    height: calc(100% - 55px); /* minus navbar incl. border */
+	}
+		#wrapper{
+			margin-right: auto; /* 1 */
+  		margin-left:  auto; /* 1 */
+  		max-width: 750px; /* 2 */
+  		padding-right: 10px; /* 3 */
+  		padding-left:  10px; /* 3 */
+			padding-bottom:  10px;
+			padding-top: 20px;
+		}
+
+		.h1 {
+		max-width: 700;
+		font-size: 24px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 700;
+		color: #000000;
+		background-color: #FFFFFF;
+		display: block;
+		text-align: center;
+		padding-top:  10px;
+		padding-bottom:  10px;
+		}
+		.h2 {
+		max-width: 700;
+		font-size: : 16px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
+		color: #000000;
+		background-color: #FFFFFF;
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+		padding-top:  10px;
+		padding-bottom:  25px;
+		padding-right: 25px;
+		padding-left:  25px;
+		}
+
+		.leaflet-popup-content-wrapper .leaflet-popup-content {
+			font-family: Georgia, Times, "Times New Roman", serif;
+		}
+
+    #map{
+			height:auto;
+  		min-height: 50vh;
+			width: 65vw;
+			padding-top:  20px;
+			/* margin-left: 20px; */
+			margin-right: calc((35% - 160px)/2 );
+			clear:right;
+
+		}
+		body {
+    padding: 0;
+    margin: 0;
+}
+
+	.leaflet-marker-icon{
+		opacity: 1;
+	}
+
+/* this is to deal with the weird tile gapping: https://github.com/Leaflet/Leaflet/issues/3575 */
+	.leaflet-tile-container img {
+	    width: 256.5px !important;
+	    height: 256.5px !important;
+	}
+
+		#buttons{
+			float:left;
+			padding:5px;
+			padding-top: 0px;
+			padding-right: 10px;
+			/* margin:5px; */
+		}
+
+		button {
+        width: 160px;
+				height: 30px;
+				margin-bottom: 5px;
+				background-color: white;
+  			color: black;
+				font-family: Georgia, Times, "Times New Roman", serif;
+				font-style: normal;
+				font-variant: normal;
+				font-size: 13px;
+				border: 1px solid #d8d8d8;
+				border-radius: 4px;
+				transition-duration: 0.3s;
+				display: block;
+    }
+
+		.all {}
+		.all:hover {
+			background-color: #dd2f26;
+			color: white;
+		}
+
+		/* https://stackoverflow.com/a/44264124/7841877 */
+		button:focus{
+			background-color:#dd2f26;
+			border: 1px solid #d8d8d8;
+			border-radius: 4px;
+			color: white;
+		}
+
+
+		#points{
+			padding-left:  5px;
+			padding-top: 10px;
+			padding-bottom: 5px;
+			float:left;
+			font-size: 13px;
+			font-style: italic;
+			color: gray;
+		}
+
+		.points {
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: normal;
+		font-variant: normal;
+		font-size: : 14px;
+		color: #000000;
+		background-color: #FFFFFF;
+		display: block;
+/* https://stackoverflow.com/questions/32511634/move-a-div-above-and-to-the-right-of-another-div */
+		}
+
+
+		@media screen and (max-width: 700px) {
+			#buttons{
+				margin-left: calc((100% - 615px)/2);
+				padding:5px;
+				padding-top: 0px;
+				padding-right: 10px;
+				/* margin:5px; */
+			}
+			button {
+					width: 120px;
+					margin: auto;
+					margin-bottom: 5px;
+					background-color: white;
+					/* background-color: blue; */
+					color: black;
+					font-size: 10px;
+					border: 1px solid #d8d8d8;
+					border-radius: 4px;
+					transition-duration: 0.3s;
+					display: inline;
+			}
+			#map {
+				height:auto;
+				min-height: 50vh;
+				width: 615px;
+				/* width: 90vw; */
+				padding-top:  20px;
+				margin-left: calc((100% - 615px)/2 + 6px);
+				clear:right;
+			}
+		}
+
+
+
+		@media screen and (max-width: 680px) {
+			#buttons{
+				margin-left: calc((100% - 490px)/2);
+				padding:5px;
+				padding-top: 0px;
+				padding-right: 10px;
+				/* margin:5px; */
+			}
+			button {
+					width: 120px;
+					margin: auto;
+					margin-bottom: 5px;
+					background-color: white;
+					/* background-color: purple; */
+					color: black;
+					font-size: 10px;
+					border: 1px solid #d8d8d8;
+					border-radius: 4px;
+					transition-duration: 0.3s;
+					display: inline;
+			}
+			#map {
+				height:auto;
+				min-height: 50vh;
+				width: 490px;
+				/* width: 90vw; */
+				padding-top:  20px;
+				margin-left: calc((100% - 490px)/2 + 6px);
+				clear:right;
+			}
+		}
+
+		@media only screen and (max-width: 600px) {
+			#buttons{
+				margin-left: calc((100% - 430px)/2);
+				padding:5px;
+				padding-top: 0px;
+				padding-right: 10px;
+				/* margin:5px; */
+			}
+			button {
+	        width: 140px;
+					margin: auto;
+					margin-bottom: 5px;
+					background-color: white;
+					/* background-color: orange; */
+	  			color: black;
+					font-size: 10px;
+					border: 1px solid #d8d8d8;
+					border-radius: 4px;
+					transition-duration: 0.3s;
+					display: inline;
+	    }
+			#map {
+				height:auto;
+				min-height: 50vh;
+				width: 430px;
+				/* width: 90vw; */
+				padding-top:  20px;
+				margin-left: calc((100% - 430px)/2 + 6px);
+				clear:right;
+			}
+		}
+
+
+  </style>
+</head>
+<body>
+	<div id="wrapper">
+	<div id="H1" class='h1'>Placeholder Title</div>
+	<div id="H2" class='h2'>Lorem19 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada fames ac turpis. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse. Arcu odio ut sem nulla pharetra diam sit. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Leo urna molestie at elementum.</div>
+	<div id="buttons" class="btn-group">
+			<button id="all" class="all">All</button>
+			<button id="housing" class="all">Housing</button>
+			<button id="food" class="all">Food</button>
+			<button id="health" class="all">Health</button>
+			<button id="clothing" class="all">Clothing</button>
+			<button id="transport" class="all">Transportation</button>
+			<button id="entertain" class="all">Entertainment</button>
+			<button id="travel" class="all">Travel</button>
+			<button id="finance" class="all">Finance</button>
+			<button id="arts" class="all">Arts/Education/Culture</button>
+			<button id="other" class="all">Other/Unknown</button>
+	</div>
+
+	<div id="map"></div>
+	<div id="points" class="points"></div>
+
+</div>
+  <script>
+// http://bl.ocks.org/awoodruff/2488ee1fdf0cf063904e
+  // initialize the map
+	L.mapbox.accessToken = 'pk.eyJ1IjoiamVzc2ljYWNoaW5maWxlIiwiYSI6ImNqMDAyN3FjNTA1Nzgyd2xzNzltcXQ1NmgifQ.uDti12v_OKz_yGqq5Bom0Q';
+  var map = L.map('map').setView([22.926161653963995, 112.94053389709286], 12);
+
+	var CameraIcon = L.Icon.extend({
+		options: {
+		iconSize: [5,5],
+		//shadowUrl: 'shadow.png',
+		//shadowSize:   [60, 30],
+		iconAnchor:   [7, 7],
+		//shadowAnchor: [22, 94],
+		popupAnchor:  [-5, -10]
+		}
+	});
+
+
+	var Icon_red = new CameraIcon({iconUrl: 'CF_red_dot.png'}),
+	Icon_gray = new CameraIcon({iconUrl: 'CFyellow_dot.png'});
+
+
+
+  // load a tile layer
+	// https://api.mapbox.com/styles/v1/YOUR_USERNAME/YOUR_STYLE_ID/tiles/256/{z}/{x}/{y}?access_token=YOUR_ACCESS_TOKEN
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/jessicachinfile/ckfn2esc20bgc19pjmhxn19uh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken,
+
+    {
+      attribution: '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 15,
+      minZoom: 3
+    }).addTo(map);
+
+
+// yay code for button filtering from here: http://bl.ocks.org/zross/47760925fcb1643b4225
+var stuff = $.getJSON("facerec_cameras_20200514.geojson");
+
+stuff.then(function(data) {
+
+    var all_cameras = L.geoJson(data);
+
+    var housing = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Housing";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+						// .on('mouseover', function() {
+            //     this.bindPopup(feature.properties.location_type).openPopup();
+            // });
+        }
+    });
+		var housing_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Housing";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+		var food = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Food";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var food_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Food";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+		var health = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Healthcare";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_gray
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+		var health_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Healthcare";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon:Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+
+		var clothing = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Clothing";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var clothing_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Clothing";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon:Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var transport = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Transportation";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var transport_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Transportation";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var entertain = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Entertainment";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var entertain_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Entertainment";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var arts = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Arts, Education, and Culture";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var arts_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Arts, Education, and Culture";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var travel = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Travel";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var travel_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Travel";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var finance = L.geoJson(data, {
+        filter: function(feature, layer) {
+            return feature.properties.location_category === "Finance";
+        },
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: Icon_gray
+            }).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+        }
+    });
+		var finance_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Finance";
+				},
+				pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+								icon: Icon_red
+						}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+		var other = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Other/Unknown";
+				},
+				pointToLayer: function(feature, latlng) {
+					return L.marker(latlng, {
+							icon: Icon_gray
+					}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+		var other_red = L.geoJson(data, {
+				filter: function(feature, layer) {
+						return feature.properties.location_category === "Other/Unknown";
+				},
+				pointToLayer: function(feature, latlng) {
+					return L.marker(latlng, {
+							icon: Icon_red
+					}).bindPopup(feature.properties.location_type + "<br/>" + feature.properties.location_name);
+				}
+		});
+
+
+
+
+		var allPoints = all_cameras.getLayers().length;
+		var housingPoints = housing.getLayers().length;
+		var foodPoints = food.getLayers().length;
+		var healthPoints = health.getLayers().length;
+		var clothingPoints = clothing.getLayers().length;
+		var transportPoints = transport.getLayers().length;
+		var entertainPoints = entertain.getLayers().length;
+		var artsPoints = arts.getLayers().length;
+		var travelPoints = travel.getLayers().length;
+		var financePoints = finance.getLayers().length;
+		var otherPoints = other.getLayers().length;
+
+
+
+    housing.addTo(map)
+		food.addTo(map)
+		health.addTo(map)
+		clothing.addTo(map)
+		transport.addTo(map)
+		entertain.addTo(map)
+		arts.addTo(map)
+		travel.addTo(map)
+		finance.addTo(map)
+    other.addTo(map)
+		$("#points").html("Number of Cameras: " + allPoints);
+		map.invalidateSize();
+
+
+    $("#housing").click(function() {
+			map.addLayer(housing_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + housingPoints)
+			// $("#housing").html("Housing" + "<br>" + "Cameras: " + housingPoints)
+    });
+
+		$("#food").click(function() {
+			map.addLayer(food_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(other)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + foodPoints)
+		});
+
+		$("#health").click(function() {
+			map.addLayer(health_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + healthPoints)
+    });
+
+		$("#clothing").click(function() {
+			map.addLayer(clothing_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + clothingPoints)
+    });
+
+		$("#transport").click(function() {
+			map.addLayer(transport_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + transportPoints)
+    });
+
+		$("#entertain").click(function() {
+			map.addLayer(entertain_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + entertainPoints)
+    });
+
+		$("#arts").click(function() {
+			map.addLayer(arts_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + artsPoints)
+    });
+
+		$("#travel").click(function() {
+			map.addLayer(travel_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(other)
+			map.removeLayer(food_red)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + travelPoints)
+    });
+
+		$("#finance").click(function() {
+			map.addLayer(finance_red)
+			map.removeLayer(housing)
+			map.removeLayer(food)
+			map.removeLayer(other)
+			map.removeLayer(health)
+			map.removeLayer(clothing)
+			map.removeLayer(transport)
+			map.removeLayer(entertain)
+			map.removeLayer(arts)
+			map.removeLayer(travel)
+			map.removeLayer(finance)
+			map.removeLayer(housing_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(food_red)
+			map.removeLayer(other_red)
+				$("#points").html("Number of Cameras: " + financePoints)
+    });
+
+		$("#other").click(function() {
+				$("#points").html("Number of Cameras: " + otherPoints)
+				map.addLayer(other_red)
+				map.removeLayer(housing)
+				map.removeLayer(food)
+				map.removeLayer(health)
+				map.removeLayer(clothing)
+				map.removeLayer(transport)
+				map.removeLayer(entertain)
+				map.removeLayer(arts)
+				map.removeLayer(travel)
+				map.removeLayer(finance)
+				map.removeLayer(housing_red)
+				map.removeLayer(food_red)
+				map.removeLayer(health_red)
+				map.removeLayer(clothing_red)
+				map.removeLayer(transport_red)
+				map.removeLayer(entertain_red)
+				map.removeLayer(arts_red)
+				map.removeLayer(travel_red)
+				map.removeLayer(finance_red)
+				map.removeLayer(other)
+				$("#points").html("Number of Cameras: " + otherPoints)
+    });
+
+
+    $("#all").click(function() {
+			map.addLayer(housing)
+			map.addLayer(food)
+			map.addLayer(health)
+			map.addLayer(clothing)
+			map.addLayer(transport)
+			map.addLayer(entertain)
+			map.addLayer(arts)
+			map.addLayer(travel)
+			map.addLayer(finance)
+			map.addLayer(other)
+			map.removeLayer(housing_red)
+			map.removeLayer(food_red)
+			map.removeLayer(health_red)
+			map.removeLayer(clothing_red)
+			map.removeLayer(transport_red)
+			map.removeLayer(entertain_red)
+			map.removeLayer(arts_red)
+			map.removeLayer(travel_red)
+			map.removeLayer(finance_red)
+			map.removeLayer(other_red)
+			$("#points").html("Number of Cameras: " + allPoints)
+    });
+});
+
+  </script>
+</body>
+</html>
