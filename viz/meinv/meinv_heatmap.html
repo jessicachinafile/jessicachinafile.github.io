@@ -11,7 +11,7 @@
 
   h1 {
       font-family:Georgia, Times, "Times New Roman", serif;
-      font-size: 40px;
+      font-size: 26px;
       display: block;
 			margin-bottom:0px;
   }
@@ -19,7 +19,7 @@
 
   h2 {
       font-family:Georgia, Times, "Times New Roman", serif;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: bold;
       /* line-height:2px; */
 			margin-top:2px;
@@ -53,7 +53,7 @@
     background: none repeat scroll 0 0 #ffffff;
     /* border-radius: 8px; */
 		font-family:Georgia, Times, "Times New Roman", serif;
-		font-size: 16px;
+		font-size: 14px;
     padding: 5px;
     text-align: center;
     border: 1px;
@@ -199,8 +199,8 @@
       var ls_w = 20, ls_h = 20
 
       legend.append('rect')
-        .attr('x', 20)
-        .attr('y', function(d, i) { return h - (i*ls_h) - 2*ls_h })
+        .attr('x', 25)
+        .attr('y', function(d, i) { return h - (i*ls_h) - 1*ls_h })
         .attr('width', ls_w)
         .attr('height', ls_h)
         .style("fill", function(d, i) { return color(d); })
@@ -208,14 +208,14 @@
 
       legend.append('text')
         .attr('x', 50)
-        .attr('y', function(d, i){ return h - (i*ls_h) - ls_h - 4})
+        .attr('y', function(d, i){ return h - (i*ls_h) - 5}) //{ return h - (i*ls_h) - ls_h - 4})
         .text(function(d, i){ return legend_labels[i]; })
     }
 
-    var w = 850
-    var h = 600
+    var w = 550
+    var h = 420
     var colors = ['rgb(237,248,233)', 'rgb(186,228,179)', 'rgb(116,196,118)', 'rgb(49,163,84)','rgb(0,109,44)']
-    var projection = d3.geo.mercator().center([105, 38]).scale(750).translate([w/2, h/2])
+    var projection = d3.geo.mercator().center([105, 38]).scale(520).translate([w/2, h/2]) //scale was originally 750
     var path = d3.geo.path().projection(projection)
     var colorScale = d3.scale.quantize().range(colors)
 
