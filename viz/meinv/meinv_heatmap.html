@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Women in Governance by Province</title>
+  </head>
+  <style>
+
+
+
+
+  h1 {
+      font-family:Georgia, Times, "Times New Roman", serif;
+      font-size: 40px;
+      display: block;
+  }
+
+
+  h2 {
+      font-family:Georgia, Times, "Times New Roman", serif;
+      font-size: 18px;
+      color: #3c3c3c;
+      font-weight: normal;
+      line-height:12PX;
+
+  }
+
+  path {
+    stroke:white;
+    stroke-width: 1px;
+  }
+
+  .province {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 0.2px;
+    stroke-linejoin: round;
+  }
+
+  .legend {
+    font: 16px DrukText;
+  }
+
+  div.tooltip {
+		white-space: pre-line;
+    position: absolute;
+    top:220px;
+    left: 40px;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    /* border-radius: 8px; */
+		font-family:Georgia, Times, "Times New Roman", serif;
+		font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    border: 1px;
+    pointer-events: none;
+  }
+  div.tooltip1 {
+    overflow:hidden;
+    max-width: 90%;
+    height: auto;
+    border-radius: 0px;
+		font-family:Georgia, Times, "Times New Roman", serif;
+		font-size: 14px;
+    padding: 0px;
+    text-align: left;
+  }
+
+  .axis path, .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+  .axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+  }
+
+  #wrapper
+  {
+  width:95%;
+  max-width: 850px;
+  margin:0 auto;
+  overflow:hidden;
+  }
+  #header
+  {
+  overflow:hidden;
+  max-width: 90%;
+  margin-bottom:5px;
+  text-align:center;
+  vertical-align: text-top;
+  }
+  #mapdiv {
+  }
+
+
+  </style>
+
+  <body>
+
+    <div id="wrapper">
+    <div id="header"><h1>Women in the Top Two Leadership Positions, by Province, City, and County</h1></div>
+    <div id='mapdiv'></div>
+    </div>
+
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script>
+
+  //code taken from both http://bl.ocks.org/fraserxu/fc1217314735bf608df3 and http://bl.ocks.org/KoGor/5685876
+
+
+    var formatNumber = d3.format(",f")
+    var bodyNode = d3.select('body').node()
+
+
+    var color_domain = [3, 6, 9, 12, 15]
+    var ext_color_domain = [0, 3, 6, 9, 12, 15]
+    var legend_labels = ["< 3%", "3-5%", "6-8%", "9-11%", "12-14%", "≥ 15%"]
+    var color = d3.scale.threshold()
+    .domain(color_domain)
+    .range(["#f0f4f5", "#d9e5e7", "#c1d5d8", "#a0b6b9", "#6b797c", "#353d3e"]);
+
+
+    var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+
+
+    var Choropleth = function(json, options) {
+      var projection = options.projection
+      var w = options.width || 960
+      var h = options.height || 600
+      var path = options.path
+
+
+      var svg = d3.select(mapdiv)
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h)
+
+      svg.selectAll('path')
+        .attr('class', 'province')
+        .data(json.features)
+        .enter()
+        .append('path')
+        .attr('d', path)
+        .style('fill', function(d) {
+          var total = d.properties.total_pct_f
+          if (total) { return color(d.properties.total_pct_f); }
+           else {
+            return '#e6e6e6'
+          }
+        })
+        .style("opacity", 0.88)
+
+//Adding mouseevents
+        .on("mouseover", function(d) {
+          d3.select(this).transition().duration(300).style("opacity", 1);
+          div.transition().duration(300)
+          .style("opacity", 1)
+          div.html("<b>" +  d.properties.name + "</b>\nProvince Level: " + d.properties.prov_f + "/" + d.properties.prov_total + ", " + d.properties.prov_pct_f + "\nCity Level: " + d.properties.city_f + "/" + d.properties.city_total + ", " + d.properties.city_pct_f + "\nCounty Level: " + d.properties.county_f + "/" + d.properties.county_total + ", " + d.properties.county_pct_f + "\nOverall: " + d.properties.total_pct_f + "%")
+          //add the following two lines back in if you want the tooltip to float with the mouse
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY -30) + "px")
+          ;
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+          .transition().duration(300)
+          .style("opacity", 0.88);
+          div.transition().duration(300)
+          .style("opacity", 0);
+        })
+
+      // legend
+      var legend  = svg.selectAll('g.legend')
+        .data(ext_color_domain)
+        .enter()
+        .append('g')
+        .attr('class', 'legend')
+
+      var ls_w = 20, ls_h = 20
+
+      legend.append('rect')
+        .attr('x', 20)
+        .attr('y', function(d, i) { return h - (i*ls_h) - 2*ls_h })
+        .attr('width', ls_w)
+        .attr('height', ls_h)
+        .style("fill", function(d, i) { return color(d); })
+        .style("opacity", 1)
+
+      legend.append('text')
+        .attr('x', 50)
+        .attr('y', function(d, i){ return h - (i*ls_h) - ls_h - 4})
+        .text(function(d, i){ return legend_labels[i]; })
+    }
+
+    var w = 850
+    var h = 600
+    var colors = ['rgb(237,248,233)', 'rgb(186,228,179)', 'rgb(116,196,118)', 'rgb(49,163,84)','rgb(0,109,44)']
+    var projection = d3.geo.mercator().center([105, 38]).scale(750).translate([w/2, h/2])
+    var path = d3.geo.path().projection(projection)
+    var colorScale = d3.scale.quantize().range(colors)
+
+
+
+
+
+
+    d3.tsv('meinv_heatmap.tsv', function(data) {
+
+      colorScale.domain([ d3.min(data, function(d) { return d.total_pct_f }), d3.max(data, function(d) { return d.total_pct_f })])
+
+      d3.json('china_provinces1.json', function(json) {
+        for (var i = 0; i < data.length; i++) {
+          var dataProvince = data[i].name
+          var total = parseInt(data[i].total_pct_f)
+          for (var j = 0; j < json.features.length; j++) {
+            var jsonProvince = json.features[j].properties.name
+            if (jsonProvince == dataProvince) {
+              json.features[j].properties.total_pct_f = total
+							/// added all of these to bind the tsv data to the json data when there's a match
+							json.features[j].properties.prov_f = data[i].prov_f
+							json.features[j].properties.prov_total = data[i].prov_total
+							json.features[j].properties.prov_pct_f = data[i].prov_pct_f
+							json.features[j].properties.city_f = data[i].city_f
+							json.features[j].properties.city_total = data[i].city_total
+							json.features[j].properties.city_pct_f = data[i].city_pct_f
+							json.features[j].properties.county_f = data[i].county_f
+							json.features[j].properties.county_total = data[i].county_total
+							json.features[j].properties.county_pct_f = data[i].county_pct_f
+							///
+              break
+            }
+          }
+        }
+
+        // draw the choropleth
+        Choropleth(json, {
+          container: 'body',
+          colorScale: colorScale,
+          width: w,
+          height: h,
+          path: path,
+          colors: colors
+        })
+
+      })
+
+    });
+
+
+    d3.select("body").append("div")
+    .attr("class", "tooltip1")
+    .html("<em><ul><li>Do we need any &ldquo;notes&rdquo; down here at the bottom?</li><li>Leaving these here for now in case we do.</li></ul></em>");
+
+
+
+
+    </script>
+  </body>
+</html>
