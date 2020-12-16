@@ -13,15 +13,17 @@
       font-family:Georgia, Times, "Times New Roman", serif;
       font-size: 40px;
       display: block;
+			margin-bottom:0px;
   }
 
 
   h2 {
       font-family:Georgia, Times, "Times New Roman", serif;
-      font-size: 18px;
-      color: #3c3c3c;
-      font-weight: normal;
-      line-height:12PX;
+      font-size: 20px;
+      font-weight: bold;
+      /* line-height:2px; */
+			margin-top:2px;
+  		margin-bottom:-15px;
 
   }
 
@@ -38,7 +40,7 @@
   }
 
   .legend {
-    font: 16px DrukText;
+    font: 16px;
   }
 
   div.tooltip {
@@ -63,10 +65,16 @@
     height: auto;
     border-radius: 0px;
 		font-family:Georgia, Times, "Times New Roman", serif;
-		font-size: 14px;
+		font-size: 16px;
     padding: 0px;
     text-align: left;
+		margin-top: 30px;
+
   }
+
+	li{
+  margin: 10px 0;
+}
 
   .axis path, .axis line {
     fill: none;
@@ -163,7 +171,11 @@
           d3.select(this).transition().duration(300).style("opacity", 1);
           div.transition().duration(300)
           .style("opacity", 1)
-          div.html("<b>" +  d.properties.name + "</b>\nProvince Level: " + d.properties.prov_f + "/" + d.properties.prov_total + ", " + d.properties.prov_pct_f + "\nCity Level: " + d.properties.city_f + "/" + d.properties.city_total + ", " + d.properties.city_pct_f + "\nCounty Level: " + d.properties.county_f + "/" + d.properties.county_total + ", " + d.properties.county_pct_f + "\nOverall: " + d.properties.total_pct_f + "%")
+          // div.html("<b>" +  d.properties.name + "</b>\nProvince Level: " + d.properties.prov_f + "/" + d.properties.prov_total + ", " + d.properties.prov_pct_f + "\nCity Level: " + d.properties.city_f + "/" + d.properties.city_total + ", " + d.properties.city_pct_f + "\nCounty Level: " + d.properties.county_f + "/" + d.properties.county_total + ", " + d.properties.county_pct_f + "\nOverall: " + d.properties.total_pct_f + "%")
+
+           div.html("<h2>" + d.properties.name + "</h2>\n<table><tbody><tr><td>Province</td><td>" + d.properties.prov_f + "/" + d.properties.prov_total + "</td><td>" + d.properties.prov_pct_f + "</td></tr><tr><td>City</td><td>" + d.properties.city_f + "/" + d.properties.city_total + "</td><td>" + d.properties.city_pct_f + "</td></tr><tr><td>County</td><td>" + d.properties.county_f + "/" + d.properties.county_total + "</td><td>" + d.properties.county_pct_f + "</td></tr><tr><td><b>Total</b></td><td><b>" + d.properties.total_f + "/" + d.properties.total_ppl + "</b></td><td><b>" + d.properties.total_pct_f + "%</b></td></tr></tbody></table>")
+
+
           //add the following two lines back in if you want the tooltip to float with the mouse
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY -30) + "px")
@@ -234,6 +246,8 @@
 							json.features[j].properties.county_f = data[i].county_f
 							json.features[j].properties.county_total = data[i].county_total
 							json.features[j].properties.county_pct_f = data[i].county_pct_f
+							json.features[j].properties.total_f = data[i].total_f
+							json.features[j].properties.total_ppl = data[i].total_ppl
 							///
               break
             }
@@ -257,7 +271,7 @@
 
     d3.select("body").append("div")
     .attr("class", "tooltip1")
-    .html("<em><ul><li>Do we need any &ldquo;notes&rdquo; down here at the bottom?</li><li>Leaving these here for now in case we do.</li></ul></em>");
+    .html("<ul><li>This map shows the number of females in the top two positions at three different levels of governance, namely, the provincial, municipal, and county levels. At each of these thre level, there is a Party Secretary and a head of government (a governor, mayor, or the equivalent, depending on the level and the specific province or region).</li><li>In the administrative hierarchy, there are multiple municipalities under each province, and multiple counties under each municipality.</li><li>This map includes data ChinaFile compiled from a website affiliated with <em>The People's Daily</em>, that was updated as of 2017.</li><li>Do we need any &ldquo;notes&rdquo; down here at the bottom?</li><li>Leaving these here for now in case we do.</li></ul>");
 
 
 
