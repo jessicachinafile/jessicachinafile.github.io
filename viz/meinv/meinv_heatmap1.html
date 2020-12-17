@@ -10,7 +10,8 @@
 
 
   h1 {
-      font-family:Georgia, Times, "Times New Roman", serif;
+      /* font-family:Georgia, Times, "Times New Roman", serif; */
+			font-family: sans-serif;
       font-size: 26px;
       display: block;
 			margin-bottom:0px;
@@ -18,7 +19,8 @@
 
 
   h2 {
-      font-family:Georgia, Times, "Times New Roman", serif;
+      /* font-family:Georgia, Times, "Times New Roman", serif; */
+			font-family: sans-serif;
       font-size: 16px;
       font-weight: bold;
       /* line-height:2px; */
@@ -40,6 +42,8 @@
   }
 
   .legend {
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
     font: 16px;
   }
 
@@ -52,7 +56,8 @@
     height: auto;
     background: none repeat scroll 0 0 #ffffff;
     /* border-radius: 8px; */
-		font-family:Georgia, Times, "Times New Roman", serif;
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
 		font-size: 14px;
     padding: 5px;
     text-align: center;
@@ -64,11 +69,12 @@
     max-width: 90%;
     height: auto;
     border-radius: 0px;
-		font-family:Georgia, Times, "Times New Roman", serif;
-		font-size: 16px;
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
+		font-size: 14px;
     padding: 0px;
     text-align: left;
-		margin-top: 30px;
+		margin-top: -20px;
 
   }
 
@@ -97,7 +103,7 @@
   {
   overflow:hidden;
   max-width: 90%;
-  margin-bottom:5px;
+  margin-bottom:0px;
   text-align:center;
   vertical-align: text-top;
   }
@@ -192,8 +198,8 @@
 
 
           //add the following two lines back in if you want the tooltip to float with the mouse
-          .style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY -30) + "px")
+          .style("left", (d3.event.pageX -90) + "px")
+          .style("top", (d3.event.pageY -120) + "px")
           ;
         })
         .on("mouseout", function() {
