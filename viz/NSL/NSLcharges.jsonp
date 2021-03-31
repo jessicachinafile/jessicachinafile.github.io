@@ -1,4 +1,0 @@
-var sets = [
-         {"sets": [0], "label": "NSL Charges", "size": 49},
-         {"sets": [1], "label": "Non-NSL Charges", "size": 9},
-         {"sets": [0, 1], "size": 4}];
