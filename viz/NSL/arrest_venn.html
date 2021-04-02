@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NSL vs. Non-NSL Arrests</title>
+<style>
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+	<div id="header"><h1>Stated Grounds for Arrest</h1></div>
+  <div id="venn"></div>
+	</div>
+</body>
+
+<style>
+
+/* https://github.com/benfred/venn.js/blob/master/examples/css_styled.html */
+[data-venn-sets="0"]   { fill: #03798D; }
+[data-venn-sets="1"]   { fill: #686868; }
+[data-venn-sets="0_1"] { fill: #36707a; }
+
+
+
+#wrapper
+{
+width:100%;
+max-width: 600px;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 95%;
+font-size: 14px;
+font-family: Georgia, Times, "Times New Roman", serif;
+/* margin-bottom:5px; */
+text-align:center;
+vertical-align: text-top;
+}
+#venn
+{
+/* overflow:hidden; */
+/* max-width: 90%;
+margin-bottom:5px; */
+text-align:center;
+/* vertical-align: text-top; */
+}
+</style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="../venn.js"></script>
+<script src="./arrest_venn.jsonp"></script>
+
+<script>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// YOU WILL NEED TO DO MATH HERE IF YOU WANT THE TWO VENN DIAGRAMS TO LINE UP, SIZE WISE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+var chart = venn.VennDiagram()
+                 .width(580)
+                 .height(500)
+								 // https://github.com/benfred/venn.js/blob/master/examples/css_styled.html
+								 .styled(false);
+
+// smashed together two bits of code to get the sublabels to work.  http://bl.ocks.org/bessiec/986e971203b4b8ddc56d3d165599f9d0  https://stackoverflow.com/questions/36181499/how-can-i-add-a-sublabel-to-a-static-venn-js-chart/36183134
+var div = d3.select("#venn").datum(sets).call(chart);
+           div.selectAll("text").style("fill", "white")
+					 				.attr("dy", 50);
+					 div.selectAll("text")
+					 				.append("tspan")
+					        .text(function(d) { return d.size; })
+					        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
+					        .attr("dy", "1.5em")
+					        .style("fill", "white")
+					        .style("font-size", "12px");
+           div.selectAll(".venn-circle path")
+                   .style("fill-opacity", .6)
+                   .style("stroke-width", 1)
+                   .style("stroke-opacity", 1)
+                   .style("stroke", "fff");
+
+</script>
+</html>
