@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NSL Arrests - Speech</title>
+<style>
+
+body{
+    max-width:1500px;
+    max-height:1200px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+#wrapper {
+width:99%;
+max-width: 1600px;
+margin:0 auto;
+overflow:hidden;
+}
+#header
+{
+overflow:hidden;
+max-width: 90%;
+font-size: 14px;
+/* margin-bottom:5px; */
+text-align:center;
+vertical-align: text-top;
+}
+
+#pieChart {
+text-align:center;
+
+/* position:relative;
+left:-50px;
+top:-80px; */
+}
+
+</style>
+</head>
+
+
+<body>
+
+  <div id="wrapper">
+	<div id="header"><h1>Charged Individuals, as a Percent of Total Arrested Individuals</h1></div>
+  <div id="pieChart"></div>
+  </div>
+
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="./d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+
+	"size": {
+		"canvasWidth": 450,
+		"canvasHeight": 400,
+		"pieOuterRadius": "40%"
+	},
+	"data": {
+		// "sortOrder": "value-desc",
+		"content": [
+			{
+				"label": "Charged",
+				"value": 58,
+				"color": "#000000"
+			},
+
+{
+"label": "Arrested Only",
+"value": 53,
+"color": "#03798D"
+}
+
+
+		]
+	},
+	"labels": {
+		"outer": {
+			"format": "label-percentage2",
+			"pieDistance": 10
+		},
+		"inner": {
+			"format": "value",
+			//"hideWhenLessThanPercentage": 2
+		},
+		"mainLabel": {
+			"color": "#000000",
+			"fontSize": 14,
+			"font": "Georgia"
+		},
+		"percentage": {
+			"color": "#000000",
+			"decimalPlaces": 1,
+			"fontSize": 14,
+			"font": "Georgia"
+		},
+		"value": {
+			"color": "white",
+			"fontSize": 13
+		},
+		"lines": {
+			"enabled": true,
+			"style": "straight"
+		},
+		"truncation": {
+			"enabled": false
+		}
+	},
+	"effects": {
+		"load": {
+			"effect": "none"
+		},
+		"pullOutSegmentOnClick": {
+			"effect": "none",
+			"speed": 400,
+			"size": 8
+		},
+		"highlightSegmentOnMouseover": false,
+		"highlightLuminosity": -0.99
+	},
+  "misc": {
+		"gradient": {
+			"enabled": false,
+			"percentage": 90
+		},
+		"canvasPadding":{
+      "top":-150,"right":0,"bottom":0,"left":-50}
+	}
+
+});
+
+
+
+</script>
+
+</body>
+</html>
