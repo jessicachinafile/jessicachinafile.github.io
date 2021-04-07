@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Women in Governance by Province</title>
+  </head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<!-- the meta tag is necessary for the @media CSS to work https://stackoverflow.com/questions/7859336/why-are-my-css3-media-queries-not-working -->
+
+  <style>
+
+
+  h1 {
+      /* font-family:Georgia, Times, "Times New Roman", serif; */
+			font-family: sans-serif;
+      font-size: 26px;
+      display: block;
+			margin-bottom:0px;
+  }
+
+
+  h2 {
+      /* font-family:Georgia, Times, "Times New Roman", serif; */
+			font-family: sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      /* line-height:2px; */
+			margin-top:2px;
+  		margin-bottom:-15px;
+
+  }
+
+  path {
+    stroke:white;
+    stroke-width: 1px;
+  }
+
+  .province {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 0.2px;
+    stroke-linejoin: round;
+  }
+
+  .legend {
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
+    font: 16px;
+  }
+
+  div.tooltip {
+		white-space: pre-line;
+    position: absolute;
+    top:220px;
+    left: 40px;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    /* border-radius: 8px; */
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
+		font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    border: 1px;
+    pointer-events: none;
+  }
+  div.tooltip1 {
+    overflow:hidden;
+    max-width: 90%;
+    height: auto;
+    border-radius: 0px;
+		/* font-family:Georgia, Times, "Times New Roman", serif; */
+		font-family: sans-serif;
+		font-size: 14px;
+    padding: 0px;
+    text-align: left;
+		margin-top: -20px;
+
+  }
+
+	li{
+  margin: 10px 0;
+}
+
+  .axis path, .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+  .axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+  }
+
+  #wrapper
+  {
+  width:95%;
+  max-width: 850px;
+  margin:0 auto;
+  overflow:hidden;
+  }
+  #header
+  {
+  overflow:hidden;
+  max-width: 95%;
+  margin-bottom:0px;
+  text-align:center;
+  vertical-align: text-top;
+  }
+  #mapdiv {
+	margin:2%;
+	padding:20px;
+	text-align:center;
+	/* border:2px solid #d0d0d0;
+	border-radius: 5px; */
+
+
+		/* overflow:hidden;
+		width: 100vw;
+		margin-top:10;
+		margin-bottom:10;
+		margin-left: 50;
+		margin-right: 50;
+		text-align:center; */
+
+
+		/* width: 60vw;
+		height:auto; */
+	  /* max-width: 90%; */
+	  /* margin-right: calc((30% - 70px)/2 ); */
+	  /* text-align:center;
+	  vertical-align: text-top; */
+  }
+
+	/* @media screen and (max-width: 734px) {
+		#mapdiv {
+			width: 100vw;
+			margin-left: calc((100% - 615px)/2 + 6px);
+		}
+	} */
+
+
+  </style>
+
+  <body>
+
+    <div id="wrapper">
+    <div id="header"><h1>Women in Leadership Positions across China</h1></div>
+    <div id='mapdiv'></div>
+    </div>
+
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<!-- <script src="jquery-2.0.3.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script>
+
+  //code taken from both http://bl.ocks.org/fraserxu/fc1217314735bf608df3 and http://bl.ocks.org/KoGor/5685876  AND FROM HERE http://bl.ocks.org/jczaplew/4444770  FOR THE RESPONSIVE SIZING
+
+	d3.select(window)
+	    		.on("resize", sizeChange);
+
+    var formatNumber = d3.format(",f")
+    // var bodyNode = d3.select('body').node()
+		var color_domain = [3, 6, 9, 12, 15]
+		var ext_color_domain = [0, 3, 6, 9, 12, 15]
+		// var legend_labels = ["< 3%", "3-5%", "6-8%", "9-11%", "12-14%", "≥ 15%"]
+		var color = d3.scale.threshold()
+		.domain(color_domain)
+		.range(["#f0f4f5", "#d9e5e7", "#c1d5d8", "#a0b6b9", "#6b797c", "#353d3e"]);
+
+
+		var div = d3.select("body").append("div")
+		.attr("class", "tooltip")
+		.style("opacity", 0);
+
+
+		var width = window.innerWidth / 1.8;
+		var mapRatio = .8;
+		var height = width * mapRatio;
+
+
+// 	var margin = {top: 10, left: 50, bottom: 10, right: 50}
+// , width = parseInt(d3.select('#mapdiv').style('width'))
+// , width = width - margin.left - margin.right
+// , mapRatio = .9
+// , height = width * mapRatio;
+
+
+    var Choropleth = function(json, options) {
+      var projection = options.projection
+      // var w = width;  //options.width || 960
+      // var h = height;//options.height || 600
+      var path = options.path
+
+
+      var svg = d3.select(mapdiv)
+        .append('svg')
+				.attr("width", "100%")
+				.attr("height", width * mapRatio)
+
+        // .attr('width', width * 1.5)
+        // .attr('height', height)
+
+      svg.selectAll('path')
+        .attr('class', 'province')
+        .data(json.features)
+        .enter()
+        .append('path')
+        .attr('d', path)
+        .style('fill', function(d) {
+          var total = d.properties.total_pct_f
+          if (total) { return color(d.properties.total_pct_f); }
+           else {
+            return '#e6e6e6'
+          }
+        })
+        .style("opacity", 0.82)
+
+//Adding mouseevents
+        .on("mouseover", function(d) {
+          d3.select(this).transition().duration(200).style("opacity", 1);
+          div.transition().duration(200)
+          .style("opacity", 1)
+          // div.html("<b>" +  d.properties.name + "</b>\nProvince Level: " + d.properties.prov_f + "/" + d.properties.prov_total + ", " + d.properties.prov_pct_f + "\nCity Level: " + d.properties.city_f + "/" + d.properties.city_total + ", " + d.properties.city_pct_f + "\nCounty Level: " + d.properties.county_f + "/" + d.properties.county_total + ", " + d.properties.county_pct_f + "\nOverall: " + d.properties.total_pct_f + "%")
+
+           div.html("<h2>" + d.properties.name + "</h2>\n<table><tbody><tr><td>Province</td><td>" + d.properties.prov_f + "/" + d.properties.prov_total + "</td><td>" + d.properties.prov_pct_f + "</td></tr><tr><td>Municipality</td><td>" + d.properties.city_f + "/" + d.properties.city_total + "</td><td>" + d.properties.city_pct_f + "</td></tr><tr><td>County</td><td>" + d.properties.county_f + "/" + d.properties.county_total + "</td><td>" + d.properties.county_pct_f + "</td></tr><tr><td><b>Total</b></td><td><b>" + d.properties.total_f + "/" + d.properties.total_ppl + "</b></td><td><b>" + d.properties.total_pct_f + "%</b></td></tr></tbody></table>")
+
+
+          //add the following two lines back in if you want the tooltip to float with the mouse
+          .style("left", (d3.event.pageX -90) + "px")
+          .style("top", (d3.event.pageY -120) + "px")
+          ;
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+          .transition().duration(200)
+          .style("opacity", 0.82);
+          div.transition().duration(200)
+          .style("opacity", 0);
+        })
+
+
+      // // legend
+      // var legend  = svg.selectAll('g.legend')
+      //   .data(ext_color_domain)
+      //   .enter()
+      //   .append('g')
+      //   .attr('class', 'legend')
+			//
+      // var ls_w = 20, ls_h = 20
+			//
+      // legend.append('rect')
+      //   .attr('x', 25)
+      //   .attr('y', function(d, i) { return height - (i*ls_h) - 1*ls_h })
+      //   .attr('width', ls_w)
+      //   .attr('height', ls_h)
+      //   .style("fill", function(d, i) { return color(d); })
+      //   .style("opacity", 1)
+			//
+      // legend.append('text')
+      //   .attr('x', 50)
+      //   .attr('y', function(d, i){ return height - (i*ls_h) - 5}) //{ return h - (i*ls_h) - ls_h - 4})
+      //   .text(function(d, i){ return legend_labels[i]; })
+    }
+
+    // var w = window.innerWidth * .9; //550
+    // var h = 420//420
+    var colors = ['rgb(237,248,233)', 'rgb(186,228,179)', 'rgb(116,196,118)', 'rgb(49,163,84)','rgb(0,109,44)']
+
+
+    var projection = d3.geo.mercator().center([112, 38]).scale(width).translate([width/1.3, height/2]) //scale was originally 750   .center([105, 38])
+    var path = d3.geo.path().projection(projection)
+    var colorScale = d3.scale.quantize().range(colors)
+
+
+    d3.tsv('meinv_heatmap.tsv', function(data) {
+
+      colorScale.domain([ d3.min(data, function(d) { return d.total_pct_f }), d3.max(data, function(d) { return d.total_pct_f })])
+
+      d3.json('china_provinces1.json', function(json) {
+        for (var i = 0; i < data.length; i++) {
+          var dataProvince = data[i].name
+          var total = parseInt(data[i].total_pct_f)
+          for (var j = 0; j < json.features.length; j++) {
+            var jsonProvince = json.features[j].properties.name
+            if (jsonProvince == dataProvince) {
+              json.features[j].properties.total_pct_f = total
+							/// added all of these to bind the tsv data to the json data when there's a match
+							json.features[j].properties.prov_f = data[i].prov_f
+							json.features[j].properties.prov_total = data[i].prov_total
+							json.features[j].properties.prov_pct_f = data[i].prov_pct_f
+							json.features[j].properties.city_f = data[i].city_f
+							json.features[j].properties.city_total = data[i].city_total
+							json.features[j].properties.city_pct_f = data[i].city_pct_f
+							json.features[j].properties.county_f = data[i].county_f
+							json.features[j].properties.county_total = data[i].county_total
+							json.features[j].properties.county_pct_f = data[i].county_pct_f
+							json.features[j].properties.total_f = data[i].total_f
+							json.features[j].properties.total_ppl = data[i].total_ppl
+							///
+              break
+            }
+          }
+        }
+
+        // draw the choropleth
+        Choropleth(json, {
+          container: 'body',
+          colorScale: colorScale,
+          width: width,
+          height: height,
+          path: path,
+          colors: colors
+        })
+
+
+      })
+
+    })
+
+
+		function sizeChange() {
+		    d3.selectAll("path").attr("transform", "scale(" + $(mapdiv).width()/700 + ")");
+		    $("svg").height($(mapdiv).width()*0.59);
+		}
+
+
+
+
+		;
+
+
+    d3.select("body").append("div")
+    .attr("class", "tooltip1")
+    .html("<ul><li>This map shows the number of women in the top two positions at the provincial, municipal, and county levels of governance. At each of these three levels, there is a Party Secretary and a head of government (a governor, mayor, or the equivalent, depending on the level and the specific province or region).</li><li>In the administrative hierarchy, there are multiple municipalities under each province, and multiple counties under each municipality.</li><li>This map includes data ChinaFile compiled from a website affiliated with <em>The People&rsquo;s Daily</em>, that was updated as of 2017.</li></ul>");
+
+
+
+
+
+    </script>
+  </body>
+</html>
