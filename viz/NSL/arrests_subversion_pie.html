@@ -6,14 +6,12 @@
 <style>
 
 body{
-    max-width:1500px;
-    max-height:1200px;
-		font-family: Georgia, Times, "Times New Roman", serif;
+		font-family: "Arial", sans-serif;
 }
 
 #wrapper {
 width:99%;
-max-width: 1600px;
+max-width: 500px;
 margin:0 auto;
 overflow:hidden;
 }
@@ -22,6 +20,7 @@ overflow:hidden;
 overflow:hidden;
 max-width: 90%;
 font-size: 14px;
+font-family: Georgia, Times, "Times New Roman", serif;
 /* margin-bottom:5px; */
 text-align:center;
 vertical-align: text-top;
@@ -52,9 +51,9 @@ top:-80px; */
 var pie = new d3pie("pieChart", {
 
 	"size": {
-		"canvasWidth": 430,
-		"canvasHeight": 430,
-		"pieOuterRadius": "50%"
+		"canvasWidth": 400,
+		"canvasHeight": 330,
+		"pieOuterRadius": "30%"
 	},
 	"data": {
 		// "sortOrder": "value-desc",
@@ -86,13 +85,13 @@ var pie = new d3pie("pieChart", {
 		"mainLabel": {
 			"color": "#000000",
 			"fontSize": 14,
-			"font": "Georgia"
+			"font": "Arial"
 		},
 		"percentage": {
 			"color": "#000000",
 			"decimalPlaces": 1,
 			"fontSize": 14,
-			"font": "Georgia"
+			"font": "Arial"
 		},
 		"value": {
 			"color": "white",
