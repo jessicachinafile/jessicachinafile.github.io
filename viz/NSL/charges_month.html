@@ -7,7 +7,7 @@
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <style>
         body {
-            font-family: Georgia, Times, "Times New Roman", serif;
+            font-family: "Arial", sans-serif;
         }
 
         .bar {
@@ -101,9 +101,7 @@ var data = [{"month":"March 2021","arrests":47},{"month":"February 2021","arrest
 						//////////////// DO THIS IN PYTHON ////////////////
 						////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 						// YOU WILL CHANGE THIS IN THE CHARTS SUCH THAT IT FEEDS IN THE MAX AMT FROM EITHER ONE SO IT'S ON THE SAME SCALE
-            .domain([0, d3.max(data, function (d) {
-                return d.arrests;
-            })]);
+            .domain([0,88]);
 
         var y = d3.scale.ordinal()
             .rangeRoundBands([height, 0], .1)
