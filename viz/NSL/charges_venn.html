@@ -64,14 +64,14 @@ text-align:center;
 // YOU WILL NEED TO DO MATH HERE IF YOU WANT THE TWO VENN DIAGRAMS TO LINE UP, SIZE WISE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 var chart = venn.VennDiagram()
-                 .width(250)
+                 .width(320)
                  .height(300)
 								 // https://github.com/benfred/venn.js/blob/master/examples/css_styled.html
 								 .styled(false);
 
 // smashed together two bits of code to get the sublabels to work.  http://bl.ocks.org/bessiec/986e971203b4b8ddc56d3d165599f9d0  https://stackoverflow.com/questions/36181499/how-can-i-add-a-sublabel-to-a-static-venn-js-chart/36183134
 var div = d3.select("#venn").datum(sets).call(chart);
-           div.selectAll("text").style("fill", "white")
+           div.selectAll("text").style("fill", "white").style("font-size", "12px")
 					 				.attr("dy", 50);
 					 div.selectAll("text")
 					 				.append("tspan")
