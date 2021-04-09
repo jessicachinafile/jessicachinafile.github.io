@@ -10,16 +10,18 @@ body{
 }
 
 #wrapper {
-width:99%;
+width:100%;
 max-width: 500px;
+max-height: 230px;
 margin:0 auto;
 overflow:hidden;
+/* background-color: #FBD603; */
 }
 #header
 {
 overflow:hidden;
-max-width: 90%;
-font-size: 14px;
+max-width: 100%;
+font-size: 12px;
 font-family: Georgia, Times, "Times New Roman", serif;
 /* margin-bottom:5px; */
 text-align:center;
@@ -28,7 +30,7 @@ vertical-align: text-top;
 
 #pieChart {
 text-align:center;
-
+/* background-color: #FBD999; */
 /* position:relative;
 left:-50px;
 top:-80px; */
@@ -59,7 +61,7 @@ var pie = new d3pie("pieChart", {
 		// "sortOrder": "value-desc",
 		"content": [
 			{
-				"label": "Speech crime and other crimes",
+				"label": "Speech and other crimes",
 				"value": 12,
 				"color": "#877F6A"
 			},
@@ -128,7 +130,7 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-150,"right":0,"bottom":0,"left":-50}
+      "top":-170,"right":0,"bottom":0,"left":-10} //150
 	}
 
 });

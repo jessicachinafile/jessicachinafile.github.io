@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL Arrests - Speech</title>
+<title>NSL Arrests - Foreign Connection</title>
 <style>
 
 body{
@@ -10,16 +10,18 @@ body{
 }
 
 #wrapper {
-width:99%;
-max-width: 350px;
+width:100%;
+max-width: 500px;
+max-height: 230px;
 margin:0 auto;
 overflow:hidden;
+/* background-color: #FBD603; */
 }
 #header
 {
 overflow:hidden;
-max-width: 90%;
-font-size: 14px;
+max-width: 100%;
+font-size: 12px;
 font-family: Georgia, Times, "Times New Roman", serif;
 /* margin-bottom:5px; */
 text-align:center;
@@ -28,7 +30,7 @@ vertical-align: text-top;
 
 #pieChart {
 text-align:center;
-
+/* background-color: #FBD999; */
 /* position:relative;
 left:-50px;
 top:-80px; */
@@ -51,15 +53,15 @@ top:-80px; */
 var pie = new d3pie("pieChart", {
 
 	"size": {
-		"canvasWidth": 330,
+		"canvasWidth": 400,
 		"canvasHeight": 330,
-		"pieOuterRadius": "70%"
+		"pieOuterRadius": "30%"
 	},
 	"data": {
 		// "sortOrder": "value-desc",
 		"content": [
 			{
-	"label": "Foreign",
+	"label": "Foreign connection",
 	"value": 17,
 	"color": "#686868"
 },
@@ -75,24 +77,21 @@ var pie = new d3pie("pieChart", {
 	},
 	"labels": {
 		"outer": {
-			"format": "none",
-			// "format": "label-percentage2",
+			"format": "label-percentage2",
 			"pieDistance": 10
 		},
 		"inner": {
-			// "format": "value",
-			"format": "label-value2"
+			"format": "value",
 			//"hideWhenLessThanPercentage": 2
 		},
 		"mainLabel": {
-			// "color": "#000000",
-			"color": "white",
+			"color": "#000000",
 			"fontSize": 14,
 			"font": "Arial"
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 0,
+			"decimalPlaces": 1,
 			"fontSize": 14,
 			"font": "Arial"
 		},
@@ -123,10 +122,10 @@ var pie = new d3pie("pieChart", {
   "misc": {
 		"gradient": {
 			"enabled": false,
-			"percentage": 90
+			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-75,"right":0,"bottom":0,"left":0}
+      "top":-170,"right":0,"bottom":0,"left":-10} //150
 	}
 
 });
