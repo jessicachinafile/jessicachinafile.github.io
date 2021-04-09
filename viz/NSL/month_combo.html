@@ -3,7 +3,7 @@
 <!-- https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3 -->
 <head>
     <meta charset='utf-8' />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
     <!-- <title>Arrests by Month</title> -->
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<style>
@@ -11,9 +11,13 @@
             font-family: "Arial", sans-serif;
         }
 
-        .bar {
+        .bar1 {
             fill: #686868;
         }
+
+				.bar2 {
+						fill: #048ea6;
+				}
 
         .axis {
             font-size: 13px;
@@ -140,7 +144,7 @@ var data = [{"month":"March 2021","arrests":1},{"month":"February 2021","arrests
 
         //append rects
         bars.append("rect")
-            .attr("class", "bar")
+            .attr("class", "bar1")
             .attr("y", function (d) {
                 return y(d.month);
             })
@@ -227,7 +231,7 @@ var data = [{"month":"March 2021","arrests":47},{"month":"February 2021","arrest
 
         //append rects
         bars.append("rect")
-            .attr("class", "bar")
+            .attr("class", "bar2")
             .attr("y", function (d) {
                 return y(d.month);
             })
