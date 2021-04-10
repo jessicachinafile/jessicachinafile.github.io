@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL Arrests - Speech</title>
+<title>NSL Arrests vs. Charges</title>
 <style>
 
 body{
-    max-width:1500px;
-    max-height:1200px;
-		font-family: Georgia, Times, "Times New Roman", serif;
+		font-family: "Arial", sans-serif;
 }
 
 #wrapper {
-width:99%;
-max-width: 1600px;
+width:100%;
+min-width: 350px;
+max-width: 500px;
+max-height: 260px;
 margin:0 auto;
 overflow:hidden;
+/* background-color: #FBD603; */
 }
 #header
 {
 overflow:hidden;
-max-width: 90%;
-font-size: 14px;
+max-width: 100%;
+font-size: 12px;
+font-family: Georgia, Times, "Times New Roman", serif;
 /* margin-bottom:5px; */
 text-align:center;
 vertical-align: text-top;
@@ -29,10 +31,11 @@ vertical-align: text-top;
 
 #pieChart {
 text-align:center;
-
+/* background-color: #FBD999; */
 /* position:relative;
 left:-50px;
 top:-80px; */
+/* background-color: #FBD603; */
 }
 
 </style>
@@ -47,14 +50,14 @@ top:-80px; */
   </div>
 
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="./d3pie.min.js"></script>
+	<script src="../d3pie.min.js"></script>
 <script>
 var pie = new d3pie("pieChart", {
 
 	"size": {
-		"canvasWidth": 450,
-		"canvasHeight": 400,
-		"pieOuterRadius": "40%"
+		"canvasWidth": 400,
+		"canvasHeight": 330,
+		"pieOuterRadius": "30%"
 	},
 	"data": {
 		// "sortOrder": "value-desc",
@@ -86,13 +89,13 @@ var pie = new d3pie("pieChart", {
 		"mainLabel": {
 			"color": "#000000",
 			"fontSize": 14,
-			"font": "Georgia"
+			"font": "Arial"
 		},
 		"percentage": {
 			"color": "#000000",
 			"decimalPlaces": 1,
 			"fontSize": 14,
-			"font": "Georgia"
+			"font": "Arial"
 		},
 		"value": {
 			"color": "white",
@@ -121,10 +124,10 @@ var pie = new d3pie("pieChart", {
   "misc": {
 		"gradient": {
 			"enabled": false,
-			"percentage": 90
+			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-150,"right":0,"bottom":0,"left":-50}
+      "top":-200,"right":0,"bottom":0,"left":-10} //150
 	}
 
 });
