@@ -56,6 +56,19 @@
 				vertical-align: text-top;
 				font-family: Georgia, Times, "Times New Roman", serif;
 				}
+				#subhed
+				{
+				overflow:hidden;
+				max-width: 100%;
+				font-size: 13px;
+				font-family: Georgia, Times, "Times New Roman", serif;
+				font-style: italic;
+				margin-left:15px;
+				margin-right:15px;
+				text-align:center;
+				vertical-align: text-top;
+				}
+
 				#graphic
 				{
 					text-align:center;
@@ -72,6 +85,7 @@
 <body>
 	<div id="wrapper">
 	<div id="header"><h1>Arrests by Month</h1></div>
+	<div id="subhed">Individuals arrested for violating the NSL and individuals arrested by the NSD without invocation of the NSL</div>
     <div id="graphic"></div>
 
     <script>
@@ -80,7 +94,7 @@ var data = [{"month":"March 2021","arrests":1},{"month":"February 2021","arrests
 
         //set up svg using margin conventions - we'll need plenty of room on the left for labels
         var margin = {
-            top: 0,
+            top: 20,
             right: 25,
             bottom: 20,
             left: 100
