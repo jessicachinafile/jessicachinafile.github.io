@@ -21,9 +21,24 @@ overflow:hidden;
 {
 overflow:hidden;
 max-width: 100%;
-font-size: 12px;
-font-family: Georgia, Times, "Times New Roman", serif;
+font-size: 22px;
+font-family: Arial;
+font-weight: bold;
 /* margin-bottom:5px; */
+text-align:center;
+vertical-align: text-top;
+}
+
+#subhed
+{
+overflow:hidden;
+max-width: 100%;
+font-size: 14px;
+font-family: Arial;
+font-style: italic;
+margin-left:15px;
+margin-right:15px;
+/* margin-top: -10px; */
 text-align:center;
 vertical-align: text-top;
 }
@@ -43,7 +58,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header"><h1>Arrests for Foreign Connections</h1></div>
+	<div id="header">Arrests for Foreign Connections</div>
+	<div id="subhed">Individuals arrested whose cases involve connection(s) with foreign individuals or entities</div>
   <div id="pieChart"></div>
   </div>
 
@@ -125,7 +141,7 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-170,"right":0,"bottom":0,"left":-50} //150
+      "top":-150,"right":0,"bottom":0,"left":-50} //150
 	}
 
 });
