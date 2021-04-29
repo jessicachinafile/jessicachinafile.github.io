@@ -16,7 +16,7 @@ body {
 <body>
 	<div id="wrapper">
 	<div id="header">Formal Charges</div>
-	<div id="subhed">Individuals charged with violating the NSL, individuals arrested by the NSD and not charged under the NSL, and individuals charged with both NSL and non-NSL violations</div>
+	<!-- <div id="subhed">Individuals charged with violating the NSL, individuals arrested by the NSD and not charged under the NSL, and individuals charged with both NSL and non-NSL violations</div> -->
   <div id="venn"></div>
 	</div>
 </body>
@@ -68,10 +68,18 @@ vertical-align: text-top;
 /* overflow:hidden; */
 /* max-width: 90%; */
 margin-top:-20px;
-margin-bottom:-30px;
+margin-bottom:-10px;
 text-align:center;
 /* vertical-align: text-top; */
 }
+
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+}
+
 </style>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -105,6 +113,11 @@ var div = d3.select("#venn").datum(sets).call(chart);
                    .style("stroke-width", 1)
                    .style("stroke-opacity", 1)
                    .style("stroke", "fff");
+
+
+d3.select("#wrapper").append("div")
+   .attr("class", "footnote")
+   .html("<em>The category “NSL” refers to individuals charged with violating the NSL. “Non-NSL” refers to individuals arrested by the NSD and not charged under the NSL. “Both” refers to individuals charged with multiple violations, including both NSL and non-NSL violations.</em>");
 
 </script>
 </html>
