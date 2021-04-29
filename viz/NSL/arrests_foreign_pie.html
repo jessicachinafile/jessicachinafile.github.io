@@ -11,11 +11,11 @@ body{
 
 #wrapper {
 width:100%;
-max-width: 335px;
-max-height: 265px;
+max-width: 430px;
+max-height: 290px;
 margin:0 auto;
 overflow:hidden;
-/* background-color: #346bca; */
+background-color: #346bca;
 }
 #header
 {
@@ -58,8 +58,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Arrests for Foreign Connections</div>
-	<div id="subhed">Individuals arrested whose cases involve connection(s) with foreign individuals or entities</div>
+	<div id="header">Individuals Targeted Due to Foreign Interactions</div>
+	<div id="subhed">People arrested for violating the NSL or by the NSD, who were likely targeted based on their interactions with foreign entities</div>
   <div id="pieChart"></div>
   </div>
 
@@ -77,7 +77,7 @@ var pie = new d3pie("pieChart", {
 		// "sortOrder": "value-desc",
 		"content": [
 			{
-	"label": "Foreign connection",
+	"label": "Targeted individuals",
 	"value": 17,
 	"color": "#686868"
 },
@@ -141,7 +141,7 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-150,"right":0,"bottom":0,"left":-90} //150
+      "top":-135,"right":0,"bottom":0,"left":-90} //150
 	}
 
 });
