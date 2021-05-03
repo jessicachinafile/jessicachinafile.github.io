@@ -103,7 +103,7 @@ var div = d3.select("#venn").datum(sets).call(chart);
 					 				.attr("dy", 50);
 					 div.selectAll("text")
 					 				.append("tspan")
-					        .text(function(d) { return d.size; })
+					        .text(function(d) { return d.number_label; })
 					        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
 					        .attr("dy", "1.5em")
 					        .style("fill", "white")
