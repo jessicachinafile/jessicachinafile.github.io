@@ -89,11 +89,16 @@ var pie = new d3pie("pieChart", {
 			{
 				"label": "Definitely",
 				"value": 33,
-				"color": "#DD2F26"
+				"color": "#A6231D"
 			},
 			{
 				"label": "Probably",
 				"value": 21,
+				"color": "#DD2F26"
+			},
+			{
+				"label": "Unsure",
+				"value": 19,
 				"color": "#E5635C"
 			},
 			{
@@ -105,11 +110,6 @@ var pie = new d3pie("pieChart", {
 				"label": "Definitely not",
 				"value": 26,
 				"color": "#F6CBC9"
-			},
-			{
-				"label": "Unsure",
-				"value": 19,
-				"color": "#A6231D"
 			}
 		]
 	},
@@ -120,7 +120,7 @@ var pie = new d3pie("pieChart", {
 			"pieDistance": 10
 		},
 		"inner": {
-			"format": "value",
+			"format": "none",
 			//"format": "label-percentage2",
 			//"hideWhenLessThanPercentage": 2
 		},
