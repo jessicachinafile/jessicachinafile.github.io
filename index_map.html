@@ -297,12 +297,83 @@ if (popUps[0]) popUps[0].remove();
 //added these two chunks in order to have dynamic hyperlinks to NGO websites in popups. god bless you https://bencollier.net/2011/05/quickly-creating-an-html-link-in-javascript/
 //this got me the if-then third line (last solution on page) http://stackoverflow.com/questions/711536/javascript-define-a-variable-if-it-doesnt-exist
 var text_en = 'English';
-var html_en = text_en.link(currentFeature.properties.website_en);
-if (typeof currentFeature.properties.website_en === 'undefined') {html_en = ""};
+var html_en = currentFeature.properties.website_en;
+//var html_en = text_en.link(currentFeature.properties.website_en); THIS WAS THE OLD WAY TO LINK TO THE WEBSITES, BUT THIS HAS SINCE BEEN DEPRECATED AND DOESN'T WORK RELIABLY, ALSO IT OPENS IN THE SAME TAB.
+if (typeof currentFeature.properties.website_en === 'undefined') {html_en = "NONE"};
 var text_ch = 'Chinese';
-var html_ch = text_ch.link(currentFeature.properties.website_ch);
-if (typeof currentFeature.properties.website_ch === 'undefined') {html_ch = ""};
+var html_ch = currentFeature.properties.website_ch;
+//var html_ch = text_ch.link(currentFeature.properties.website_ch); THIS WAS THE OLD WAY TO LINK TO THE WEBSITES, BUT THIS HAS SINCE BEEN DEPRECATED AND DOESN'T WORK RELIABLY, ALSO IT OPENS IN THE SAME TAB.
+if (typeof currentFeature.properties.website_ch === 'undefined') {html_ch = "NONE"};
 //if you'd rather have a close button instead of having popups close by clicking elsewhere on the map, just take out the lines related to .mapboxgl-popup-close-button in the CSS =    .mapboxgl-popup-close-button {display:none;}
+
+// BECAUSE OF THE NEW HTML / LINKING METHOD, DOING AN IF/ELSE STATEMENT TO MAKE THE POPUPS WORK PROPERLY. THERE IS PROBABLY A BETTER WAY TO DO THIS
+// if (time < 10) {
+//   greeting = "Good morning";
+// } else if (time < 20) {
+//   greeting = "Good day";
+// } else {
+//   greeting = "Good evening";
+// }
+
+// HAS NEITHER A ENG OR CH WEBSITE
+if (html_en == "NONE" && html_ch == "NONE") {
+
+	var popup = new mapboxgl.Popup({closeOnClick: true})
+	    .setLngLat(currentFeature.geometry.coordinates)
+	    .setHTML(
+	             '<h3>' + currentFeature.properties.orgname_en + ' / ' + currentFeature.properties.orgname_ch + '</h3>' +
+	             '<h4>'+ "<b>Origin: </b>" + currentFeature.properties.originloc + '</h4>' +
+	             '<h4>'+ "<b>Field of Work: </b>" + currentFeature.properties.sector + '</h4>' +
+	             '<h4>'+ "<b>Professional Supervisory Unit: </b>" + currentFeature.properties.psu_en + '</h4>' +
+	             '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
+	             '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
+	             '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>'
+	           )
+	    .addTo(map);
+
+}
+
+// HAS ENG WEBSITE BUT NO CH WEBSITE
+else if (html_en == currentFeature.properties.website_en && html_ch == "NONE") {
+
+	var popup = new mapboxgl.Popup({closeOnClick: true})
+	    .setLngLat(currentFeature.geometry.coordinates)
+	    .setHTML(
+	             '<h3>' + currentFeature.properties.orgname_en + ' / ' + currentFeature.properties.orgname_ch + '</h3>' +
+	             '<h4>'+ "<b>Origin: </b>" + currentFeature.properties.originloc + '</h4>' +
+	             '<h4>'+ "<b>Field of Work: </b>" + currentFeature.properties.sector + '</h4>' +
+	             '<h4>'+ "<b>Professional Supervisory Unit: </b>" + currentFeature.properties.psu_en + '</h4>' +
+	             '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
+	             '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
+	             '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>' +
+	             '<h4>'+ "<b>Website(s): </b> <i><ins><a href=" + html_en + " target=\"_blank\">" + text_en + "</ins></i></a></h4>"
+	           )
+	    .addTo(map);
+
+}
+
+// HAS NO ENG WEBSITE DOES HAVE CH WEBSITE
+else if (html_ch == currentFeature.properties.website_en && html_en == "NONE") {
+
+	var popup = new mapboxgl.Popup({closeOnClick: true})
+	    .setLngLat(currentFeature.geometry.coordinates)
+	    .setHTML(
+	             '<h3>' + currentFeature.properties.orgname_en + ' / ' + currentFeature.properties.orgname_ch + '</h3>' +
+	             '<h4>'+ "<b>Origin: </b>" + currentFeature.properties.originloc + '</h4>' +
+	             '<h4>'+ "<b>Field of Work: </b>" + currentFeature.properties.sector + '</h4>' +
+	             '<h4>'+ "<b>Professional Supervisory Unit: </b>" + currentFeature.properties.psu_en + '</h4>' +
+	             '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
+	             '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
+	             '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>' +
+	             '<h4>'+ "<b>Website(s): </b> <i><ins><a href=" + html_ch + " target=\"_blank\">" + text_ch + "</ins></i></a></h4>"
+	           )
+	    .addTo(map);
+
+}
+
+// HAS BOTH ENG AND CH WEBSITE
+else {
+
 var popup = new mapboxgl.Popup({closeOnClick: true})
     .setLngLat(currentFeature.geometry.coordinates)
     .setHTML(
@@ -313,10 +384,17 @@ var popup = new mapboxgl.Popup({closeOnClick: true})
              '<h4>'+ "<b>Registration Location: </b>" + currentFeature.properties.regloc + '</h4>' +
              '<h4>'+ "<b>Date of Registration: </b>" + currentFeature.properties.regdate + '</h4>' +
              '<h4>'+ "<b>Permitted Area(s) of Operation: </b>" + currentFeature.properties.actarea + '</h4>' +
-             '<h4>'+ "<b>Website(s): </b>" + "<ins><i>" + html_en + "</i></ins>" + "&nbsp&nbsp" + "<ins><i>" + html_ch + "</i></ins>" + '</h4>'
+             '<h4>'+ "<b>Website(s): </b> <i><ins><a href=" + html_en + " target=\"_blank\">" + text_en + "</ins></i></a>" + "&nbsp&nbsp" + "<i><ins><a href=" + html_ch + " target=\"_blank\">" + text_ch + '</a></ins></i></h4>' // "<ins><i>" + html_en + "</i></ins>" + "&nbsp&nbsp" + "<ins><i>" + html_ch + "</i></ins>" + '</h4>'
            )
     .addTo(map);
+
 }
+
+
+}
+
+
+
 function buildLocationList(data) {
 for (i = 0; i < data.features.length; i++) {
 var currentFeature = data.features[i];
