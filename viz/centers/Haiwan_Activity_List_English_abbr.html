@@ -36,6 +36,19 @@
 			vertical-align: text-top;
 			}
 
+			#footer
+			{
+			overflow:hidden;
+			max-width: 100%;
+			font-size: 12px;
+			font-family: Arial;
+			/* font-weight: bold; */
+			margin-bottom:10px;
+			margin-top:15px;
+			text-align:center;
+			/* vertical-align: text-top; */
+			}
+
 			table.tableizer-table thead {
 					background-color:#eee;
 					color:#000000;
@@ -47,8 +60,8 @@
 					font-size: 12px;
 					/* border: 1px solid #CCC; */
 					font-family: Arial, Helvetica, sans-serif;
-					margin-left: auto;
-  margin-right: auto;
+					margin-left: 10px;
+  				margin-right: 10px;
 			}
 			table.tableizer-table {border-spacing: 0}
 
@@ -72,7 +85,7 @@
 				 font-size: 14px;
 				 font-weight: bold;
 				 /* border: 1px solid #CCC; */
-				 /* position: sticky; top: 0; */
+				 position: sticky; top: 0;
 			}
 
       </style>
@@ -81,7 +94,7 @@
 
 <div id="header">January丨Haiwan Town New Era Civilization Practice Volunteer Service Activity Menu</div>
 
-<!-- <div id="subhed">Note: All offenses detailed here derive from Hong Kong government allegations and neither the authors of this article nor ChinaFile’s editors have independently verified them.<br><br>Total number of arrests: NUM_INDIV_ARRESTS<br><br>Data cut-off date: NEW_DATE_HERE</div> -->
+
 	<table class="tableizer-table">
 
 	<!–– add your tableizer data below this line, removing table class=tableizer-table and tr class=tableizer-firstrow ––>
@@ -140,23 +153,8 @@
 
 <!–– add your tableizer data above this line––>
 
-<script src="https://jessicachinafile.github.io/tablefilter/tablefilter.js"></script>
+<div id="footer">NEED TO REPLACE THIS CAPTION WITH SOMETHING THAT INCLUDES MORE CAPTION-RELATED INFORMATION AND ALSO THAT IS A CAPTION</div>
 
-<script>
-var filtersConfig = {
-    base_path: 'https://jessicachinafile.github.io/tablefilter/',
-    auto_filter: true,
-    auto_filter_delay: 1100, //milliseconds
-    filters_row_index: 1,
-    state: true,
-    alternate_rows: true,
-    rows_counter: true,
-    btn_reset: true,
-    status_bar: true,
-    msg_filter: 'Filtering...'
-};
-var tf = new TableFilter('filter', filtersConfig);
-tf.init();
-</script>
+
 
 </body> </html>
