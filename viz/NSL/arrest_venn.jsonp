@@ -1,4 +1,4 @@
 var sets = [
-         {"sets": [0], "label": "NSL", "size": 135, "number_label": "108"},
-         {"sets": [1], "label": "Non-NSL", "size": 72, "number_label": "45"},
+         {"sets": [0], "label": "NSL", "size": 134, "number_label": "107"},
+         {"sets": [1], "label": "Non-NSL", "size": 74, "number_label": "47"},
          {"sets": [0, 1], "label": "Both", "size": 27, "number_label": "27"}];
