@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL Arrests vs. Charges</title>
+<title>NSL Arrests vs. Denied Bail</title>
 <style>
 
 body{
@@ -59,8 +59,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Charged Individuals</div>
-	<div id="subhed">Individuals arrested by the NSD who have since been charged, out of all individuals arrested</div>
+	<div id="header">Bail</div>
+	<div id="subhed">Individuals charged and denied bail, out of all individuals charged</div>
   <div id="pieChart"></div>
   </div>
 
@@ -78,14 +78,14 @@ var pie = new d3pie("pieChart", {
 		// "sortOrder": "value-desc",
 		"content": [
 			{
-				"label": "Charged",
-				"value": 113,
+				"label": "Denied bail",
+				"value": 84,
 				"color": "#686868"
 			},
 
 {
-"label": "Arrested only",
-"value": 70,
+"label": "Granted Bail",
+"value": 29,
 "color": "#03798D"
 }
 

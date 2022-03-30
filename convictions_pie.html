@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL Arrests vs. Charges</title>
+<title>NSL Arrests vs. Convictions</title>
 <style>
 
 body{
@@ -59,8 +59,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Charged Individuals</div>
-	<div id="subhed">Individuals arrested by the NSD who have since been charged, out of all individuals arrested</div>
+	<div id="header">Convictions</div>
+	<div id="subhed">Individuals convicted, out of all individuals arrested</div>
   <div id="pieChart"></div>
   </div>
 
@@ -78,14 +78,14 @@ var pie = new d3pie("pieChart", {
 		// "sortOrder": "value-desc",
 		"content": [
 			{
-				"label": "Charged",
-				"value": 113,
+				"label": "Convicted",
+				"value": 9,
 				"color": "#686868"
 			},
 
 {
-"label": "Arrested only",
-"value": 70,
+"label": "Other arrests",
+"value": 174,
 "color": "#03798D"
 }
 
@@ -142,7 +142,7 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-180,"right":0,"bottom":0,"left":-20} //150
+      "top":-160,"right":0,"bottom":0,"left":-20} //150
 	}
 
 });
