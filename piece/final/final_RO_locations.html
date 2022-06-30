@@ -99,10 +99,41 @@ font-family: 'PortraitText';
 /* vertical-align: text-top; */
 }
 
+/* this stuff makes it centered vertically! https://stackoverflow.com/a/6182661/7841877 */
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+	max-width: 95%;
+  /* width: 400px; */
+  /* Whatever width you want */
+}
+
+
+
 </style>
 </head>
 
 <body>
+
+
+	<div class="outer">
+	<div class="middle">
+	<div class="inner">
+
 
 <div id="header"><h1>Foreign NGO Representative Offices Registered in Certain Locations, as a Percentage of All Registered Foreign NGOs, by Year</h1></div>
 <table class="sortable">
@@ -122,6 +153,11 @@ font-family: 'PortraitText';
 
 <div id="footer">This table does not include the #TK representative offices that have <a target="_blank" rel="noopener noreferrer" href="https://www.chinafile.com/ngo/latest/list-of-de-registered-representative-offices">de-registered</a> as of DATE TK.
 </div>
+
+</div>
+</div>
+</div>
+
 
 </body>
 </html>

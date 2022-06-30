@@ -99,10 +99,38 @@ font-family: 'PortraitText';
 /* vertical-align: text-top; */
 }
 
+/* this stuff makes it centered vertically! https://stackoverflow.com/a/6182661/7841877 */
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+	max-width: 95%;
+  /* width: 400px; */
+  /* Whatever width you want */
+}
+
+
 </style>
 </head>
 
 <body>
+
+	<div class="outer">
+			<div class="middle">
+			<div class="inner">
 
 <div id="header"><h1>Foreign NGO Temporary Activities Initiated by Hong Kong-based NGOs, as a Percentage of All Temporary Activities, by Year</h1></div>
 <table class="sortable">
@@ -122,7 +150,9 @@ font-family: 'PortraitText';
 <!–– add your tableizer data above this line––>
 
 
-<!-- <div id="footer">Any given foreign NGO temporary activity may involve multiple fields of work.</div> -->
+</div>
+</div>
+</div>
 
 </body>
 </html>
