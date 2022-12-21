@@ -15,7 +15,7 @@ body {
 
 <body>
 	<div id="wrapper">
-	<div id="header">Formal Charges</div>
+	<div id="header">Number of Individuals Charged for NSL and Non-NSL Offenses</div>
 	<!-- <div id="subhed">Individuals charged with violating the NSL, individuals arrested by the NSD and not charged under the NSL, and individuals charged with both NSL and non-NSL violations</div> -->
   <div id="venn"></div>
 	</div>
@@ -117,7 +117,7 @@ var div = d3.select("#venn").datum(sets).call(chart);
 
 d3.select("#wrapper").append("div")
    .attr("class", "footnote")
-   .html("<em>The category “NSL” refers to individuals charged with violating the NSL. “Non-NSL” refers to individuals arrested by the NSD and not charged under the NSL. “Both” refers to individuals charged with multiple violations, including both NSL and non-NSL violations.</em>");
+   .html("<em>The category “NSL” refers to individuals charged with NSL-related offenses. “Non-NSL” refers to individuals charged with sedition, or arrested by the NSD and charged with non-NSL-related offenses.</em>");
 
 </script>
 </html>

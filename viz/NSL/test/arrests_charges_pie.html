@@ -59,8 +59,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Charged Individuals</div>
-	<div id="subhed">Individuals arrested by the NSD or under the NSL who have since been charged, out of all individuals arrested</div>
+	<div id="header">Number of Individuals Charged, out of All Individuals Arrested</div>
+	<!-- <div id="subhed">Individuals arrested by the NSD or under the NSL who have since been charged, out of all individuals arrested</div> -->
   <div id="pieChart"></div>
   </div>
 
@@ -108,7 +108,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 1,
+			"decimalPlaces": 0,
 			"fontSize": 14,
 			"font": "Arial"
 		},
