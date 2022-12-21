@@ -115,7 +115,7 @@ var svg = d3.select("#chart").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("NSL_categories_groupa.csv", function(error, data) {
+d3.csv("NSL_categories_group.csv", function(error, data) {
   if (error) throw error;
 
   var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
