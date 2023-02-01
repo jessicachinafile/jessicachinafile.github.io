@@ -52,6 +52,14 @@ left:-50px;
 top:-80px; */
 }
 
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+		padding-top: 5px;
+}
+
 </style>
 </head>
 
@@ -59,8 +67,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Individuals Targeted Due to Foreign Interactions</div>
-	<div id="subhed">People arrested by the NSD or under the NSL, who were likely targeted based on their interactions with foreign entities</div>
+	<div id="header">Number of Individuals Targeted Due to Foreign Interactions, Out of All Individuals Arrested</div>
+	<!-- <div id="subhed">People arrested by the NSD or under the NSL, who were likely targeted based on their interactions with foreign entities</div> -->
   <div id="pieChart"></div>
   </div>
 
@@ -79,13 +87,13 @@ var pie = new d3pie("pieChart", {
 		"content": [
 			{
 	"label": "Targeted individuals",
-	"value": 26,
+	"value": 29,
 	"color": "#686868"
 },
 
 {
-"label": "Other arrests",
-"value": 187,
+"label": "Other",
+"value": 198,
 "color": "#03798D"
 }
 
@@ -108,7 +116,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 1,
+			"decimalPlaces": 0,
 			"fontSize": 14,
 			"font": "Arial"
 		},
@@ -142,11 +150,14 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-135,"right":0,"bottom":0,"left":-40} //150
+      "top":-135,"right":0,"bottom":0,"left":-60} //150
 	}
 
 });
 
+d3.select("body").append("div")
+    .attr("class", "footnote")
+    .html("<em>This refers to individuals targeted based on their interactions with foreign entities, as categorized by the authors, and is not necessarily related to grounds for arrest, charge, or conviction.</em>");
 
 
 </script>

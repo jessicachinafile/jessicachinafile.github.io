@@ -52,6 +52,14 @@ left:-50px;
 top:-80px; */
 }
 
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+		padding-top: 15px;
+}
+
 </style>
 </head>
 
@@ -59,8 +67,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Arrests for Speech Crimes</div>
-	<div id="subhed">Arrests for “seditious” or “secessionist” speech or materials, in comparison with other arrests by the NSD or under the NSL</div>
+	<div id="header">Number of Individuals Arrested for Speech-Related Crimes, out of All Individuals Arrested</div>
+	<!-- <div id="subhed">Arrests for “seditious” or “secessionist” speech or materials, in comparison with other arrests by the NSD or under the NSL</div> -->
   <div id="pieChart"></div>
   </div>
 
@@ -84,13 +92,13 @@ var pie = new d3pie("pieChart", {
 			},
 			{
 	"label": "Only speech crimes",
-	"value": 55,
+	"value": 66,
 	"color": "#686868"
 },
 
 {
-"label": "Other arrests",
-"value": 138,
+"label": "Other",
+"value": 141,
 "color": "#03798D"
 }
 
@@ -113,7 +121,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 1,
+			"decimalPlaces": 0,
 			"fontSize": 14,
 			"font": "Arial"
 		},
@@ -147,10 +155,14 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-120,"right":0,"bottom":0,"left":-110} //150
+      "top":-120,"right":0,"bottom":0,"left":-155} //150
 	}
 
 });
+
+d3.select("body").append("div")
+    .attr("class", "footnote")
+    .html("<em>“Speech crimes” can refer to offenses related to “seditious” or “secessionist” speech or materials, as categorized by the authors.</em>");
 
 
 

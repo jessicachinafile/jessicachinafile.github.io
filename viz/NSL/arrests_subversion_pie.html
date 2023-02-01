@@ -50,6 +50,15 @@ text-align:center;
 /* position:relative;
 left:-50px;
 top:-80px; */
+
+}
+
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+		padding-top: 30px;
 }
 
 </style>
@@ -59,10 +68,12 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Arrests for Subversion</div>
-	<div id="subhed">Arrests for inciting, abetting, or committing subversion, in comparison with other arrests by the NSD or under the NSL</div>
+	<div id="header">Number of Individuals Arrested for Subversion, out of All Individuals Arrested</div>
+	<!-- <div id="subhed">Arrests for inciting, abetting, or committing subversion, in comparison with other arrests by the NSD or under the NSL</div> -->
   <div id="pieChart"></div>
   </div>
+
+  
 
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="../d3pie.min.js"></script>
@@ -71,8 +82,8 @@ var pie = new d3pie("pieChart", {
 
 	"size": {
 		"canvasWidth": 400,
-		"canvasHeight": 330,
-		"pieOuterRadius": "30%"
+		"canvasHeight": 340,
+		"pieOuterRadius": "25%"
 	},
 	"data": {
 		// "sortOrder": "value-desc",
@@ -84,8 +95,8 @@ var pie = new d3pie("pieChart", {
 			},
 
 {
-"label": "Other arrests",
-"value": 144,
+"label": "Other",
+"value": 158,
 "color": "#03798D"
 }
 
@@ -108,7 +119,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 1,
+			"decimalPlaces": 0,
 			"fontSize": 14,
 			"font": "Arial"
 		},
@@ -142,12 +153,16 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-180,"right":0,"bottom":0,"left":-20} //150
+      "top":-180,"right":0,"bottom":0,"left":-60} //150
 	}
+
+	
 
 });
 
-
+d3.select("body").append("div")
+    .attr("class", "footnote")
+    .html("<em>“Subversion” can refer to the offenses of inciting, abetting, or committing subversion.</em>");
 
 </script>
 

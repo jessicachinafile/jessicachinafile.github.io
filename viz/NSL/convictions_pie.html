@@ -59,8 +59,8 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Convictions</div>
-	<div id="subhed">Individuals convicted, out of all individuals arrested</div>
+	<div id="header">Number of Individuals Convicted, out of All Individuals Arrested</div>
+	<!-- <div id="subhed">Individuals convicted, out of all individuals arrested</div> -->
   <div id="pieChart"></div>
   </div>
 
@@ -79,13 +79,13 @@ var pie = new d3pie("pieChart", {
 		"content": [
 			{
 				"label": "Convicted",
-				"value": 30,
+				"value": 55,
 				"color": "#686868"
 			},
 
 {
-"label": "Other arrests",
-"value": 183,
+"label": "All others",
+"value": 172,
 "color": "#03798D"
 }
 
@@ -108,7 +108,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"percentage": {
 			"color": "#000000",
-			"decimalPlaces": 1,
+			"decimalPlaces": 0,
 			"fontSize": 14,
 			"font": "Arial"
 		},
@@ -142,7 +142,7 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-160,"right":0,"bottom":0,"left":-20} //150
+      "top":-160,"right":0,"bottom":0,"left":-55} //150
 	}
 
 });
