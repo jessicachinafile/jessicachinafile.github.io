@@ -1,0 +1,298 @@
+<!-- pulled from: https://www.goodmarketing.club/guide/d3-js-multiple-lines-chart-w-line-by-line-code-explanations/ -->
+
+<head>
+    <meta charset='utf-8' />
+    <title>NSL vs. Sedition Charges</title>
+<!-- Load d3 source scripts -->
+  <script src="https://d3js.org/d3.v4.min.js" type="text/JavaScript"></script> 
+  <!-- <script src="https://d3js.org/colorbrewer.v1.min.js"></script> -->
+
+<!-- style section-->
+  <style>
+    body {
+            font-family: "Arial", sans-serif;
+        }
+
+     .axis path{
+         stroke:black;
+         stroke-width:2px ;
+     }   
+
+     .axis line{
+            /* fill: none;
+            display: none; */
+						fill: none;
+						stroke: grey;
+						stroke-width: 1;
+						shape-rendering: crispEdges;
+        }
+  
+     .axis text{
+         fill: black;
+         /* font-weight: bold; */
+         font-size: 13px;
+         /* font-family:"Arial Black", Gadget, sans-serif; */
+     } 
+
+     .legend text{
+        fill: black;
+         /* font-weight: bold; */
+         font-size: 14px;
+         /* font-family:"Arial Black", Gadget, sans-serif; */
+     }
+     .footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+}
+
+     #wrapper
+				{
+				width:100%;
+				/* max-width: 300px; */
+				margin:0 auto;
+				overflow:hidden;
+				}
+				#header
+				{
+				overflow:hidden;
+				max-width: 100%;
+				font-size: 22px;
+				font-family: Arial;
+				font-weight: bold;
+				margin-bottom:20px;
+				text-align:center;
+				vertical-align: text-top;
+				}
+				#subhed
+				{
+					overflow:hidden;
+					max-width: 100%;
+					font-size: 14px;
+					font-family: Arial;
+					font-style: italic;
+					margin-left:15px;
+					margin-right:15px;
+					text-align:center;
+					vertical-align: text-top;
+				}
+
+				#graphic
+				{
+					text-align:center;
+				/* overflow:hidden; */
+				/* max-width: 90%;
+				margin-bottom:5px; */
+				/* text-align:center;
+				vertical-align: text-top; */
+				}
+  </style>
+  
+</head>
+
+<body onload="lineChart()">
+  <div id="wrapper">
+	<div id="header">Number of NSL- and Sedition-Related Charges, by Month</div>
+	<!-- <div id="subhed">Individuals arrested by the NSD or under the NSL</div> -->
+    <div id="graphic"></div>
+    <!-- svg canvas-->
+    <!-- <svg id="graphic" width="1200" height="750" ;">  -->
+        <!-- style="background-image: url('https://etc.usf.edu/presentations/backgrounds/grid/grid_04/1304m.gif') -->
+      <!-- </svg> -->
+    </div>
+
+<script>
+
+function lineChart(data) {
+var data = 
+
+[{"yearmo":"2020-07","count":2,"type":"NSL"},{"yearmo":"2020-08","count":0,"type":"NSL"},{"yearmo":"2020-09","count":1,"type":"NSL"},{"yearmo":"2020-10","count":1,"type":"NSL"},{"yearmo":"2020-11","count":1,"type":"NSL"},{"yearmo":"2020-12","count":1,"type":"NSL"},{"yearmo":"2021-01","count":0,"type":"NSL"},{"yearmo":"2021-02","count":48,"type":"NSL"},{"yearmo":"2021-03","count":1,"type":"NSL"},{"yearmo":"2021-04","count":0,"type":"NSL"},{"yearmo":"2021-05","count":0,"type":"NSL"},{"yearmo":"2021-06","count":2,"type":"NSL"},{"yearmo":"2021-07","count":10,"type":"NSL"},{"yearmo":"2021-08","count":6,"type":"NSL"},{"yearmo":"2021-09","count":19,"type":"NSL"},{"yearmo":"2021-10","count":0,"type":"NSL"},{"yearmo":"2021-11","count":0,"type":"NSL"},{"yearmo":"2021-12","count":0,"type":"NSL"},{"yearmo":"2022-01","count":0,"type":"NSL"},{"yearmo":"2022-02","count":0,"type":"NSL"},{"yearmo":"2022-03","count":0,"type":"NSL"},{"yearmo":"2022-04","count":0,"type":"NSL"},{"yearmo":"2022-05","count":0,"type":"NSL"},{"yearmo":"2022-06","count":0,"type":"NSL"},{"yearmo":"2022-07","count":0,"type":"NSL"},{"yearmo":"2022-08","count":0,"type":"NSL"},{"yearmo":"2022-09","count":2,"type":"NSL"},{"yearmo":"2022-10","count":0,"type":"NSL"},{"yearmo":"2022-11","count":0,"type":"NSL"},{"yearmo":"2022-12","count":0,"type":"NSL"},{"yearmo":"2020-07","count":0,"type":"Sedition"},{"yearmo":"2020-08","count":0,"type":"Sedition"},{"yearmo":"2020-09","count":1,"type":"Sedition"},{"yearmo":"2020-10","count":1,"type":"Sedition"},{"yearmo":"2020-11","count":0,"type":"Sedition"},{"yearmo":"2020-12","count":0,"type":"Sedition"},{"yearmo":"2021-01","count":0,"type":"Sedition"},{"yearmo":"2021-02","count":1,"type":"Sedition"},{"yearmo":"2021-03","count":0,"type":"Sedition"},{"yearmo":"2021-04","count":0,"type":"Sedition"},{"yearmo":"2021-05","count":0,"type":"Sedition"},{"yearmo":"2021-06","count":2,"type":"Sedition"},{"yearmo":"2021-07","count":2,"type":"Sedition"},{"yearmo":"2021-08","count":3,"type":"Sedition"},{"yearmo":"2021-09","count":0,"type":"Sedition"},{"yearmo":"2021-10","count":0,"type":"Sedition"},{"yearmo":"2021-11","count":0,"type":"Sedition"},{"yearmo":"2021-12","count":10,"type":"Sedition"},{"yearmo":"2022-01","count":0,"type":"Sedition"},{"yearmo":"2022-02","count":4,"type":"Sedition"},{"yearmo":"2022-03","count":4,"type":"Sedition"},{"yearmo":"2022-04","count":2,"type":"Sedition"},{"yearmo":"2022-05","count":5,"type":"Sedition"},{"yearmo":"2022-06","count":3,"type":"Sedition"},{"yearmo":"2022-07","count":0,"type":"Sedition"},{"yearmo":"2022-08","count":1,"type":"Sedition"},{"yearmo":"2022-09","count":2,"type":"Sedition"},{"yearmo":"2022-10","count":0,"type":"Sedition"},{"yearmo":"2022-11","count":2,"type":"Sedition"},{"yearmo":"2022-12","count":0,"type":"Sedition"}]
+
+
+;
+
+//set canvas margins
+// leftMargin=50
+// topMargin=50
+
+
+//set up svg using margin conventions - we'll need plenty of room on the left for labels
+var margin = {
+    top: 20,
+    right: 20,
+    bottom: 70,
+    left: 40
+};
+
+var width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+
+
+//format the yearmo 
+var parseTime = d3.timeParse("%Y-%m");
+
+data.forEach(function (d) {
+    d.yearmo = parseTime(d.yearmo);
+});
+
+
+var svg = d3.select("#graphic").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+
+
+//scale xAxis 
+var xExtent = d3.extent(data, d => d.yearmo);
+xScale = d3.scaleTime().domain(xExtent).range([margin.left, width + margin.left])
+
+//scale yAxis
+var yMax=d3.max(data,d=>d.count)
+//var yExtent = d3.extent(data, d => d.count);
+//yScale = d3.scaleLinear().domain([0, yMax+topMargin]).range([600, 0])
+yScale = d3.scaleLinear().domain([0, yMax+5]).range([height, 0])
+
+
+
+    //draw xAxis and xAxis label
+    xAxis = d3.axisBottom()
+        .scale(xScale)
+        .ticks(d3.timeMonth, 3).tickFormat(d3.timeFormat('%b %Y'));
+
+
+    d3.select("svg")
+        .append("g")
+        .attr("class", "axis")
+        //.attr("transform", "translate(0,420)")
+        //use variable in translate
+        .attr("transform", `translate(0,${height})`)
+
+        .call(xAxis)
+
+        //added to rotate x-axis labels
+        .selectAll("text")
+        .attr("y", 3)
+        .attr("x", -9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(-60)")
+        .style("text-anchor", "end");
+        //
+
+        // .append("text")
+        // .attr("x", (900 + 70) / 2) //middle of the xAxis
+        // .attr("y", "50") // a little bit below xAxis
+        // .text("Year")
+
+    //yAxis and yAxis label
+    yAxis = d3.axisLeft()
+        .scale(yScale)
+        .ticks(10)
+
+    d3.select('svg')
+        .append("g")
+        .attr("class", "axis")
+        .attr("transform", `translate(${margin.left},0)`) //use variable in translate
+        //.attr("transform", `translate(${leftMargin},20)`)
+        .call(yAxis)
+        // .append("text")
+        // .attr("transform", "rotate(-90)")
+        // .attr("x", "-150")
+        // .attr("y", "-50")
+        // .attr("text-anchor", "end")
+        // .text("Number")
+
+    //use .nest()function to group data so the line can be computed for each group
+    var sumstat = d3.nest()
+        .key(d => d.type)
+        .entries(data);
+
+    console.log(sumstat)
+
+    //set color palette for different variables
+    var typeName = sumstat.map(d => d.key)
+    var color = d3.scaleOrdinal().domain(typeName).range(['#03798D', '#8D0334']) //#5C038D, #8D0379, #8D0334, #b2cace
+    //var color = d3.scaleOrdinal().domain(typeName).range(colorbrewer.Set2[6])
+
+    //select path - three types: curveBasis,curveStep, curveCardinal, curveMonotoneX
+    d3.select("svg")
+        .selectAll(".line")
+        .append("g")
+        .attr("class", "line")
+        .data(sumstat)
+        .enter()
+        .append("path")
+        .attr("d", function (d) {
+            return d3.line()
+                .x(d => xScale(d.yearmo))
+                .y(d => yScale(d.count)).curve(d3.curveMonotoneX) // I have no idea why the data is appearing slightly above where it should but this is the janky way i fixed it # -2.15
+                (d.values)
+        })
+        .attr("fill", "none")
+        .attr("stroke", d => color(d.key))
+        .attr("stroke-width", 2)
+
+
+    //append circle 
+    d3.select("svg")
+        .selectAll("circle")
+        .append("g")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("r", 3)
+        .attr("cx", d => xScale(d.yearmo))
+        .attr("cy", d => yScale(d.count)) // I have no idea why the data is appearing slightly above where it should but this is the janky way i fixed it   
+        .style("fill", d => color(d.type))
+
+
+    //append legends
+    var legend = d3.select("svg")
+        .selectAll('g.legend')
+        .data(sumstat)
+        .enter()
+        .append("g")
+        .attr("class", "legend");
+
+    legend.append("circle")
+        .attr("cx", width-(margin.right*3))
+        .attr('cy', (d, i) => i * 30 + (margin.top*5))
+        .attr("r", 6)
+        .style("fill", d => color(d.key))
+
+    legend.append("text")
+        .attr("x", width-(margin.right*3)+10)
+        .attr("y", (d, i) => i * 30 + (margin.top*5)+4.5)
+        .text(d => d.key)
+
+    //append title
+    // d3.select("svg")
+    //     .append("text")
+    //     .attr("x", 485)
+    //     .attr("y", 30)
+    //     .attr("text-anchor", "middle")
+    //     .text("US Total Media Ad Spending, by Media, 2016-2022")
+    //     .style("fill", "black")
+    //     .style("font-size", 28)
+    //     .style("font-family", "Arial Black")
+
+    // //apend source
+    // d3.select("svg")
+    //     .append("text")
+    //     .attr("x", 70)
+    //     .attr("y", 700)
+    //     .text("Source: eMarketer, March 2018")
+    //     .style("fill", "black")
+    //     .style("font-size", 14)
+    //     .style("font-family", "Arial Black")
+
+ }
+
+ d3.select("body").append("div")
+    .attr("class", "footnote")
+    .html("<em>Individuals with multiple charges are counted multiple times in this chart, once for each charge.</em>");
+
+</script>
+
+    </body>
