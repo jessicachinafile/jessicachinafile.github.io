@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL Arrests vs. Convictions</title>
+<title>Individual Charges vs. Convictions</title>
 <style>
 
 body{
@@ -52,6 +52,14 @@ top:-80px; */
 /* background-color: #FBD603; */
 }
 
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+		padding-top: 30px;
+}
+
 </style>
 </head>
 
@@ -59,7 +67,7 @@ top:-80px; */
 <body>
 
   <div id="wrapper">
-	<div id="header">Number of Individuals Convicted, out of All Individuals Arrested</div>
+	<div id="header">Number of Individuals Convicted, out of All Individuals Charged</div>
 	<!-- <div id="subhed">Individuals convicted, out of all individuals arrested</div> -->
   <div id="pieChart"></div>
   </div>
@@ -77,18 +85,24 @@ var pie = new d3pie("pieChart", {
 	"data": {
 		// "sortOrder": "value-desc",
 		"content": [
+
+		{
+"label": "Case Put on Court File",
+"value": 0,
+"color": "#877F6A"
+},
 			{
 				"label": "Convicted",
-				"value": 55,
+				"value": 54,
 				"color": "#686868"
 			},
 
-{
-"label": "All others",
-"value": 172,
-"color": "#03798D"
-}
 
+			{
+				"label": "Ongoing",
+				"value": 81,
+				"color": "#03798D"
+			}
 
 		]
 	},
@@ -142,11 +156,14 @@ var pie = new d3pie("pieChart", {
 			"percentage": 100
 		},
 		"canvasPadding":{
-      "top":-160,"right":0,"bottom":0,"left":-55} //150
+      "top":-150,"right":0,"bottom":0,"left":-55} //150
 	}
 
 });
 
+d3.select("body").append("div")
+    .attr("class", "footnote")
+    .html("<em>No individuals included in the data have been acquitted.</em>");
 
 
 </script>
