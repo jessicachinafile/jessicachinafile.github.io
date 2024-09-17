@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Natsec vs Non-Natsec Charges</title>
+<style>
+body {
+		/* max-width: 255px; */
+		min-width:255px;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+	<div id="header">Number of Individuals Charged for National Security and Non-National Security Offenses</div>
+	<!-- <div id="subhed">Individuals charged with violating the NSL, individuals arrested by the NSD and not charged under the NSL, and individuals charged with both NSL and non-NSL violations</div> -->
+  <div id="venn"></div>
+	</div>
+</body>
+
+<style>
+/* https://github.com/benfred/venn.js/blob/master/examples/css_styled.html */
+[data-venn-sets="0"]   { fill: #dd2f26; }
+[data-venn-sets="1"]   { fill: #26716d; }
+[data-venn-sets="0_1"] { fill: #79534D; }
+
+#wrapper
+{
+width:100%;
+margin:0 auto;
+overflow:hidden;
+/* background-color: #FBD603; */
+}
+#header
+{
+overflow:hidden;
+max-width: 100%;
+font-size: 22px;
+font-family: Arial;
+font-weight: bold;
+margin-bottom:5px;
+text-align:center;
+vertical-align: text-top;
+}
+
+#subhed
+{
+overflow:hidden;
+max-width: 100%;
+font-size: 14px;
+font-family: Arial;
+font-style: italic;
+margin-left:15px;
+margin-right:15px;
+/* margin-top: -10px; */
+text-align:center;
+vertical-align: text-top;
+}
+
+
+/* MAY NEED TO FIX TOP MARGIN HERE TO MATCH ARRESTS, DEPENDING ON HED */
+#venn
+{
+/* background-color: #FBD999; */
+/* overflow:hidden; */
+/* max-width: 90%; */
+margin-top:-20px;
+margin-bottom:-10px;
+text-align:center;
+/* vertical-align: text-top; */
+}
+
+.footnote {
+		font-size: 13px;
+		text-align:center;
+		fill: #000;
+		font-family: Arial;
+}
+
+</style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="../venn.js"></script>
+<script src="./charges_venn.jsonp"></script>
+
+<script>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// YOU WILL NEED TO DO MATH HERE IF YOU WANT THE TWO VENN DIAGRAMS TO LINE UP, SIZE WISE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+var chart = venn.VennDiagram()
+                 .width(250)
+                 .height(250)
+								 // https://github.com/benfred/venn.js/blob/master/examples/css_styled.html
+								 .styled(false);
+
+// smashed together two bits of code to get the sublabels to work.  http://bl.ocks.org/bessiec/986e971203b4b8ddc56d3d165599f9d0  https://stackoverflow.com/questions/36181499/how-can-i-add-a-sublabel-to-a-static-venn-js-chart/36183134
+var div = d3.select("#venn").datum(sets).call(chart);
+           div.selectAll("text").style("fill", "white").style("font-size", "12px")
+					 				.attr("dy", 50);
+					 div.selectAll("text")
+					 				.append("tspan")
+					        .text(function(d) { return d.number_label; })
+					        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
+					        .attr("dy", "1.5em")
+					        .style("fill", "white")
+					        .style("font-size", "12px");
+           div.selectAll(".venn-circle path")
+                   .style("fill-opacity", .6)
+                   .style("stroke-width", 1)
+                   .style("stroke-opacity", 1)
+                   .style("stroke", "fff");
+
+
+d3.select("#wrapper").append("div")
+   .attr("class", "footnote")
+   .html("<em>The category “National Security” refers to individuals charged NSL- or SNSO-related offenses. “Non-National Security” refers to individuals charged with sedition under the Crimes Ordinance, or individuals arrested by the NSD and charged with non-NSL- or non-SNSO-related offenses.</em>");
+
+</script>
+</html>
