@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NSL vs. Non-NSL Arrests</title>
+<title>Natsec vs Non-Natsec Arrests</title>
 <style>
 body {
 		/* max-width: 255px; */
@@ -15,7 +15,7 @@ body {
 
 <body>
 	<div id="wrapper">
-	<div id="header">Number of Individuals Arrested on NSL and Non-NSL Grounds</div>
+	<div id="header">Number of Individuals Arrested on National Security and Non-National Security Grounds</div>
 	<!-- <div id="subhed">Individuals arrested for violating the NSL, individuals arrested by the NSD without invocation of the NSL, and individuals arrested for both NSL and non-NSL violations</div> -->
   <div id="venn"></div>
 	</div>
@@ -24,9 +24,9 @@ body {
 <style>
 
 /* https://github.com/benfred/venn.js/blob/master/examples/css_styled.html */
-[data-venn-sets="0"]   { fill: #03798D; }
-[data-venn-sets="1"]   { fill: #686868; }
-[data-venn-sets="0_1"] { fill: #36707a; }
+[data-venn-sets="0"]   { fill: #dd2f26; }
+[data-venn-sets="1"]   { fill: #26716d; }
+[data-venn-sets="0_1"] { fill: #79534D; }
 
 
 
@@ -117,7 +117,7 @@ var div = d3.select("#venn").datum(sets).call(chart);
 
 d3.select("#wrapper").append("div")
   .attr("class", "footnote")
-  .html("<em>The category “NSL” refers to individuals arrested for NSL-related offenses. “Non-NSL” refers to individuals arrested for sedition, or by the NSD for non-NSL-related offenses.</em>");
+  .html("<em>The category “National Security” refers to individuals arrested for NSL- or SNSO-related offenses. “Non-National Security” refers to individuals arrested for sedition under the Crimes Ordinance, or individuals arrested by the NSD for non-NSL- or non-SNSO-related offenses.</em>");
 
 
 </script>

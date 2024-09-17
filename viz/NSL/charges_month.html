@@ -11,7 +11,7 @@
         }
 
         .bar {
-            fill: #048ea6;
+            fill: #26716d;
         }
 
         .axis {
@@ -90,7 +90,7 @@
 
     <script>
 
-var data = [{"month":"January 2024","arrests":1},{"month":"December 2023","arrests":0},{"month":"November 2023","arrests":1},{"month":"October 2023","arrests":1},{"month":"September 2023","arrests":2},{"month":"August 2023","arrests":0},{"month":"July 2023","arrests":0},{"month":"June 2023","arrests":7},{"month":"May 2023","arrests":0},{"month":"April 2023","arrests":1},{"month":"March 2023","arrests":1},{"month":"February 2023","arrests":0},{"month":"January 2023","arrests":4},{"month":"December 2022","arrests":0},{"month":"November 2022","arrests":3},{"month":"October 2022","arrests":0},{"month":"September 2022","arrests":2},{"month":"August 2022","arrests":1},{"month":"July 2022","arrests":0},{"month":"June 2022","arrests":3},{"month":"May 2022","arrests":10},{"month":"April 2022","arrests":2},{"month":"March 2022","arrests":4},{"month":"February 2022","arrests":4},{"month":"January 2022","arrests":0},{"month":"December 2021","arrests":3},{"month":"November 2021","arrests":0},{"month":"October 2021","arrests":0},{"month":"September 2021","arrests":16},{"month":"August 2021","arrests":8},{"month":"July 2021","arrests":12},{"month":"June 2021","arrests":4},{"month":"May 2021","arrests":2},{"month":"April 2021","arrests":0},{"month":"March 2021","arrests":1},{"month":"February 2021","arrests":48},{"month":"January 2021","arrests":0},{"month":"December 2020","arrests":3},{"month":"November 2020","arrests":1},{"month":"October 2020","arrests":2},{"month":"September 2020","arrests":3},{"month":"August 2020","arrests":0},{"month":"July 2020","arrests":1}];
+var data = [{"month":"July 2024","arrests":0},{"month":"June 2024","arrests":2},{"month":"May 2024","arrests":0},{"month":"April 2024","arrests":0},{"month":"March 2024","arrests":0},{"month":"February 2024","arrests":0},{"month":"January 2024","arrests":1},{"month":"December 2023","arrests":0},{"month":"November 2023","arrests":1},{"month":"October 2023","arrests":1},{"month":"September 2023","arrests":2},{"month":"August 2023","arrests":0},{"month":"July 2023","arrests":0},{"month":"June 2023","arrests":7},{"month":"May 2023","arrests":0},{"month":"April 2023","arrests":1},{"month":"March 2023","arrests":1},{"month":"February 2023","arrests":0},{"month":"January 2023","arrests":4},{"month":"December 2022","arrests":0},{"month":"November 2022","arrests":3},{"month":"October 2022","arrests":0},{"month":"September 2022","arrests":2},{"month":"August 2022","arrests":1},{"month":"July 2022","arrests":0},{"month":"June 2022","arrests":3},{"month":"May 2022","arrests":8},{"month":"April 2022","arrests":2},{"month":"March 2022","arrests":4},{"month":"February 2022","arrests":4},{"month":"January 2022","arrests":0},{"month":"December 2021","arrests":3},{"month":"November 2021","arrests":0},{"month":"October 2021","arrests":0},{"month":"September 2021","arrests":16},{"month":"August 2021","arrests":8},{"month":"July 2021","arrests":12},{"month":"June 2021","arrests":4},{"month":"May 2021","arrests":2},{"month":"April 2021","arrests":0},{"month":"March 2021","arrests":1},{"month":"February 2021","arrests":48},{"month":"January 2021","arrests":0},{"month":"December 2020","arrests":3},{"month":"November 2020","arrests":1},{"month":"October 2020","arrests":2},{"month":"September 2020","arrests":3},{"month":"August 2020","arrests":0},{"month":"July 2020","arrests":1}];
         //set up svg using margin conventions - we'll need plenty of room on the left for labels
         var margin = {
             top: 20,
@@ -100,7 +100,7 @@ var data = [{"month":"January 2024","arrests":1},{"month":"December 2023","arres
         };
 
         var width = 300 - margin.left - margin.right,
-            height = 550 - margin.top - margin.bottom;
+            height = 750 - margin.top - margin.bottom;
 
         var svg = d3.select("#graphic").append("svg")
             .attr("width", width + margin.left + margin.right)

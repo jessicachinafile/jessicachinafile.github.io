@@ -12,7 +12,7 @@ body{
 #wrapper {
 width:100%;
 max-width: 360px;
-height: 215px;
+height: 240px;
 margin:0 auto;
 overflow:hidden;
 /* background-color: #FBD603; */
@@ -79,7 +79,7 @@ var pie = new d3pie("pieChart", {
 
 	"size": {
 		"canvasWidth": 400,
-		"canvasHeight": 330,
+		"canvasHeight": 350,
 		"pieOuterRadius": "30%"
 	},
 	"data": {
@@ -93,15 +93,21 @@ var pie = new d3pie("pieChart", {
 },
 			{
 				"label": "Convicted",
-				"value": 124,
-				"color": "#686868"
+				"value": 140,
+				"color": "#26716d"
+			},
+
+			{
+				"label": "Acquitted",
+				"value": 2,
+				"color": "#f4a300"
 			},
 
 
 			{
 				"label": "Case ongoing",
-				"value": 35,
-				"color": "#03798D"
+				"value": 17,
+				"color": "#0b2f4f"
 			}
 
 		]
@@ -113,7 +119,7 @@ var pie = new d3pie("pieChart", {
 		},
 		"inner": {
 			"format": "value",
-			//"hideWhenLessThanPercentage": 2
+			"hideWhenLessThanPercentage": 4
 		},
 		"mainLabel": {
 			"color": "#000000",
@@ -161,9 +167,9 @@ var pie = new d3pie("pieChart", {
 
 });
 
-d3.select("body").append("div")
-    .attr("class", "footnote")
-    .html("<em>No individuals included in the data have been acquitted.</em>");
+// d3.select("body").append("div")
+//     .attr("class", "footnote")
+//     .html("<em>No individuals included in the data have been acquitted.</em>");
 
 
 </script>

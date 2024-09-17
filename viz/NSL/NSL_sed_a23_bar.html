@@ -3,7 +3,7 @@
 <!-- https://bl.ocks.org/ctiml/541d7cc770108ccff79a -->
 
 <meta charset="utf-8">
-<title>NSL Categories</title>
+<title>NSL Sedition SNSO Bar</title>
 <style>
 
 body{
@@ -76,7 +76,7 @@ top:-80px; */
 <body>
 
 	<div id="wrapper">
-	<div id="header">Number of Individuals Arrested and/or Charged, by Type of NSL Provision</div>
+	<div id="header">Number of Individuals Arrested and/or Charged, by Law or Regulation Cited</div>
   <div id="chart"></div>
   </div>
 
@@ -115,7 +115,7 @@ var svg = d3.select("#chart").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("NSL_categories_group.csv", function(error, data) {
+d3.csv("NSL_sed_a23_group.csv", function(error, data) {
   if (error) throw error;
 
   var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
@@ -176,7 +176,7 @@ d3.csv("NSL_categories_group.csv", function(error, data) {
   var textFormat = d3.format("");
   gAges.append("text")
 			.attr("y", function(d){return y(d.value) - 6 ;})
-			.attr("x", function(d,i){return (x1(d.name) + 15 );})
+			.attr("x", function(d,i){return (x1(d.name) + 22 );})
 			.style("text-anchor", "middle")
 			//.style("fill", function(d) { return color(d.name); })
 			//.attr("transform", function(d) { return "translate(" + (x1(d.name)+13)+ ", " + (y(d.value) - 6) + ") "; })
@@ -208,6 +208,6 @@ d3.csv("NSL_categories_group.csv", function(error, data) {
 
 d3.select("#chart").append("div")
     .attr("class", "footnote")
-    .html("<em>Individuals charged under multiple provisions are counted multiple times in this chart, once for each provision.</em>");
+    .html("<em>Individuals charged under multiple laws are counted multiple times in this chart, once for each law. “Sedition” refers to a range of related crimes that were prescribed in Section 10 of the Crimes Ordinance. Individuals have also been arrested and/or charged for sedition under the SNSO, which upon its passage replaced sedition charges under the Crimes Ordinance.</em>");
 
 </script>
